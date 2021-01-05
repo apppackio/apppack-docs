@@ -1,0 +1,43 @@
+name: build
+
+on: [push]
+
+jobs:
+  pipeline:
+    env:
+      PYVER: "3.8"
+
+    runs-on: ubuntu-18.04
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ env.PYVER }}
+
+    - uses: actions/cache@v1
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+
+    - name: Install dependencies
+      run: make install && pip install awscli
+
+    - name: CLI docs
+      run: |
+        set -ex
+        CLI_DOWNLOAD_URL=$(curl -s https://api.github.com/repos/lincolnloop/apppack/releases/latest | jq -r '.assets[]|select(.name|contains("Linux_x86_64")).browser_download_url')
+        curl -sLo apppack.tar.gz "$CLI_DOWNLOAD_URL"
+        tar xvzf apppack.tar.gz
+        chmod +x apppack
+        ./apppack docgen --directory src/command-line-reference
+
+    - name: Deploy
+      run: APPPACK_VERSION=$(./apppack version) make deploy
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: us-east-1

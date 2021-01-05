@@ -1,0 +1,13 @@
+site_name: AppPack Docs
+docs_dir: src
+site_dir: public
+markdown_extensions: [footnotes]
+plugins: [macros]
+repo_url: https://github.com/lincolnloop/apppack-docs/
+edit_uri: edit/main/src/
+theme:
+  name: material
+  palette:
+    primary: slate blue
+  icon:
+    repo: fontawesome/brands/github

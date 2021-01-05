@@ -3,7 +3,7 @@ name: build
 on: [push]
 
 jobs:
-  pipeline:
+  build:
     env:
       PYVER: "3.8"
 

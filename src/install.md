@@ -1,6 +1,6 @@
 # Install the Command Line Interface (CLI)
 
-The latest version of `apppack` is `{{ apppack_version() }}` and is available on the [GitHub Release page](https://github.com/lincolnloop/apppack/releases/releases/tag/v{{ apppack_version() }}). Download the correct file for your platform, save it to your path, and make sure it is executable (`chmod +x apppack`).
+The latest version of `apppack` is `{{ apppack_version() }}` and is available on the [GitHub Release page](https://github.com/lincolnloop/apppack/releases/tag/v{{ apppack_version() }}). Download the correct file for your platform, save it to your path, and make sure it is executable (`chmod +x apppack`).
 
 ## Homebrew
 

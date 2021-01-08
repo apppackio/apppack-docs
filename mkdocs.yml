@@ -1,7 +1,11 @@
 site_name: AppPack Docs
 docs_dir: src
 site_dir: public
-markdown_extensions: [footnotes]
+markdown_extensions:
+  - footnotes
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
 plugins: [macros]
 repo_url: https://github.com/apppackio/apppack-docs/
 edit_uri: edit/main/src/

@@ -37,7 +37,7 @@ The domain will serve as the parent domain for all apps in that cluster. If you 
 
 ## Creating your first App
 
-AppPack apps are largely compatible with apps built for the Heroku platform. Leveraging a [`Procfile`](https://devcenter.heroku.com/articles/procfile) to define services and [`app.yml`](https://devcenter.heroku.com/articles/app-json-schema)[^1] to define buildpacks, test scripts, etc. See [lincolnloop/apppack-demo-python](https://github.com/lincolnloop/apppack-demo-python) for a simple example.
+AppPack apps are largely compatible with apps built for the Heroku platform. Leveraging a [`Procfile`](https://devcenter.heroku.com/articles/procfile) to define services and [`app.yml`](https://devcenter.heroku.com/articles/app-json-schema)[^1] to define buildpacks, test scripts, etc. See [apppackio/apppack-demo-python](https://github.com/apppackio/apppack-demo-python) for a simple example.
 
 Once your app is ready, run:
 

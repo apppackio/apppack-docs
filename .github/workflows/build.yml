@@ -31,7 +31,7 @@ jobs:
     - name: CLI docs
       run: |
         set -ex
-        CLI_DOWNLOAD_URL=$(curl -s https://api.github.com/repos/lincolnloop/apppack/releases/latest | jq -r '.assets[]|select(.name|contains("Linux_x86_64")).browser_download_url')
+        CLI_DOWNLOAD_URL=$(curl -s https://api.github.com/repos/apppackio/apppack/releases/latest | jq -r '.assets[]|select(.name|contains("Linux_x86_64")).browser_download_url')
         curl -sLo apppack.tar.gz "$CLI_DOWNLOAD_URL"
         tar xvzf apppack.tar.gz
         chmod +x apppack

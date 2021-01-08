@@ -3,7 +3,7 @@ docs_dir: src
 site_dir: public
 markdown_extensions: [footnotes]
 plugins: [macros]
-repo_url: https://github.com/lincolnloop/apppack-docs/
+repo_url: https://github.com/apppackio/apppack-docs/
 edit_uri: edit/main/src/
 theme:
   name: material

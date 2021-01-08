@@ -16,3 +16,6 @@ deploy: build
 	aws s3 cp --cache-control "max-age=2592000, public" --recursive --acl public-read ./public/ s3://apppack-docs-20210105212657740100000002/
 	aws cloudfront create-invalidation --distribution-id EW46PJHD47UFG --paths '/*'
 
+.PHONY: clean
+clean:
+	rm -rf ./public/*

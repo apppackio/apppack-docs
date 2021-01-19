@@ -11,6 +11,7 @@ repo_url: https://github.com/apppackio/apppack-docs/
 edit_uri: edit/main/src/
 theme:
   name: material
+  custom_dir: theme_overrides
   palette:
     primary: slate blue
   logo: assets/mark-white.svg

@@ -18,6 +18,8 @@ The `create` commands below all accept a `--check` flag which will allow you to 
     You will incur AWS charges for some of resources used by AppPack. We'll make a note of what to expect where applicable.
     
     Some resources are such as [EventBridge Events](https://aws.amazon.com/eventbridge/pricing/), [SSM Parameters](https://aws.amazon.com/systems-manager/pricing/#Parameter_Store), and [Lambda Functions](https://aws.amazon.com/lambda/pricing/) are priced so low (fractions of a cent/month) or have such generous free tiers that they are not included in the notes.
+
+    To track the cost of your AppPack resources, we recommend setting up [User-Defined Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/activating-tags.html). All AppPack resources will get an `apppack:*` tag you can use for fine-grained tracking.
     
     Also don't forget about the [Free Tier](https://aws.amazon.com/free/), [Reserved](https://aws.amazon.com/rds/reserved-instances/) [Instances](https://aws.amazon.com/ec2/pricing/reserved-instances/), [Savings Plans](https://aws.amazon.com/savingsplans/pricing/) and [AWS Activate Startup Credits](https://aws.amazon.com/activate/)!
 

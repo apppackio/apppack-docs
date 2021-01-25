@@ -10,7 +10,12 @@
 
 ## Setting up AWS
 
-All commands in the setup process require AWS credentials, either via [environment variables](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html) or a [credentials file](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html). Once an administrator has setup the resources, direct AWS credentials are no longer necessary to manage applications. AppPack handles user authentication while maintaining the use of AWS Identity Access Management (IAM) for authorization.
+All commands in the setup process require AWS credentials, either via [environment variables](https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/configuring-sdk.html#environment-variables) or a [credentials file](https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/configuring-sdk.html#shared-credentials-file).
+
+!!! tip
+    Be sure to specify the AWS region you want to deploy to. The quickest way to do so is by setting the `AWS_REGION` environment variable. For example, `AWS_REGION=us-east-1`. For more details see [Specifying the AWS Region](https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/configuring-sdk.html#specifying-the-region).
+
+Once an administrator has setup the initial resources, direct AWS credentials are no longer necessary to manage applications. AppPack handles user authentication while maintaining the use of AWS Identity Access Management (IAM) for authorization.
 
 The `create` commands below all accept a `--check` flag which will allow you to audit the resources that will be created prior to making any changes in your AWS account.
 

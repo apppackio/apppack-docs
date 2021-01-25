@@ -32,7 +32,10 @@ Account creation will setup some top-level resources and output role information
 apppack create account --dockerhub-username <your_doockerhub_username>
 ```
 
-Once complete, follow the instructions to activate your AppPack account. **Don't continue until you've received confirmation that your account is ready.**
+Once complete, follow the instructions to activate your AppPack account.
+
+!!! warning
+    **Don't continue until you've received confirmation that your account is ready.**
 
 !!! pricing "Account Pricing"
     No resources in the account stack should incur AWS charges.

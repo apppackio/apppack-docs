@@ -106,7 +106,7 @@ On completion, either push a new commit to the specified trigger branch or run `
 
     * Any [EC2 Instances](https://aws.amazon.com/ec2/pricing/) necessary to increase the cluster capacity the demands of the app
     * [CodeBuild](https://aws.amazon.com/codebuild/pricing/) minutes used during the automated build/test process
-    * [Cloudwatch Logs](https://aws.amazon.com/ecr/pricing/) for storing application logs 
+    * [Cloudwatch Logs](https://aws.amazon.com/ecr/pricing/) for storing application and build logs
     * [Elastic Container Registry](https://aws.amazon.com/ecr/pricing/) costs to store app images
     * [S3](https://aws.amazon.com/s3/pricing/) usage pricing if the add-on is enabled
     * [SQS](https://aws.amazon.com/sqs/pricing/) usage pricing if the add-on is enabled

@@ -13,7 +13,7 @@
 All commands in the setup process require AWS credentials, either via [environment variables](https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/configuring-sdk.html#environment-variables) or a [credentials file](https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/configuring-sdk.html#shared-credentials-file).
 
 !!! tip
-    Be sure to specify the AWS region you want to deploy to. The quickest way to do so is by setting the `AWS_REGION` environment variable. For example, `AWS_REGION=us-east-1`. For more details see [Specifying the AWS Region](https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/configuring-sdk.html#specifying-the-region).
+    Be sure to specify the AWS region you want to deploy to. You can do this via `--region` flag or by using the `AWS_REGION` environment variable. For example, `AWS_REGION=us-east-1 apppack create ...` or `apppack create --region us-east-1 ...`. AppPack currently supports the following AWS regions: `us-east-1`, `us-east-2`, `us-west-1`, `us-west-2`.
 
 Once an administrator has setup the initial resources, direct AWS credentials are no longer necessary to manage applications. AppPack handles user authentication while maintaining the use of AWS Identity Access Management (IAM) for authorization.
 

@@ -20,7 +20,7 @@ Once an administrator has setup the initial resources, direct AWS credentials ar
 The `create` commands below all accept a `--check` flag which will allow you to audit the resources that will be created prior to making any changes in your AWS account.
 
 !!! pricing
-    You will incur AWS charges for some of resources used by AppPack. We'll make a note of what to expect where applicable.
+    You will incur AWS charges for some resources used by AppPack. We'll make a note of what to expect where applicable.
     
     Some resources are such as [EventBridge Events](https://aws.amazon.com/eventbridge/pricing/), [SSM Parameters](https://aws.amazon.com/systems-manager/pricing/#Parameter_Store), and [Lambda Functions](https://aws.amazon.com/lambda/pricing/) are priced so low (fractions of a cent/month) or have such generous free tiers that they are not included in the notes.
 
@@ -29,12 +29,12 @@ The `create` commands below all accept a `--check` flag which will allow you to 
     Also don't forget about the [Free Tier](https://aws.amazon.com/free/), [Reserved](https://aws.amazon.com/rds/reserved-instances/) [Instances](https://aws.amazon.com/ec2/pricing/reserved-instances/), [Savings Plans](https://aws.amazon.com/savingsplans/pricing/) and [AWS Activate Startup Credits](https://aws.amazon.com/activate/)!
 
 
-### Creating the Account
+### Setup Account
 
-Account creation will setup some top-level resources and output role information necessary to complete the AppPack account setup.
+Account creation will setup some global top-level resources and output role information necessary to complete the AppPack account setup. It will also prep the AWS region for your first AppPack cluster. This command is just a shortcut for `apppack create account` and `apppack create region`.
 
 ```bash
-apppack create account --dockerhub-username <your_doockerhub_username>
+apppack setup-account --dockerhub-username <your_doockerhub_username>
 ```
 
 Once complete, follow the instructions to activate your AppPack account.
@@ -42,7 +42,7 @@ Once complete, follow the instructions to activate your AppPack account.
 !!! warning
     **Don't continue until you've received confirmation that your account is ready.**
 
-!!! pricing "Account Pricing"
+!!! pricing "Account/Region Pricing"
     No resources in the account stack should incur AWS charges.
 
 ### Creating an App Cluster

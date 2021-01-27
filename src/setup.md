@@ -34,7 +34,7 @@ The `create` commands below all accept a `--check` flag which will allow you to 
 Account creation will setup some global top-level resources and output role information necessary to complete the AppPack account setup. It will also prep the AWS region for your first AppPack cluster. This command is just a shortcut for `apppack create account` and `apppack create region`.
 
 ```bash
-apppack setup-account --dockerhub-username <your_doockerhub_username>
+apppack account-setup --dockerhub-username <your_doockerhub_username>
 ```
 
 Once complete, follow the instructions to activate your AppPack account.

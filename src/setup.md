@@ -94,7 +94,7 @@ apppack create redis <name>
 
 ## Creating your first App
 
-AppPack apps are largely compatible with apps built for the Heroku platform. Leveraging a [`Procfile`](https://devcenter.heroku.com/articles/procfile) to define services and [`app.yml`](https://devcenter.heroku.com/articles/app-json-schema)[^1] to define buildpacks, test scripts, etc. See [apppackio/apppack-demo-python](https://github.com/apppackio/apppack-demo-python) for a simple example.
+AppPack apps are largely compatible with apps built for the Heroku platform. Leveraging a [`Procfile`](https://devcenter.heroku.com/articles/procfile) to define services and [`app.json`](https://devcenter.heroku.com/articles/app-json-schema)[^1] to define buildpacks, test scripts, etc. See [apppackio/apppack-demo-python](https://github.com/apppackio/apppack-demo-python) for a simple example.
 
 Once your app is ready, run:
 

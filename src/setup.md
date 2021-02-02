@@ -1,10 +1,10 @@
-# Account Setup
+# Initial Setup
 
 ## Prerequisites
 
 1. **The `apppack` CLI** (see [install](install.md))
 2. **An AWS account with [Credentials](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html)** for an admin user or role.
-3. **A [Ruote53 Hosted Zone](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingHostedZone.html) setup in your AWS account** for a domain you'll use to route traffic to your applications. This can either be a top-level domain like `example.com` or a subdomain like `apppack.example.com`. If wish to use a subdomain and the top-level domain is hosted elsewhere, see [these instructions](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingNewSubdomain.html). Make note of the Hosted Zone ID as you'll need it below.
+3. **A [Ruote53 Hosted Zone](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingHostedZone.html) setup in your AWS account** for a domain you'll use to route traffic to your applications. This can either be a top-level domain like `example.com` or a subdomain like `apppack.example.com`. If wish to use a subdomain and the top-level domain is hosted elsewhere, see [these instructions](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingNewSubdomain.html). If your using a registrar other than Route53, make sure your nameservers are setup for the Hosted Zone there.
 4. **A free Docker Hub account and access token** (generated at [https://hub.docker.com/settings/security](https://hub.docker.com/settings/security)). This is required to avoid the [anonymous IP rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) for pulling base images.
 5. _[Optional]_ Add our [GitHub Application](https://github.com/apps/apppack-io) to your repo or organization to integrate deployment information.
 
@@ -15,9 +15,9 @@ All commands in the setup process require AWS credentials, either via [environme
 !!! tip
     Be sure to specify the AWS region you want to deploy to. You can do this via `--region` flag or by using the `AWS_REGION` environment variable. For example, `AWS_REGION=us-east-1 apppack create ...` or `apppack create --region us-east-1 ...`. AppPack currently supports the following AWS regions: `us-east-1`, `us-east-2`, `us-west-1`, `us-west-2`.
 
-Once an administrator has setup the initial resources, direct AWS credentials are no longer necessary to manage applications. AppPack handles user authentication while maintaining the use of AWS Identity Access Management (IAM) for authorization.
+Once an administrator sets up these initial resources, direct AWS credentials are no longer necessary to manage applications. AppPack handles user authentication while maintaining the use of AWS Identity Access Management (IAM) for authorization.
 
-The `create` commands below all accept a `--check` flag which will allow you to audit the resources that will be created prior to making any changes in your AWS account.
+The `create` and `init` commands below all accept a `--check` flag which will allow you to audit the resources that will be created prior to making any changes in your AWS account.
 
 !!! pricing
     You will incur AWS charges for some resources used by AppPack. We'll make a note of what to expect where applicable.
@@ -29,31 +29,39 @@ The `create` commands below all accept a `--check` flag which will allow you to 
     Also don't forget about the [Free Tier](https://aws.amazon.com/free/), [Reserved](https://aws.amazon.com/rds/reserved-instances/) [Instances](https://aws.amazon.com/ec2/pricing/reserved-instances/), [Savings Plans](https://aws.amazon.com/savingsplans/pricing/) and [AWS Activate Startup Credits](https://aws.amazon.com/activate/)!
 
 
-### Setup Account
+### `apppack init`
 
-Account creation will setup some global top-level resources and output role information necessary to complete the AppPack account setup. It will also prep the AWS region for your first AppPack cluster. This command is just a shortcut for `apppack create account` and `apppack create region`.
+`apppack init` is the first thing you should run. It will create all the resources at AWS necessary to start deploying apps. The `init` command steps your through each of the following:
 
-```bash
-apppack account-setup --dockerhub-username <your_doockerhub_username>
-```
+1. `apppack create account`
+2. `apppack create region`
+3. `apppack create cluster`
 
-Once complete, follow the instructions to activate your AppPack account.
+#### Account Creation
+
+Account creation will set up the global resources for AppPack authentication and authorization. Once complete it will output role information necessary for us to setup your AppPack account.
+
 
 !!! warning
-    **Don't continue until you've received confirmation that your account is ready.**
+    **Don't start creating apps until you've received confirmation that your account is ready.**
 
-!!! pricing "Account/Region Pricing"
+!!! pricing "Account Pricing"
     No resources in the account stack should incur AWS charges.
 
-### Creating an App Cluster
+#### Region Creation
 
-Every app is deployed to a cluster. A cluster may contain multiple apps. The cluster consists of a load balancer, security groups, compute resources, etc.
+Region creation sets up some resources that are specific to the AWS region you're deploying to. You'll be prompted for the Docker Hub credentials noted in the Prerequisites above.
 
-```
-apppack create cluster --domain <domain> --hosted-zone-id <hosted-zone-id>
-```
+!!! pricing "Region Pricing"
+    No resources in the account stack should incur AWS charges.
 
-The domain will serve as the parent domain for all apps in that cluster. If you use `cluster.example.com` as your domain, an app named `my-app` will be accessible at `my-app.cluster.example.com` in addition to any custom domains you setup for the app. The hosted zone ID comes from AWS Route 53 and is an alphanumeric string starting with `Z`.
+#### App Cluster Creation
+
+Every app is deployed to a cluster. A cluster may contain multiple apps. The cluster consists of a load balancer, security groups, compute resources, etc. You'll be prompted for:
+
+* The name to identify your cluster. The default is `apppack`.
+* The domain to route to your cluster. This should be the same domain, or a subdomain of the domain you created a Hosted Zone for in the Prerequisites. This domain serves as the parent domain for all apps in the cluster. If you use `cluster.example.com` as your domain, an app named `my-app` will be accessible at `my-app.cluster.example.com` in addition to any custom domains you se tup for the app.
+* The EC2 instance class that will make up the autoscaling group for your cluster.
 
 !!! pricing "App Cluster Pricing"
     The cluster stack will create resources which incur AWS charges. These include:

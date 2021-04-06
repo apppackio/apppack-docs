@@ -1,4 +1,5 @@
 mkdocs
+mkdocs-literate-nav
 mkdocs-material
 mkdocs-macros-plugin
 pymdown-extensions

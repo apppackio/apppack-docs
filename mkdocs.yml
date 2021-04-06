@@ -7,7 +7,10 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-plugins: [macros]
+plugins:
+  - macros
+  - literate-nav:
+    nav_file: _navigation.md
 repo_url: https://github.com/apppackio/apppack-docs/
 edit_uri: edit/main/src/
 extra_css:

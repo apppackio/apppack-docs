@@ -4,6 +4,8 @@ site_dir: public
 markdown_extensions:
   - footnotes
   - admonition
+  - pymdownx.highlight
+  - pymdownx.superfences
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg

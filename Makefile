@@ -1,10 +1,10 @@
 
-.venv/bin/python3.8:
-	python3.8 -m venv --prompt $(shell basename $(shell pwd)) .venv
+.venv/bin/python3.9:
+	python3.9 -m venv --prompt $(shell basename $(shell pwd)) .venv
 	.venv/bin/pip install -U pip setuptools wheel
 
 .PHONY: install
-install: .venv/bin/python3.8
+install: .venv/bin/python3.9
 	.venv/bin/pip install -r requirements.txt
 
 .PHONY: build

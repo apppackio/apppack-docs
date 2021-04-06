@@ -2,5 +2,6 @@
 * [Installation](install.md)
 * [Initial AWS Setup](setup.md)
 * [Command Line Reference](command-line-reference/)
+* [GitHub Actions](github-actions.md)
 * [Under the Hood](under-the-hood.md)
 * [Why AppPack?](why-apppack.md)

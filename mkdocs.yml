@@ -10,7 +10,7 @@ markdown_extensions:
 plugins:
   - macros
   - literate-nav:
-    nav_file: _navigation.md
+      nav_file: _navigation.md
 repo_url: https://github.com/apppackio/apppack-docs/
 edit_uri: edit/main/src/
 extra_css:

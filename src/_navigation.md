@@ -2,6 +2,7 @@
 * [Installation](install.md)
 * [Initial AWS Setup](setup.md)
 * [Add-ons](addons/)
+* [Review Apps](review-apps.md)
 * [Command Line Reference](command-line-reference/)
 * [GitHub Actions](github-actions.md)
 * [Under the Hood](under-the-hood.md)

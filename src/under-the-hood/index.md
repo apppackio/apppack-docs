@@ -1,4 +1,4 @@
-# Under the Hood
+# Overview
 
 What is AppPack doing under-the-hood to make this all happen?
 
@@ -10,7 +10,7 @@ Our control plane uses a locked down IAM role to communicate to AWS in your acco
 
 ## The Stacks
 
-During setup, you'll setup multiple Cloudformation Stacks for different resources.
+During setup, you'll create multiple Cloudformation Stacks for different resources.
 
 ### Account
 
@@ -29,8 +29,8 @@ At the cluster-level, we setup:
 
 * A [VPC](https://aws.amazon.com/vpc/) in three availability zones with public and private subnets, an [S3 gateway endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-s3.html), an internet gateway, and flow logs.
 * An [ECS](https://aws.amazon.com/ecs/) Cluster
-* An [EC2](https://aws.amazon.com/ec2/) auto-scaling group to run the container instances.
-* A [Capacity Provider](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html) to ensure there are always enough EC2 instance to cover the resources needed by the ECS tasks.
+* _[Optional[^*]]_ An [EC2](https://aws.amazon.com/ec2/) auto-scaling group to run the container instances.
+* _[Optional[^*]]_ A [Capacity Provider](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html) to ensure there are always enough EC2 instance to cover the resources needed by the ECS tasks.
 * An [Application Load Balancer](https://aws.amazon.com/elasticloadbalancing/application-load-balancer/) to route traffic to the application(s) in the cluster.
 * An HTTP listener to redirect all insecure traffic to HTTPS.
 * A [Route53](https://aws.amazon.com/route53/) wildcard DNS entry to point a domain to the load balancer.
@@ -39,7 +39,7 @@ At the cluster-level, we setup:
 
 _Note: to avoid the need for (expensive) [NAT gateways](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html), the ECS cluster runs on the VPC's public subnet. Security groups are in place to block all incoming traffic from outside the VPC._
 
-
+[^*]: The default cluster setup uses [Fargate](https://aws.amazon.com/fargate/) which does not require any self-managed EC2 instances.
 ### App
 
 The app stack creates:

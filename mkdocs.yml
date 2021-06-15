@@ -3,9 +3,11 @@ docs_dir: src
 site_dir: public
 markdown_extensions:
   - footnotes
+  - abbr
   - admonition
   - pymdownx.highlight
   - pymdownx.superfences
+  - pymdownx.tabbed
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg

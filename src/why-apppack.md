@@ -13,7 +13,7 @@ For this group, platform-as-a-service (PaaS) is the right tool for the job. It r
 
 ### :warning: PaaS Limitations
 
-But PaaS has its drawbacks too. You need to trust a third-party (probably running on top of AWS or GCP) with all your IP and data. Your app is likely running in a sandbox on a machine next to apps from other customers. Potentially The cost of everything is marked up over raw computing costs at AWS so it can get expensive quickly. Features can be limited and you may need to glue together services from multiple providers, increasing your risk of an outage or data breach. Building solutions that don't fit inside the PaaS box can be difficult.
+But PaaS has its drawbacks too. You need to trust a third-party (probably running on top of AWS or GCP) with all your IP and data. Your app is likely running in a sandbox on a machine next to apps from other customers. The cost of everything is marked up over raw computing costs at AWS, so it can get expensive quickly. Features can be limited and you may need to glue together services from multiple providers, increasing your risk of an outage or data breach. Building solutions that don't fit inside the PaaS box can be difficult.
 
 ## AppPack
 

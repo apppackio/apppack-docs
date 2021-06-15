@@ -1,4 +1,6 @@
-# SES (Email) Add-on
+# Sending email
+
+By enabling the SES add-on, you can enable your application to send email from a specific domain. This is backed by AWS' [Simple Email Service](https://aws.amazon.com/ses/).
 
 ## Prerequisites
 
@@ -8,7 +10,10 @@
 
 ## Overview
 
-This add-on provides the app access to send email from addresses in the given domain via its IAM task role.
+This add-on provides the app access to send email via the SES API from addresses in the given domain via its IAM task role. 
+
+!!! tip
+    Many open source libraries exist for simplifying sending email via SES. Look for one in your preferred language or framework if you don't want to work with the lower-level AWS SDK. 
 
 ## Config Variables
 

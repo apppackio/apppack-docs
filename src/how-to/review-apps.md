@@ -1,4 +1,4 @@
-# Review Apps
+# Working with Review Apps
 
 Review Apps are a concept pioneered by [Fourchette](https://github.com/rainforestapp/fourchette) and adopted officially by Heroku. They are a great way to quickly spin up temporary isolated app instances from a GitHub Pull Request.
 
@@ -23,27 +23,30 @@ apppack reviewapps create <pipeline>:<pr_number>
 
 If you had a Pipeline named `my-app-pipeline` and a Pull Request `#221` then you would run:
 
-```
-apppack reviewapps create my-app-pipeline:221
-```
+!!! example
+    ```
+    apppack reviewapps create my-app-pipeline:221
+    ```
 
 It should take ~30 seconds to create the AWS resources for the Review App. Then a build is triggered to create an image from the branch in the Pull Request. If the build (and optionally tests) are successful, that branch is then deployed the same as a standard application. Your app would then be accessible at `https://pr<pr_number>-<pipeline>.<cluster_domain>`.
 
-## Working with Review Apps
+## Using the CLI
 
 Most AppPack commands you use for standard apps will also work with Review Apps. You can use the same `<pipeline>:<pr_number>` format to define the app name in the command. Given our example above, opening a shell would be:
 
-```
-apppack -a my-app-pipeline:221 shell
-```
+!!! example
+    ```
+    apppack -a my-app-pipeline:221 shell
+    ```
 
 You can open your review app in the browser with:
 
-```
-apppack -a my-app-pipeline:221 open
-```
+!!! example
+    ```
+    apppack -a my-app-pipeline:221 open
+    ```
 
-### Add-Ons
+## Add-Ons
 
 Review Apps always setup the same set of add-ons defined on the parent Pipeline. If the Pipeline has a Postgres database and Redis Add-on defined, each Review App will get an isolated Postgres database and Redis namespace to work within. Similarly, the SQS and SES Add-ons work just like they do on a standard application.
 
@@ -53,13 +56,14 @@ S3 Buckets work slightly differently than a standard application. The Pipeline w
 
 Quickly spinning up a Review App is great, but often our apps are useless without some initial data. For this, you can define a "post-deploy" task which can be used to populate data after the Review App is created. This is run just once on initial creation (after the Release task runs) and only for Review Apps. It is defined in your `app.json` file as `scripts.postdeploy`. Likewise, a `scripts.pre-destroy` script can be defined for any cleanup tasks that may be necessary. An `app.json` that defines a post-deploy task might look like this:
 
-```json
-{
-  "scripts": {
-    "postdeploy": "./bin/post_deploy.py"
-  }
-}
-```
+!!! example
+    ```json
+    {
+      "scripts": {
+        "postdeploy": "./bin/post_deploy.py"
+      }
+    }
+    ```
 
 !!! note
     Databases and S3 objects will be cleaned up as part of AppPack's destroy process.

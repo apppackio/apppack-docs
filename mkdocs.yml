@@ -1,6 +1,7 @@
 site_name: AppPack Docs
 docs_dir: src
 site_dir: public
+use_directory_urls: true
 markdown_extensions:
   - footnotes
   - abbr

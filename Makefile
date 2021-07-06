@@ -9,7 +9,7 @@ install: .venv/bin/python3.9
 
 .PHONY: build
 build:
-	.venv/bin/mkdocs build
+	SITE_URL=https://docs.apppack.io/ .venv/bin/mkdocs build
 
 .PHONY: deploy
 deploy: build

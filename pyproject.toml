@@ -1,0 +1,26 @@
+[project]
+name = ""
+version = ""
+description = ""
+authors = [
+    {name = "Peter Baumgartner", email = "pete@lincolnloop.com"},
+]
+dependencies = ["mkdocs", "mkdocs-literate-nav", "mkdocs-material", "mkdocs-macros-plugin", "pymdown-extensions"]
+requires-python = ">=3.9"
+dynamic = ["classifiers"]
+license = {text = "MIT"}
+
+[project.urls]
+homepage = ""
+
+[build-system]
+requires = ["pdm-pep517"]
+build-backend = "pdm.pep517.api"
+
+
+[tool]
+[tool.pdm]
+[[tool.pdm.source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true

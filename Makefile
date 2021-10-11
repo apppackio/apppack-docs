@@ -1,15 +1,6 @@
-
-.venv/bin/python3.9:
-	python3.9 -m venv --prompt $(shell basename $(shell pwd)) .venv
-	.venv/bin/pip install -U pip setuptools wheel
-
-.PHONY: install
-install: .venv/bin/python3.9
-	.venv/bin/pip install -r requirements.txt
-
 .PHONY: build
 build:
-	SITE_URL=https://docs.apppack.io/ .venv/bin/mkdocs build
+	SITE_URL=https://docs.apppack.io/ pdm run mkdocs build
 
 .PHONY: deploy
 deploy: build

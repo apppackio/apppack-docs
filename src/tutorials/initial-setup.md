@@ -1,6 +1,6 @@
 # Initial Setup
 
-This tutorial will walk you through the initial AppPack setup in your AWS account. You will connect your AWS account to AppPack and setup your initial cluster for installing apps.
+This tutorial will walk you through the initial AppPack setup in your AWS account. You will connect your AWS account to AppPack and setup your initial cluster for installing apps. This process should take about 25 minutes to complete, with the majority of waiting for AWS to spin up resources and setup a domain.
 
 ## 📝 Prerequisites
 
@@ -12,6 +12,8 @@ You'll need a few things ready to go to complete this tutorial. Make sure you've
 
 
 ## 🏗 Setting up AWS Resources
+
+⏳ _Estimated Time: 3 minutes_
 
 Get started by clicking the "Launch Stack" button below. This will open up the AWS console and install the initial account-level resources so we can start using AppPack.
 
@@ -32,6 +34,8 @@ This will drop you into the AWS Cloudformation Stack creation form. It is split 
       2. Click `Create stack`
 
 ## 🔐 Authenticate AppPack CLI
+
+⏳ _Estimated time: 1 minutes_
 
 Next, run:
 
@@ -55,6 +59,8 @@ You should see your AWS account listed in the output.
 
 ## 🌐 Setup A Domain
 
+⏳ _Estimated time: 15 minutes_
+
 You'll need to assign a domain to your cluster. If you used `example.com` for your cluster, apps you create on the cluster will be available at `https://{appname}.example.com`. You can use a custom domain for production apps, so this domain is typically just used internally.
 
 The easiest option here is to [register a new domain in your AWS console](https://console.aws.amazon.com/route53/home#DomainRegistration:). Depending on the TLD you choose, they can be had for as little as $3/year (looking at you `.click` 👀).
@@ -66,6 +72,8 @@ The easiest option here is to [register a new domain in your AWS console](https:
     If you'd rather use a domain you already own, see the [Bring Your Own Cluster Domain](./bring-your-own-cluster-domain.md) how-to.
 
 ## 👷‍♀️ Create Your Cluster
+
+⏳ _Estimated time: 7 minutes_
 
 Now you're ready to create the cluster for your apps. To do this, run:
 

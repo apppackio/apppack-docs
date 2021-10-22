@@ -20,6 +20,9 @@ build-backend = "pdm.pep517.api"
 
 [tool]
 [tool.pdm]
+[tool.pdm.scripts]
+serve = "mkdocs serve"
+
 [[tool.pdm.source]]
 name = "pypi"
 url = "https://pypi.org/simple"

@@ -8,7 +8,7 @@ All Review Apps belong to a special class of application called a Pipeline. A Pi
 
 Review apps are different from "standard" apps in AppPack in a few ways:
 
-* They can be created/destroyed without external AWS credentials (any AppPack user with access to the Pipeline can create/destroy its review apps)
+* They can be created/destroyed without administrator access (any AppPack user with access to the Pipeline can create/destroy its review apps)
 * Add-ons are defined by the underlying Pipeline
 * They do not support custom domains or auto-scaling
 * They share a base configuration with the underlying Pipeline (but can also have their own custom configuration)

@@ -11,7 +11,7 @@ First you must setup Redis in your AppPack Cluster. This can be done with [`appp
     apppack create redis my-redis
     ```
 
-This command requires manually configured AWS credentials.
+This command requires administrator access.
 
 ## Enabling the Redis add-on for your application
 

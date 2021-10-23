@@ -11,3 +11,11 @@ Run:
 pdm sync
 pdm run mkdocs serve
 ```
+
+## Deployment
+
+Deployment is handled by GitHub actions. Push to `deploy/prod` to trigger,
+
+```
+git push origin main:deploy/prod
+```

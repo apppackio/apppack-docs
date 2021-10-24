@@ -7,24 +7,17 @@ on:
 
 jobs:
   build:
-    permissions:
-      contents: read
-      id-token: write
     env:
       PYVER: "3.9"
-      AWS_DEFAULT_REGION: us-east-1
-      AWS_ROLE_ARN: "arn:aws:iam::101287669015:role/docs-github-actions"
 
     runs-on: ubuntu-20.04
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python
-        uses: actions/setup-python@v1
+      - uses: actions/setup-python@v1
         with:
           python-version: ${{ env.PYVER }}
-      - name: Set up PDM
-        uses: pdm-project/setup-pdm@main
+      - uses: pdm-project/setup-pdm@main
         with:
           python-version: ${{ env.PYVER }}
       - uses: actions/cache@v1
@@ -45,21 +38,29 @@ jobs:
           tar xvzf apppack.tar.gz
           chmod +x apppack
           ./apppack docgen --directory src/command-line-reference
-
       - name: Build
         run: APPPACK_VERSION=$(./apppack version) make build
-        if: github.ref != 'refs/heads/deploy/prod'
-
+      - uses: actions/upload-artifact@v2
+        with:
+          path: public
+          retention-days: 3
+  deploy:
+    needs: [build]
+    runs-on: ubuntu-20.04
+    if: github.ref == 'refs/heads/deploy/prod'
+    env:
+      AWS_DEFAULT_REGION: us-east-1
+      AWS_ROLE_ARN: "arn:aws:iam::101287669015:role/docs-github-actions"
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
       - name: Configure AWS Credentials
-        if: github.ref == 'refs/heads/deploy/prod'
         uses: aws-actions/configure-aws-credentials@master
         with:
           role-to-assume: ${{ env.AWS_ROLE_ARN }}
           aws-region: ${{ env.AWS_DEFAULT_REGION }}
       - name: Deploy
-        run: |
-          pip install awscli
-          APPPACK_VERSION=$(./apppack version) make deploy
-        if: github.ref == 'refs/heads/deploy/prod'
-        env:
-          AWS_REGION: us-east-1
+        run: mv artifact public && make deploy

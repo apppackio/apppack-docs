@@ -19,7 +19,7 @@ AppPack will need access to create webhooks for the deployment pipeline, so you 
 ## 👷 Creating the Application
 
 !!! note
-    The app creation process requires AWS credentials just like you used during the initial tutorial. If you're doing this in a new shell, be sure it is setup to [use your AWS credentials](./initial-setup.md#-using-aws-credentials).
+    The app creation process requires administrator access.
 
 From your command line run:
 

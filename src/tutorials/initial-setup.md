@@ -1,77 +1,96 @@
 # Initial Setup
 
-This tutorial will walk you through the initial AppPack setup in your AWS account. You will connect your AWS account to AppPack and setup your initial cluster for installing apps.
+This tutorial will walk you through the initial AppPack setup in your AWS account. You will connect your AWS account to AppPack and setup your initial cluster for installing apps. This process should take about 25 minutes to complete, with the majority of waiting for AWS to spin up resources and setup a domain.
 
 ## 📝 Prerequisites
 
 You'll need a few things ready to go to complete this tutorial. Make sure you've taken the following steps before getting started.
 
 1. Installed **the `apppack` CLI** (see _[Install the CLI](../how-to/install.md)_)
-2. Setup **an AWS account with [Credentials](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html)** for an admin user or role.
-3. Created **a [Route53 Hosted Zone](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingHostedZone.html) setup in your AWS account** for a domain you'll use to route traffic to your applications. This can either be a top-level domain like `example.com` or a subdomain like `apppack.example.com`. If you wish to use a subdomain and the top-level domain is hosted elsewhere, see [these instructions](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingNewSubdomain.html). If your using a registrar other than Route53, make sure your nameservers are setup for the Hosted Zone there.
-4. Setup **a free Docker Hub account and access token** (generated at [https://hub.docker.com/settings/security](https://hub.docker.com/settings/security)). This is required to avoid the [anonymous IP rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) for pulling base images.
+2. Setup **an AWS account** with access to an admin user or role.
+3. Setup **a free Docker Hub account and access token** (generated at [https://hub.docker.com/settings/security](https://hub.docker.com/settings/security)). This is required to avoid the [anonymous IP rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) for pulling base images.
 
-## 🔐 Using AWS Credentials
 
-The first steps of setting up your account require AWS credentials. If you don't already have a way of managing AWS credentials locally (e.g. [`aws-vault`](https://github.com/99designs/aws-vault) or a [shared credentials file](https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/configuring-sdk.html#shared-credentials-file)), you can temporarily add them to your shell using environment variables with the following commands (replacing the values with your own credentials:
+## 🏗 Setting up AWS Resources
 
-=== "MacOS/Linux"
-    ```shell
-    $ export AWS_ACCESS_KEY_ID=YOUR_AKID
-    $ export AWS_SECRET_ACCESS_KEY=YOUR_SECRET_KEY
-    ```
+⏳ _Estimated Time: 3 minutes_
 
-=== "Windows"
-    ```
-    > set AWS_ACCESS_KEY_ID=YOUR_AKID
-    > set AWS_SECRET_ACCESS_KEY=YOUR_SECRET_KEY
-    ```
+Get started by clicking the "Launch Stack" button below. This will open up the AWS console and install the initial account-level resources so we can start using AppPack.
 
-!!! note
-    AWS credentials are only needed to create and destroy applications and other high-level resources at AWS. Once you create your application(s), AppPack will manage temporary AWS credentials scoped to the individual application. You can think of your AWS credentials like superuser/administrator functionality for your account.
+[![Create AppPack Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=apppack-account&templateURL=https%3A%2F%2Fs3.amazonaws.com%2Fapppack-cloudformations%2Flatest%2Faccount.json)
 
-## 👷 Setting up AWS Resources
+This will drop you into the AWS Cloudformation Stack creation form. It is split into four steps:
 
-The first command you run with the AppPack CLI will create everything necessary (account, region, and cluster-level resources) to start deploying apps to your AWS account.
+1. **Specify template**
+      * Click `Next`
+2. **Specify stack details**  
+      1. In the `Administrators` field, enter your email address and the email addresses of anyone else you'd like to grant full admin access to your account.  
+      ![create administrators screenshot](./../assets/create-administrators.png)
+      2. Click `Next`
+3. **Configure stack options**
+      * Click `Next`
+4. **Review**
+      1. At the bottom of the page, check the box for _I acknowledge that AWS CloudFormation might create IAM resources._
+      2. Click `Create stack`
 
-!!! note
-    We'll be using the `us-east-1` region in this tutorial. If you prefer a different region, you can change this or use the `AWS_REGION` environment variable. See [How to Choose an AWS Region](../how-to/choose-aws-region.md) for more details.
+## 🔐 Authenticate AppPack CLI
 
-From your command line run:
+⏳ _Estimated time: 1 minutes_
+
+Next, run:
 
 ```shell
-apppack --region us-east-1 init
+apppack auth login
 ```
 
-!!! tip
-    If you see a `NoCredentialProviders` error, it means your AWS credentials are not setup properly. Revisit [Using AWS Credentials](#using-aws-credentials) to verify they are setup.
+<script id="asciicast-BkCDHIskycHdYNt3e8rMjbUAt" src="https://asciinema.org/a/BkCDHIskycHdYNt3e8rMjbUAt.js" data-rows="8" async></script>
 
-You'll be prompted for a few additional bits of information that were part of the prerequisites.
+You'll be able to login or create a new account if you don't have one already. If you login with an email address and password, be sure to verify your email address before continuing.
 
-1. Your Docker Hub username and access token.
-2. The domain in your Route53 Hosted Zone that will serve as the parent domain for your applications. Read more about [how domains are handled in AppPack here](../under-the-hood/domains.md).
+Verify you are setup as an administrator:
 
-This command should take about 6 minutes to complete. The output should contain some progress information as it completes the different steps. On completion, you should see:
-
+```shell
+apppack auth accounts
 ```
-✔ AppPack initialization complete
+
+<script id="asciicast-oX0JCUxQVWytfqVXNaKaqE6eg" src="https://asciinema.org/a/oX0JCUxQVWytfqVXNaKaqE6eg.js" data-rows="10" async></script>
+
+You should see your AWS account listed in the output.
+
+## 🌐 Setup A Domain
+
+⏳ _Estimated time: 15 minutes_
+
+You'll need to assign a domain to your cluster. If you used `example.com` for your cluster, apps you create on the cluster will be available at `https://{appname}.example.com`. You can use a custom domain for production apps, so this domain is typically just used internally.
+
+The easiest option here is to [register a new domain in your AWS console](https://console.aws.amazon.com/route53/home#DomainRegistration:). Depending on the TLD you choose, they can be had for as little as $3/year (looking at you `.click` 👀).
+
+!!! warning
+      ⏳ This isn't an instant process, so be prepared to wait at least a few minutes for your domain to move from [Pending](https://console.aws.amazon.com/route53/home#DomainRequests:) to [Registered](https://console.aws.amazon.com/route53/home#DomainListing:). Also make sure you've [entered your billing info](https://console.aws.amazon.com/billing/home#/paymentmethods) in the AWS console to avoid any extra delay. 
+
+!!! info
+    If you'd rather use a domain you already own, see the [Bring Your Own Cluster Domain](./bring-your-own-cluster-domain.md) how-to.
+
+## 👷‍♀️ Create Your Cluster
+
+⏳ _Estimated time: 7 minutes_
+
+Now you're ready to create the cluster for your apps. To do this, run:
+
+```shell
+apppack create cluster
 ```
+<script id="asciicast-d9YAOzSukMkvkGnALOB6k46nY" src="https://asciinema.org/a/d9YAOzSukMkvkGnALOB6k46nY.js" data-rows="10" data-theme="monokai" async></script>
+
+You'll get a confirmation prompt about the region where the cluster will be installed. Type `yes` and you'll be prompted for:
+
+1. Your Docker Hub username and access token
+2. Your domain you created above
+
+This should run for about 10 minutes while AWS creates all the necessary resources.
 
 !!! pricing
     Some resources created during this process may incur monthly AWS charges. Read [Under the Hood: Pricing](../under-the-hood/pricing.md) for more information.
-
-## ✅ Account Approval
-
-During our private beta period, new AppPack accounts require manual approval. In the output from the `init` command, you should see:
-
-> Send the following information to support@apppack.io for account approval:  
-> ExternalId: ...  
-> AppPackRoleArn: ...
-
-Send that info to us via email (it does not contain any sensitive information) and wait for confirmation that your account has been approved.
-
-!!! warning
-    **Don't start creating apps until you've received confirmation that your account is ready.**
 
 ## 🏁 Next Step
 

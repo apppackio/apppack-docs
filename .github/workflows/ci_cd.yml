@@ -48,6 +48,7 @@ jobs:
     needs: [build]
     runs-on: ubuntu-20.04
     if: github.ref == 'refs/heads/deploy/prod'
+    environment: production
     env:
       AWS_DEFAULT_REGION: us-east-1
       AWS_ROLE_ARN: "arn:aws:iam::101287669015:role/docs-github-actions"

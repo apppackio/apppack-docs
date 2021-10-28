@@ -69,7 +69,7 @@ The easiest option here is to [register a new domain in your AWS console](https:
       ⏳ This isn't an instant process, so be prepared to wait at least a few minutes for your domain to move from [Pending](https://console.aws.amazon.com/route53/home#DomainRequests:) to [Registered](https://console.aws.amazon.com/route53/home#DomainListing:). Also make sure you've [entered your billing info](https://console.aws.amazon.com/billing/home#/paymentmethods) in the AWS console to avoid any extra delay. 
 
 !!! info
-    If you'd rather use a domain you already own, see the [Bring Your Own Cluster Domain](./bring-your-own-cluster-domain.md) how-to.
+    If you'd rather use a domain you already own, see the [Bring Your Own Cluster Domain](../how-to/bring-your-own-cluster-domain.md) how-to.
 
 ## 👷‍♀️ Create Your Cluster
 

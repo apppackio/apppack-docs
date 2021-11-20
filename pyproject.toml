@@ -5,7 +5,7 @@ description = ""
 authors = [
     {name = "Peter Baumgartner", email = "pete@lincolnloop.com"},
 ]
-dependencies = ["mkdocs", "mkdocs-literate-nav", "mkdocs-material", "mkdocs-macros-plugin", "pymdown-extensions"]
+dependencies = ["mkdocs", "mkdocs-literate-nav", "mkdocs-material", "mkdocs-macros-plugin", "setuptools", "pymdown-extensions"]
 requires-python = ">=3.9"
 dynamic = ["classifiers"]
 license = {text = "MIT"}

@@ -11,6 +11,8 @@ First you must setup Redis in your AppPack Cluster. This can be done with [`appp
     apppack create redis my-redis
     ```
 
+<script id="asciicast-79qIkn14fXw0jCAPbKNHlBsrD" src="https://asciinema.org/a/79qIkn14fXw0jCAPbKNHlBsrD.js" data-rows="20" data-theme="monokai" async></script>
+
 This command requires administrator access.
 
 ## Enabling the Redis add-on for your application

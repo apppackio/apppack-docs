@@ -23,8 +23,8 @@ This will drop you into the AWS Cloudformation Stack creation form. It is split 
 
 1. **Specify template**
       * Click `Next`
-2. **Specify stack details**  
-      1. In the `Administrators` field, enter your email address and the email addresses of anyone else you'd like to grant full admin access to your account.  
+2. **Specify stack details**
+      1. In the `Administrators` field, enter your email address and the email addresses of anyone else you'd like to grant full admin access to your account.
       ![create administrators screenshot](./../assets/create-administrators.png)
       2. Click `Next`
 3. **Configure stack options**
@@ -66,7 +66,7 @@ You'll need to assign a domain to your cluster. If you used `example.com` for yo
 The easiest option here is to [register a new domain in your AWS console](https://console.aws.amazon.com/route53/home#DomainRegistration:). Depending on the TLD you choose, they can be had for as little as $3/year (looking at you `.click` 👀).
 
 !!! warning
-      ⏳ This isn't an instant process, so be prepared to wait at least a few minutes for your domain to move from [Pending](https://console.aws.amazon.com/route53/home#DomainRequests:) to [Registered](https://console.aws.amazon.com/route53/home#DomainListing:). Also make sure you've [entered your billing info](https://console.aws.amazon.com/billing/home#/paymentmethods) in the AWS console to avoid any extra delay. 
+      ⏳ This isn't an instant process, so be prepared to wait at least a few minutes for your domain to move from [Pending](https://console.aws.amazon.com/route53/home#DomainRequests:) to [Registered](https://console.aws.amazon.com/route53/home#DomainListing:). Also make sure you've [entered your billing info](https://console.aws.amazon.com/billing/home#/paymentmethods) in the AWS console to avoid any extra delay.
 
 !!! info
     If you'd rather use a domain you already own, see the [Bring Your Own Cluster Domain](../how-to/bring-your-own-cluster-domain.md) how-to.
@@ -80,7 +80,7 @@ Now you're ready to create the cluster for your apps. To do this, run:
 ```shell
 apppack create cluster
 ```
-<script id="asciicast-d9YAOzSukMkvkGnALOB6k46nY" src="https://asciinema.org/a/d9YAOzSukMkvkGnALOB6k46nY.js" data-rows="10" data-theme="monokai" async></script>
+<script id="asciicast-9MQqww0ej7qAMhLjvM708mh00" src="https://asciinema.org/a/9MQqww0ej7qAMhLjvM708mh00.js" data-rows="20" data-theme="monokai" async></script>
 
 You'll get a confirmation prompt about the region where the cluster will be installed. Type `yes` and you'll be prompted for:
 

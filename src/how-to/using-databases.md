@@ -11,7 +11,9 @@ First you must setup the database in your AppPack Cluster. This can be done with
     apppack create database my-database
     ```
 
-If you'd like to use [AWS Aurora](https://aws.amazon.com/rds/aurora/), pass in the `--aurora` flag. This command requires administrator access.
+<script id="asciicast-uMdIlLyyuvsiNubMF23LZRW1M" src="https://asciinema.org/a/uMdIlLyyuvsiNubMF23LZRW1M.js" data-rows="20" data-theme="monokai" async></script>
+
+This command requires administrator access.
 
 ## Enabling the Database add-on for your application
 

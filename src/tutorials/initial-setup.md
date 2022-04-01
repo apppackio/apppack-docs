@@ -15,9 +15,19 @@ You'll need a few things ready to go to complete this tutorial. Make sure you've
 
 ⏳ _Estimated Time: 3 minutes_
 
-Get started by clicking the "Launch Stack" button below. This will open up the AWS console and install the initial account-level resources so we can start using AppPack.
+Get started by clicking the "Launch Stack" button for your preferred region[^1] below. This will open up the AWS console and install the initial account-level resources so we can start using AppPack.
 
-[![Create AppPack Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=apppack-account&templateURL=https%3A%2F%2Fs3.amazonaws.com%2Fapppack-cloudformations%2Flatest%2Faccount.json)
+| Stack | Region |
+|-------|--------|
+| [![Create AppPack Stack in us-east-2](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://us-east-2.console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=apppack-account&templateURL=https%3A%2F%2Fs3.amazonaws.com%2Fapppack-cloudformations%2Flatest%2Faccount.json) | US East (Ohio) `us-east-2` |
+| [![Create AppPack Stack in us-west-2](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://us-west-2.console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=apppack-account&templateURL=https%3A%2F%2Fs3.amazonaws.com%2Fapppack-cloudformations%2Flatest%2Faccount.json) | US West (Oregon) `us-west-2` |
+| [![Create AppPack Stack in us-east-1](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://us-east-1.console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=apppack-account&templateURL=https%3A%2F%2Fs3.amazonaws.com%2Fapppack-cloudformations%2Flatest%2Faccount.json) | US East (N. Virginia) `us-east-1` |
+| [![Create AppPack Stack in ap-northeast-2](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://ap-northeast-2.console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=apppack-account&templateURL=https%3A%2F%2Fs3.amazonaws.com%2Fapppack-cloudformations%2Flatest%2Faccount.json) | Asia Pacific (Seoul) `ap-northeast-2` |
+| [![Create AppPack Stack in ap-south-1](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://ap-south-1.console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=apppack-account&templateURL=https%3A%2F%2Fs3.amazonaws.com%2Fapppack-cloudformations%2Flatest%2Faccount.json) | Asia Pacific (Mumbai) `ap-south-1` |
+| [![Create AppPack Stack in eu-north-1](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://eu-north-1.console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=apppack-account&templateURL=https%3A%2F%2Fs3.amazonaws.com%2Fapppack-cloudformations%2Flatest%2Faccount.json) | EU (Stockholm) `eu-north-1` |
+| [![Create AppPack Stack in eu-west-2](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://eu-west-2.console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=apppack-account&templateURL=https%3A%2F%2Fs3.amazonaws.com%2Fapppack-cloudformations%2Flatest%2Faccount.json) | EU (London) `eu-west-2` |
+
+
 
 This will drop you into the AWS Cloudformation Stack creation form. It is split into four steps:
 
@@ -32,6 +42,8 @@ This will drop you into the AWS Cloudformation Stack creation form. It is split 
 4. **Review**
       1. At the bottom of the page, check the box for _I acknowledge that AWS CloudFormation might create IAM resources._
       2. Click `Create stack`
+
+[^1]: See [Choose an AWS Region](../how-to/choose-aws-region.md) for more info
 
 ## 🔐 Authenticate AppPack CLI
 

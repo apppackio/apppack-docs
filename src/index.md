@@ -4,7 +4,7 @@ AppPack is a suite of tools that creates an application platform-as-a-service si
 
 ## Project Status
 
-AppPack is being used in production and under active development. It is currently invite-only. If you're interested in getting access, join the waiting list at [https://apppack.io](https://apppack.io/#contact).
+AppPack is production-ready and under active development. It currently manages hundreds of successful deploys per week. Pricing details are available at [https://apppack.io](https://apppack.io/#pricing).
 
 ## Navigating the Documentation
 

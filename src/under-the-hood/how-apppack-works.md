@@ -49,3 +49,9 @@ AppPack receives events from the following services in your AWS account.
 * Service scaling: The CLI writes scaling data to your Parameter Store. AppPack updates ECS services and App Autoscaling based on those values.
 * Scheduled tasks: The CLI writes scheduled task information to your Parameter Store. AppPack creates/destroys scheduled tasks using EventBridge and ECS. It then handles keeping these tasks up-to-date whenever the services are updated.
 * Configuration variables: The CLI writes encrypted configuration variables to your Parameter Store. AppPack does not have permission to decrypt these values, but can read the list of variable names so it can update ECS services and scheduled tasks.
+
+### Workflows
+
+#### CI/CD Pipeline
+
+[![CI/CD Pipeline](../assets/pipeline-events.svg)](../assets/pipeline-events.svg)

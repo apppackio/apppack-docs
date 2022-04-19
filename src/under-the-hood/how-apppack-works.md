@@ -1,6 +1,6 @@
 # How AppPack Works
 
-AppPack is comprised of a multiple systems which work together to provide a seamless developer experience on top of AWS' built-in managed services.
+AppPack is comprised of multiple systems which work together to provide a seamless developer experience on top of AWS' built-in managed services.
 
 ## Cloudformation Templates
 

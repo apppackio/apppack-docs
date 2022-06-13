@@ -30,6 +30,6 @@ theme:
   palette:
     primary: slate blue
   logo: assets/mark-white.svg
-  favicon: assets/favicon.png
+  favicon: assets/favicon.ico
   icon:
     repo: fontawesome/brands/github

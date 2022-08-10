@@ -11,6 +11,7 @@ AppPack is currently available in:
 * US West (Oregon) `us-west-2`
 * Asia Pacific (Seoul) `ap-northeast-2`
 * Asia Pacific (Mumbai) `ap-south-1`
+* Asia Pacific (Sydney) `ap-southeast-2`
 * EU (Stockholm) `eu-north-1`
 * EU (London) `eu-west-2`
 

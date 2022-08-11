@@ -18,9 +18,9 @@ The following config variables will be provided to your application:
 ### Public S3 Add-on
 
 * `PUBLIC_S3_BUCKET_NAME` the name of the bucket created for the app
-* `PUBLIC_S3_PREFIX` Review Apps only. The name of the S3 object prefix accessible to the application
+* `PUBLIC_S3_BUCKET_PREFIX` Review Apps only. The name of the S3 object prefix accessible to the application
 
 ### Private S3 Add-on
 
 * `PRIVATE_S3_BUCKET_NAME` the name of the bucket created for the app
-* `PRIVATE_S3_PREFIX` Review Apps only. The name of the S3 object prefix accessible to the application
+* `PRIVATE_S3_BUCKET_PREFIX` Review Apps only. The name of the S3 object prefix accessible to the application

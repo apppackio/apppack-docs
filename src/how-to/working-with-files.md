@@ -1,6 +1,6 @@
 # Working with files
 
-AppPack apps are stateless and do not provide persistent file storage. If you require persistent file storage, you'll want to use the [S3 add-on](./using-s3.md) and make sure your app is capable of reading/writing to S3. Once you're using the add-on, you'll have a number of ways to upload files to your bucket(s).
+AppPack apps are stateless and do not provide persistent file storage. If you require persistent file storage, you'll want to use the [S3 add-on](using-s3.md) and make sure your app is capable of reading/writing to S3. Once you're using the add-on, you'll have a number of ways to upload files to your bucket(s).
 
 ## Uploading files to S3
 

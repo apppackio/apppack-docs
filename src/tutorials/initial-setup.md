@@ -8,7 +8,7 @@ You'll need a few things ready to go to complete this tutorial. Make sure you've
 
 1. Installed **the `apppack` CLI** (see _[Install the CLI](../how-to/install.md)_)
 2. Setup **an AWS account** with access to an admin user or role.
-3. Setup **a free Docker Hub account and access token** (generated at [https://hub.docker.com/settings/security](https://hub.docker.com/settings/security)). This is required to avoid the [anonymous IP rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) for pulling base images.
+3. Create a [free Docker Hub account and generate an access token](../how-to/create-docker-hub-access-token.md).
 
 
 ## 🏗 Setting up AWS Resources

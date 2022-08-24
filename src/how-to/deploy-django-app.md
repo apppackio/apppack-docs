@@ -25,7 +25,7 @@ Your `web` service should listen on the port defined in the environment variable
     ```
 
 !!! tip
-   For some applications, [the `gevent` worker class](https://docs.gunicorn.org/en/stable/settings.html?highlight=gevent#worker-class) may provide better performance for concurrent request processing. When using it, be sure to limit [the worker connections](https://docs.gunicorn.org/en/stable/settings.html?highlight=gevent#worker-connections) to a reasonable number to avoid overwhelming your database.
+    For some applications, [the `gevent` worker class](https://docs.gunicorn.org/en/stable/settings.html?highlight=gevent#worker-class) may provide better performance for concurrent request processing. When using it, be sure to limit [the worker connections](https://docs.gunicorn.org/en/stable/settings.html?highlight=gevent#worker-connections) to a reasonable number to avoid overwhelming your database.
 
 ## Add a healthcheck endpoint
 

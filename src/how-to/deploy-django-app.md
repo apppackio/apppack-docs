@@ -75,12 +75,24 @@ import dj_database_url
 DATABASES = {"default": dj_database_url.config(conn_max_age=600)}
 ```
 
+#### Defining a release task
+
+Typically you want your database schema migrations to run automatically when new versions of your code are deployed. To make this happen, define a `release` task in the `Procfile`. `release` is a special task which runs after the build process and before the new version of your code is deployed. For Django, you can use something like this:
+
+```yaml
+release: python manage.py migrate --noinput
+```
+
+!!! tip
+    AppPack performs zero-downtime deployments. This means that for a brief period, both the previous and new versions of your app will be running side-by-side. Best practice is to make sure your database migrations are always backwards compatible with the previous version to avoid unexpected errors. See [this blog post](https://medium.com/3yourmind/keeping-django-database-migrations-backward-compatible-727820260dbb) for implementation recommendations.
+
+
 ### Collectstatic
 
 By default, the Heroku buildpack will attempt to run `collectstatic` at the end of the build process. This should collect the files to the local file system where they will be a part of the final image. The easiest way to serve them is directly from your app server with [`whitenoise`](https://pypi.org/project/whitenoise/). For detailed instructions, [see their docs](http://whitenoise.evans.io/en/stable/django.html).
 
 !!! warning
-   The build happens in an isolated environment without access to backing resources like your database or Redis. If your application tries to access the database during initialization, the `collectstatic` command will fail. Make sure any calls to backing resources happen inside function calls, not when the files are imported.
+    The build happens in an isolated environment without access to backing resources like your database or Redis. If your application tries to access the database during initialization, the `collectstatic` command will fail. Make sure any calls to backing resources happen inside function calls, not when the files are imported.
 
 #### Node.js
 

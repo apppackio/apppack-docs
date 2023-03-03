@@ -1,4 +1,4 @@
-# Deploy Your First App
+# Deploy your first app
 
 This tutorial will walk you through deploying an app to your AWS account with AppPack.
 
@@ -8,15 +8,15 @@ Prior to starting this tutorial, be sure you've completed the [Initial Setup tut
 
 You'll also need a [GitHub Account](https://github.com).
 
-## 🖥 The Application
+## 🖥 The application
 
 For this tutorial, we'll be deploying a simple "Hello World" Python web application from [`apppackio/apppack-demo-python`](https://github.com/apppackio/apppack-demo-python). This will familiarize you with the app creation and deployment process prior to deploying your own apps.
 
-### 🔀 Fork the Repository
+### 🔀 Fork the repository
 
 AppPack will need access to create webhooks for the deployment pipeline, so you must fork the repository into your own account (personal or organization). [Click here to fork the repository](https://github.com/ipmb/apppack-demo-python/fork) to your account.
 
-## 👷 Creating the Application
+## 👷 Creating the application
 
 !!! note
     The app creation process requires administrator access.
@@ -92,7 +92,7 @@ Account: <your_aws_account> (us-east-1)
   python-demo
 ```
 
-## 🛠 Triggering the First Build
+## 🛠 Triggering the first build
 
 Now the AWS resources are prepared for your app, you need to trigger the CI/CD pipeline. Usually this is done automatically when you push new code to your repo, but in this case you'll trigger it manually.
 
@@ -109,7 +109,7 @@ This will trigger a build and track its progress in the output. You should see i
 3. Finalize
 4. Deploy
 
-## 🌐 Open the App
+## 🌐 Open the app
 
 You should now be able to see the app in your browser by running:
 
@@ -119,10 +119,10 @@ apppack -a python-demo open
 
 If you see "Hello World!" in your browser, congrats! Your first AppPack app is now running on AWS.
 
-## 🏃 Next Steps
+## 🏃 Next steps
 
-Now that you've successfully installed an app pre-configured for AppPack to your cluster, you'll probably want to learn [how to configure your own app for AppPack](../how-to/apps.md).
+Now that you've successfully installed an app pre-configured for AppPack to your cluster, you'll probably want to learn [how to configure your own app for AppPack](../how-to/apps/apps.md).
 
-You should also destroy the demo app you created to avoid any unneccesary AWS charges. See _[How to Destroy an App](../how-to/destroy-app.md)_ for details.
+You should also destroy the demo app you created to avoid any unneccesary AWS charges. See _[How to Destroy an App](../how-to/apps/destroy-app.md)_ for details.
 
 *[CI/CD]: Continuous Integration/Continuous Delivery

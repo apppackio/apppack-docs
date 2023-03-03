@@ -1,4 +1,4 @@
-# Destroying an App
+# Destroying an app
 
 If you are no longer using an application, it should be destroyed to avoid paying for unused resources.
 

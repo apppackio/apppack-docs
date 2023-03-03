@@ -1,4 +1,4 @@
-# Initial Setup
+# Initial setup
 
 This tutorial will walk you through the initial AppPack setup in your AWS account. You will connect your AWS account to AppPack and setup your initial cluster for installing apps. This process should take about 25 minutes to complete, with the majority of waiting for AWS to spin up resources and setup a domain.
 
@@ -6,12 +6,12 @@ This tutorial will walk you through the initial AppPack setup in your AWS accoun
 
 You'll need a few things ready to go to complete this tutorial. Make sure you've taken the following steps before getting started.
 
-1. Installed **the `apppack` CLI** (see _[Install the CLI](../how-to/install.md)_)
+1. Installed **the `apppack` CLI** (see _[Install the CLI](../how-to/set-up/install.md)_)
 2. Setup **an AWS account** with access to an admin user or role.
-3. Create a [free Docker Hub account and generate an access token](../how-to/create-docker-hub-access-token.md).
+3. Create a [free Docker Hub account and generate an access token](../how-to/set-up/create-docker-hub-access-token.md).
 
 
-## 🏗 Setting up AWS Resources
+## 🏗 Setting up AWS resources
 
 ⏳ _Estimated Time: 3 minutes_
 
@@ -44,7 +44,7 @@ This will drop you into the AWS Cloudformation Stack creation form. It is split 
       1. At the bottom of the page, check the box for _I acknowledge that AWS CloudFormation might create IAM resources._
       2. Click `Create stack`
 
-[^1]: See [Choose an AWS Region](../how-to/choose-aws-region.md) for more info
+[^1]: See [Choose an AWS Region](../how-to/set-up/choose-aws-region.md) for more info
 
 ## 🔐 Authenticate AppPack CLI
 
@@ -70,7 +70,7 @@ apppack auth accounts
 
 You should see your AWS account listed in the output.
 
-## 🌐 Setup A Domain
+## 🌐 Setup a domain
 
 ⏳ _Estimated time: 15 minutes_
 
@@ -82,9 +82,9 @@ The easiest option here is to [register a new domain in your AWS console](https:
       ⏳ This isn't an instant process, so be prepared to wait at least a few minutes for your domain to move from [Pending](https://console.aws.amazon.com/route53/home#DomainRequests:) to [Registered](https://console.aws.amazon.com/route53/home#DomainListing:). Also make sure you've [entered your billing info](https://console.aws.amazon.com/billing/home#/paymentmethods) in the AWS console to avoid any extra delay.
 
 !!! info
-    If you'd rather use a domain you already own, see the [Bring Your Own Cluster Domain](../how-to/bring-your-own-cluster-domain.md) how-to.
+    If you'd rather use a domain you already own, see the [Bring Your Own Cluster Domain](../how-to/domains/bring-your-own-cluster-domain.md) how-to.
 
-## 👷‍♀️ Create Your Cluster
+## 👷‍♀️ Create your cluster
 
 ⏳ _Estimated time: 7 minutes_
 
@@ -105,6 +105,6 @@ This should run for about 10 minutes while AWS creates all the necessary resourc
 !!! pricing
     Some resources created during this process may incur monthly AWS charges. Read [Under the Hood: Pricing](../under-the-hood/pricing.md) for more information.
 
-## 🏁 Next Step
+## 🏁 Next step
 
 Congrats! Now that your account has been approved, you're ready to deploying apps. Continue on to the [Deploy Your First App](../tutorials/deploy-first-app.md) tutorial

@@ -46,13 +46,13 @@ You can open your review app in the browser with:
     apppack -a my-app-pipeline:221 open
     ```
 
-## Add-Ons
+## Add-ons
 
 Review Apps always setup the same set of add-ons defined on the parent Pipeline. If the Pipeline has a Postgres database and Redis Add-on defined, each Review App will get an isolated Postgres database and Redis namespace to work within. Similarly, the SQS and SES Add-ons work just like they do on a standard application.
 
 S3 Buckets work slightly differently than a standard application. The Pipeline will create an S3 Bucket and Review Apps will each be assigned a prefix within the bucket they can access. Your code should be able to handle the presence of a `PUBLIC_S3_BUCKET_PREFIX` or `PRIVATE_S3_BUCKET_PREFIX` environment variable that defines the prefix all generated objects must use. For example, if your standard app expects to store a file at `s3://{PRIVATE_S3_BUCKET}/my_file.txt` the Review App would need to store it at `s3://{PRIVATE_S3_BUCKET}/{PRIVATE_S3_BUCKET_PREFIX}my_file.txt` (the prefix will contain a trailing slash, but not a preceeding one).
 
-## Handling Initial Data
+## Handling initial data
 
 Quickly spinning up a Review App is great, but often our apps are useless without some initial data. For this, you can define a "post-deploy" task which can be used to populate data after the Review App is created. This is run just once on initial creation (after the Release task runs) and only for Review Apps. It is defined in your `app.json` file as `scripts.postdeploy`. Likewise, a `scripts.pre-destroy` script can be defined for any cleanup tasks that may be necessary. An `app.json` that defines a post-deploy task might look like this:
 

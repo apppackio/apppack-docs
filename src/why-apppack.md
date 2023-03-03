@@ -1,17 +1,17 @@
 # Why AppPack?
 
-## Current Solutions
+## Current solutions
 
 There are a million ways to run code on the web, why does AppPack need to exist?
 
-### :warning: Complexity/Cognitive Load
+### :warning: Complexity/Cognitive load
 
 Most platforms require a massive amount of new knowledge just to get started. A developer shouldn't have to learn Systemd, Docker, Kubernetes, IAM, etc. to put a website on the internet. Kubernetes is designed for businesses that operate at _massive_ scale. AppPack is for the 99% of companies and developers that operate at a more _human_ scale.
 
 For this group, platform-as-a-service (PaaS) is the right tool for the job. It requires very little specialized knowledge and offloads operational concerns. You can get very far on this model and avoid the need for a full-time ops/SRE team to monitor your platform.
 
 
-### :warning: PaaS Limitations
+### :warning: PaaS limitations
 
 But PaaS has its drawbacks too. You need to trust a third-party (probably running on top of AWS or GCP) with all your IP and data. Your app is likely running in a sandbox on a machine next to apps from other customers. The cost of everything is marked up over raw computing costs at AWS, so it can get expensive quickly. Features can be limited and you may need to glue together services from multiple providers, increasing your risk of an outage or data breach. Building solutions that don't fit inside the PaaS box can be difficult.
 

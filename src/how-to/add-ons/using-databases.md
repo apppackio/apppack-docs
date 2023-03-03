@@ -1,8 +1,8 @@
-# Using Databases
+# Using databases
 
 Postgres and MySQL databases are available as an add-on and are backed by [AWS RDS](https://aws.amazon.com/rds/). Database instances are designed to be shared across multiple apps in a cluster, but a cluster may have multiple database instances. If you wish to isolate a single app to a single database instance, you can do that too.
 
-## Creating a Database cluster
+## Creating a database cluster
 
 First you must setup the database in your AppPack Cluster. This can be done with [`apppack create database`](/command-line-reference/apppack_create_database/).
 
@@ -15,7 +15,7 @@ First you must setup the database in your AppPack Cluster. This can be done with
 
 This command requires administrator access.
 
-## Enabling the Database add-on for your application
+## Enabling the database add-on for your application
 
 During app creation, you'll be asked if you'd like to enable the database add-on and if so, which database cluster to use. Only database instances within the app's AppPack cluster will be available as options.
 
@@ -24,7 +24,7 @@ Enabling the database add-on will create a dedicated database user within the da
 !!! warning
     Destroying the application will also destroy the application's database. Be sure to download a backup first!
 
-### Config Variables
+### Config variables
 
 The following config variable will be provided to your application to connect:
 

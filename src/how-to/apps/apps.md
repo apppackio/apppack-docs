@@ -1,4 +1,4 @@
-# Prepping Your App
+# Prepping your app
 
 AppPack apps are built using Heroku's open source [Cloud Native Buildpacks](https://buildpacks.io/) and are largely compatible with apps built for the Heroku platform.
 
@@ -39,9 +39,9 @@ AppPack provides some compatibility with [Heroku's `app.json`](https://devcenter
 * [`scripts`](https://devcenter.heroku.com/articles/app-json-schema#scripts)
 * [`stack`](https://devcenter.heroku.com/articles/app-json-schema#stack)
 
-## Config/Environment Variables
+## Config/Environment variables
 
-Any configuration you store for your app will be available as an environment variable when your application runs on AWS. Use them to store secrets or environment-specific information for your application. [Read more about config variables here](./config-variables.md).
+Any configuration you store for your app will be available as an environment variable when your application runs on AWS. Use them to store secrets or environment-specific information for your application. [Read more about config variables here](config-variables.md).
 
 ## Add-ons (database, Redis, S3, etc.)
 

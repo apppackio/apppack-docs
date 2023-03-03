@@ -1,20 +1,20 @@
-# How AppPack Works
+# How AppPack works
 
 AppPack is comprised of multiple systems which work together to provide a seamless developer experience on top of AWS' built-in managed services.
 
-## Cloudformation Templates
+## Cloudformation templates
 
 [Cloudformation](https://aws.amazon.com/cloudformation/) is used to create resources in your account. AppPack is not granted permission to manage Cloudformation. The CLI commands [`create`](https://docs.apppack.io/command-line-reference/apppack_create/), [`upgrade`](https://docs.apppack.io/command-line-reference/apppack_upgrade/), and [`destroy`](https://docs.apppack.io/command-line-reference/apppack_destroy/) are all wrappers around Cloudformation. API calls are made directly to AWS from the CLI using your credentials.
 
-## CodeBuild Scripts & Buildpacks
+## CodeBuild scripts & buildpacks
 
 As part of the Cloudformation app creation, AppPack's custom [`buildspec.yml`](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html) is setup in [CodeBuild](https://aws.amazon.com/codebuild/). This script is only modified if an application stack is upgraded and can be viewed/audited in CodeBuild. It leverages [`pack`](https://github.com/buildpacks/pack) and (by default) [Heroku Buildpacks](https://elements.heroku.com/buildpacks) to create container images from your code.
 
-## Command Line Interface
+## Command line interface
 
 The CLI primarily interacts with different AWS services directly from your machine. It communicates with AppPack for authentication and to provide the list of apps and accounts your user has access to.
 
-## Web Dashboard
+## Web dashboard
 
 The web dashboard at [https://dashboard.apppack.io](https://dashboard.apppack.io) works exactly the same as the CLI. It uses the AWS JavaScript SDK to make calls directly to AWS from your computer. The website is a completely static site (it is served from S3) without any backend that could access your data. After the initial login, all network traffic is direct to AWS.
 
@@ -52,6 +52,6 @@ AppPack receives events from the following services in your AWS account.
 
 ### Workflows
 
-#### CI/CD Pipeline
+#### CI/CD pipeline
 
 [![CI/CD Pipeline](../assets/pipeline-events.svg)](../assets/pipeline-events.svg)

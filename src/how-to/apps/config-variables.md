@@ -1,4 +1,4 @@
-# Config Variables
+# Config variables
 
 Config variables are used to store secrets and pass environment-specific information to your applications running on AWS. They are managed via the CLI and passed into the application via environment variables.
 

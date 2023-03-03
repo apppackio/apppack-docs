@@ -8,7 +8,7 @@ During set up, a handful of [EventBridge](https://aws.amazon.com/eventbridge/) R
 
 Our control plane uses a locked down IAM role to communicate to AWS in your account. This role only has access to do things like update services and task definitions in ECS, read Codebuild metadata, etc. It has been designed with the least necessary privileges to accomplish these tasks. 
 
-## The Stacks
+## The stacks
 
 During setup, you'll create multiple Cloudformation Stacks for different resources.
 
@@ -74,7 +74,7 @@ The database stack creates:
 
 Authentication is handled via [Auth0](https://auth0.com/). After successfully logging in with an account with a verified email, the CLI or web interface will exchange your login token for AWS keys for an IAM Role specific to the application that is being managed. This is done via the [`WebIdentityCredentials` API](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/WebIdentityCredentials.html) either in your web browser or via your terminal. It will verify the token and also confirm the user is authorized to access the app. AppPack never has access to these keys or the traffic between your device and AWS.
 
-## Web Interface
+## Web interface
 
 The web interface at [https://dashboard.apppack.io](https://dashboard.apppack.io) uses the AWS JavaScript SDK to make calls directly to AWS from your computer. This allows us to make the website a completely static site (it is served from S3) without any backend that could access your data. After the initial login, all network traffic is direct to AWS.
 

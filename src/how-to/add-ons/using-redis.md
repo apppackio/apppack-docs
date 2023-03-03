@@ -24,7 +24,7 @@ Enabling the Redis add-on will create a dedicated Redis user within the Redis in
 !!! tip
     Destroying the application does not currently destroy any data in Redis. It is setup as a least recently used (LRU) cache, so unused keys will expire as needed. If data security or privacy is an issue, you should manually delete any keys that might be left over.
 
-### Config Variables
+### Config variables
 
 The following config variables will be provided to your application to connect:
 

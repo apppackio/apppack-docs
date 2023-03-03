@@ -11,16 +11,16 @@ Enabling the Private/Public S3 add-ons during app creation will create an S3 buc
 !!! warning
     Destroying the application will permanently destroy the bucket(s) and all files in them. Be sure to make a backup first!
 
-## Config Variables
+## Config variables
 
 The following config variables will be provided to your application:
 
-### Public S3 Add-on
+### Public S3 add-on
 
 * `PUBLIC_S3_BUCKET_NAME` the name of the bucket created for the app
 * `PUBLIC_S3_BUCKET_PREFIX` Review Apps only. The name of the S3 object prefix accessible to the application
 
-### Private S3 Add-on
+### Private S3 add-on
 
 * `PRIVATE_S3_BUCKET_NAME` the name of the bucket created for the app
 * `PRIVATE_S3_BUCKET_PREFIX` Review Apps only. The name of the S3 object prefix accessible to the application

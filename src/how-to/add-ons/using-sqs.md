@@ -8,6 +8,6 @@ The SQS Add-on creates a [FIFO queue](https://docs.aws.amazon.com/AWSSimpleQueue
 
 Destroying the application will destroy the queue and all messages left in it
 
-## Config Variables
+## Config variables
 
 * `QUEUE_URL` the name of the queue as `sqs://{name}`

@@ -45,7 +45,7 @@ Here are some examples of installing the necessary commands for some common mini
 
 === "Debian Slim"
     ```Dockerfile
-    RUN apt-get update && apt install -y --no-install-recommends procps
+    RUN apt-get update && apt-get install -y --no-install-recommends procps
     ```
 === "Alpine"
     ```Dockerfile

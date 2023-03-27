@@ -1,8 +1,5 @@
 # apppack.toml
 
-!!! warning
-    Using `apppack.toml` for app configuration is not yet generally available. If you'd like to try it out, please [contact us](https://apppack.io/support).
-
 This file can be used to configure how your app is built, released, and the services it will run when deployed.
 
 ## TOML Syntax

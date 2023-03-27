@@ -1,8 +1,5 @@
 # Dockerfile builds
 
-!!! warning
-    Dockerfile builds are not yet generally available. If you'd like to try them out, please [contact us](https://apppack.io/support).
-
 Dockerfile builds allow you to build your application using a Dockerfile instead of the default Buildpacks. This is useful if you have a complex build process, or if you are already using Docker locally and want better parity between environments.
 
 ## Requirements

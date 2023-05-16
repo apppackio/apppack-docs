@@ -42,6 +42,7 @@ It's possible to do this with an IAM user and access keys, but it's more secure 
         }
         ```
       8. Click `Create role`
+3. Use the `--disable-build-webhook` flag when [creating the app](https://docs.apppack.io/command-line-reference/apppack_create_app/) to make sure the default AppPack build pipeline is disabled.
 
 ## Available Actions
 

@@ -70,7 +70,7 @@ summary = "A deep merge function for 🐍."
 
 [[package]]
 name = "mkdocs"
-version = "1.4.2"
+version = "1.4.3"
 requires_python = ">=3.7"
 summary = "Project documentation with Markdown."
 dependencies = [
@@ -110,7 +110,7 @@ dependencies = [
 
 [[package]]
 name = "mkdocs-material"
-version = "9.1.0"
+version = "9.1.13"
 requires_python = ">=3.7"
 summary = "Documentation that simply works"
 dependencies = [
@@ -148,11 +148,12 @@ summary = "Pygments is a syntax highlighting package written in Python."
 
 [[package]]
 name = "pymdown-extensions"
-version = "9.9.2"
+version = "10.0.1"
 requires_python = ">=3.7"
 summary = "Extension pack for Python Markdown."
 dependencies = [
     "markdown>=3.2",
+    "pyyaml",
 ]
 
 [[package]]
@@ -205,7 +206,7 @@ dependencies = [
 
 [[package]]
 name = "setuptools"
-version = "67.4.0"
+version = "67.7.2"
 requires_python = ">=3.7"
 summary = "Easily download, build, install, upgrade, and uninstall Python packages"
 
@@ -233,7 +234,9 @@ requires_python = ">=3.6"
 summary = "Filesystem events monitoring"
 
 [metadata]
-lock_version = "4.1"
+lock_version = "4.2"
+cross_platform = true
+groups = ["default"]
 content_hash = "sha256:16ed1a6ae800190c561e92f646d41f0e8efbed4c28e9e93098a7d91fd964ecaf"
 
 [metadata.files]
@@ -401,9 +404,9 @@ content_hash = "sha256:16ed1a6ae800190c561e92f646d41f0e8efbed4c28e9e93098a7d91fd
     {url = "https://files.pythonhosted.org/packages/2c/19/04f9b178c2d8a15b076c8b5140708fa6ffc5601fb6f1e975537072df5b2a/mergedeep-1.3.4-py3-none-any.whl", hash = "sha256:70775750742b25c0d8f36c55aed03d24c3384d17c951b3175d898bd778ef0307"},
     {url = "https://files.pythonhosted.org/packages/3a/41/580bb4006e3ed0361b8151a01d324fb03f420815446c7def45d02f74c270/mergedeep-1.3.4.tar.gz", hash = "sha256:0096d52e9dad9939c3d975a774666af186eda617e6ca84df4c94dec30004f2a8"},
 ]
-"mkdocs 1.4.2" = [
-    {url = "https://files.pythonhosted.org/packages/ff/00/58f2939f8e6c5f981d9ad9b685c9915a3b315c8f34ba93f0020d64929f70/mkdocs-1.4.2-py3-none-any.whl", hash = "sha256:c8856a832c1e56702577023cd64cc5f84948280c1c0fcc6af4cd39006ea6aa8c"},
-    {url = "https://files.pythonhosted.org/packages/ff/2c/932a6df2847c0ecf0875cd00bede939225734b2815fc866c78edb46d9e5d/mkdocs-1.4.2.tar.gz", hash = "sha256:8947af423a6d0facf41ea1195b8e1e8c85ad94ac95ae307fe11232e0424b11c5"},
+"mkdocs 1.4.3" = [
+    {url = "https://files.pythonhosted.org/packages/42/7a/5ed794942ace9d00bb77a8036c64c999cda6ebaab57e9b8a6ec1aa5fc900/mkdocs-1.4.3-py3-none-any.whl", hash = "sha256:6ee46d309bda331aac915cd24aab882c179a933bd9e77b80ce7d2eaaa3f689dd"},
+    {url = "https://files.pythonhosted.org/packages/b0/ef/49b4427e5eec761b77a3c3c421d3fd63010e2798b7401dc0fa2b875ef6b5/mkdocs-1.4.3.tar.gz", hash = "sha256:5955093bbd4dd2e9403c5afaf57324ad8b04f16886512a3ee6ef828956481c57"},
 ]
 "mkdocs-literate-nav 0.6.0" = [
     {url = "https://files.pythonhosted.org/packages/46/91/75eb48eafdbe609ca80d6c271ad5bc4edc75cffde4d1d70604f2a4c2145a/mkdocs_literate_nav-0.6.0.tar.gz", hash = "sha256:81ccbea18163ae8e10bd0bd39237fe70c32a1f2dff6c170779f5d52dd98a0470"},
@@ -413,9 +416,9 @@ content_hash = "sha256:16ed1a6ae800190c561e92f646d41f0e8efbed4c28e9e93098a7d91fd
     {url = "https://files.pythonhosted.org/packages/1b/43/c199e0bdb4c56bb392c3559e9023122b0be2d457763c48b9774f5fca500d/mkdocs-macros-plugin-0.7.0.tar.gz", hash = "sha256:9e64e1cabcf6925359de29fe54f62d5847fb455c2528c440b87f8f1240650608"},
     {url = "https://files.pythonhosted.org/packages/d8/79/1cb714fd860d2e231d72d3c5e7f7edc91d380d90c694da5deddc8c345a25/mkdocs_macros_plugin-0.7.0-py3-none-any.whl", hash = "sha256:96bdabeb98b96139544f0048ea2f5cb80c7befde6b21e94c6d4596c22774cbcf"},
 ]
-"mkdocs-material 9.1.0" = [
-    {url = "https://files.pythonhosted.org/packages/12/41/ffda69f472c97ebc4934af48e3088c684b514fbe4649e2fe88cba114c671/mkdocs_material-9.1.0-py3-none-any.whl", hash = "sha256:7b8a84594611e6b2c5391d996ccc2b3a2b410acd1027a65ce7533a3a43ff612b"},
-    {url = "https://files.pythonhosted.org/packages/8a/a0/cfcf209955466062f818d8664901ff8de3a2314ab5e23c75a1dd9ae096f2/mkdocs_material-9.1.0.tar.gz", hash = "sha256:8ce03306df37fc49300f0f1feea6f111004579c2050b5f6cb4924bbb4ca1ef1c"},
+"mkdocs-material 9.1.13" = [
+    {url = "https://files.pythonhosted.org/packages/10/10/7245bfb3ae9fe673cb283259a049e75d622418fbdb1cc54d4eef77cce92f/mkdocs_material-9.1.13.tar.gz", hash = "sha256:9102e7604d73e507021847601b0a8b4fe9035422788390183f464fa3b30dd508"},
+    {url = "https://files.pythonhosted.org/packages/5a/a3/00aaf7d83d44d1bac139df38d0dd30e55b799d13f565b6947f5b7a9e6c0f/mkdocs_material-9.1.13-py3-none-any.whl", hash = "sha256:5705cf8cb6c47c747606bd914bb6c01993ff141295cd259475559a1f09f07d5d"},
 ]
 "mkdocs-material-extensions 1.1.1" = [
     {url = "https://files.pythonhosted.org/packages/cd/3f/e5e3c9bfbb42e4cb661f71bcec787ae6bdf4a161b8c4bb68fd7d991c436c/mkdocs_material_extensions-1.1.1.tar.gz", hash = "sha256:9c003da71e2cc2493d910237448c672e00cefc800d3d6ae93d2fc69979e3bd93"},
@@ -429,9 +432,9 @@ content_hash = "sha256:16ed1a6ae800190c561e92f646d41f0e8efbed4c28e9e93098a7d91fd
     {url = "https://files.pythonhosted.org/packages/0b/42/d9d95cc461f098f204cd20c85642ae40fbff81f74c300341b8d0e0df14e0/Pygments-2.14.0-py3-none-any.whl", hash = "sha256:fa7bd7bd2771287c0de303af8bfdfc731f51bd2c6a47ab69d117138893b82717"},
     {url = "https://files.pythonhosted.org/packages/da/6a/c427c06913204e24de28de5300d3f0e809933f376e0b7df95194b2bb3f71/Pygments-2.14.0.tar.gz", hash = "sha256:b3ed06a9e8ac9a9aae5a6f5dbe78a8a58655d17b43b93c078f094ddc476ae297"},
 ]
-"pymdown-extensions 9.9.2" = [
-    {url = "https://files.pythonhosted.org/packages/b7/70/0926b40d01fd2d708798994135f50ce02459499c36a25423b55901f7a7c5/pymdown_extensions-9.9.2-py3-none-any.whl", hash = "sha256:c3d804eb4a42b85bafb5f36436342a5ad38df03878bb24db8855a4aa8b08b765"},
-    {url = "https://files.pythonhosted.org/packages/d9/6c/acf082ba18d1c91f75d38ba8fbc2dc97d782ce119739467e4529647809ed/pymdown_extensions-9.9.2.tar.gz", hash = "sha256:ebb33069bafcb64d5f5988043331d4ea4929325dc678a6bcf247ddfcf96499f8"},
+"pymdown-extensions 10.0.1" = [
+    {url = "https://files.pythonhosted.org/packages/a2/17/607fc71d709c0df9cca39ed57ed6f8b1cb77863073004c7def8a02a45fe2/pymdown_extensions-10.0.1-py3-none-any.whl", hash = "sha256:ae66d84013c5d027ce055693e09a4628b67e9dec5bce05727e45b0918e36f274"},
+    {url = "https://files.pythonhosted.org/packages/cb/06/5779fe8fa684080bcb0eeabcbcb9bfe2cf14dcf776b687001e7820fba660/pymdown_extensions-10.0.1.tar.gz", hash = "sha256:b44e1093a43b8a975eae17b03c3a77aad4681b3b56fce60ce746dbef1944c8cb"},
 ]
 "pyparsing 3.0.9" = [
     {url = "https://files.pythonhosted.org/packages/6c/10/a7d0fa5baea8fe7b50f448ab742f26f52b80bfca85ac2be9d35cdd9a3246/pyparsing-3.0.9-py3-none-any.whl", hash = "sha256:5026bae9a10eeaefb61dab2f09052b9f4307d44aee4eda64b309723d8d206bbc"},
@@ -581,9 +584,9 @@ content_hash = "sha256:16ed1a6ae800190c561e92f646d41f0e8efbed4c28e9e93098a7d91fd
     {url = "https://files.pythonhosted.org/packages/9d/ee/391076f5937f0a8cdf5e53b701ffc91753e87b07d66bae4a09aa671897bf/requests-2.28.2.tar.gz", hash = "sha256:98b1b2782e3c6c4904938b84c0eb932721069dfdb9134313beff7c83c2df24bf"},
     {url = "https://files.pythonhosted.org/packages/d2/f4/274d1dbe96b41cf4e0efb70cbced278ffd61b5c7bb70338b62af94ccb25b/requests-2.28.2-py3-none-any.whl", hash = "sha256:64299f4909223da747622c030b781c0d7811e359c37124b4bd368fb8c6518baa"},
 ]
-"setuptools 67.4.0" = [
-    {url = "https://files.pythonhosted.org/packages/2c/3a/e0340041dad00234d1fe569ed55b602d24eb11a4939b0a2ec844e970a87d/setuptools-67.4.0-py3-none-any.whl", hash = "sha256:f106dee1b506dee5102cc3f3e9e68137bbad6d47b616be7991714b0c62204251"},
-    {url = "https://files.pythonhosted.org/packages/fe/31/2c88d37d4f8036c6648745e74ec51f73a6ba945a06e069601900f81fe00a/setuptools-67.4.0.tar.gz", hash = "sha256:e5fd0a713141a4a105412233c63dc4e17ba0090c8e8334594ac790ec97792330"},
+"setuptools 67.7.2" = [
+    {url = "https://files.pythonhosted.org/packages/2f/8c/f336a966d4097c7cef6fc699b2ecb83b5fb63fd698198c1b5c7905a74f0f/setuptools-67.7.2-py3-none-any.whl", hash = "sha256:23aaf86b85ca52ceb801d32703f12d77517b2556af839621c641fca11287952b"},
+    {url = "https://files.pythonhosted.org/packages/fd/53/e5d7ae40d03e4ed20b7cba317cf9c0c97097c8debb39f9d72d182a6578a2/setuptools-67.7.2.tar.gz", hash = "sha256:f104fa03692a2602fa0fec6c6a9e63b6c8a968de13e17c026957dd1f53d80990"},
 ]
 "six 1.16.0" = [
     {url = "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},

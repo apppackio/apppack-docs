@@ -8,11 +8,21 @@ A release task is a command that must run once before a new version of your app 
 
 ## Defining a release task
 
-To define a release task, add the command to your `Procfile` under the key, `release`. For example, to apply database schema migrations for a Django application, you might add the following line:
+To define a release task, add the command to your `Procfile` under the key, `release` or in `apppack.toml` under `deploy.release_command`. For example, to apply database schema migrations for a Django application, you might add the following:
 
-```yaml
-release: python manage.py migrate --noinput
-```
+=== "Procfile"
+
+    ```yaml
+    release: python manage.py migrate --noinput
+    ```
+
+=== "apppack.toml"
+
+    ```toml
+    [deploy]
+
+    release_command = "python manage.py migrate --noinput"
+    ```
 
 Unlike other commands in your `Procfile`, the `release` command will not create a new always-running service. It is a special task that only runs once during the deployment process.
 

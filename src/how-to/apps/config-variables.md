@@ -13,6 +13,9 @@ Config variables are used to store secrets and pass environment-specific informa
 
 This command will store the value as an encrypted string in the [AWS Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html). It will also gracefully restart your application to add the environment variable immediately.
 
+!!! note
+    The `APPPACK_APPNAME` configuration is already set for each app. If neither `AWS_REGION` nor `AWS_DEFAULT_REGION` are configured, they will be automatically set to the app's deployed region. If either one is set, the other will not be set automatically.
+
 ## Modifying a config variable
 
 Use the same process as above for setting a variable.

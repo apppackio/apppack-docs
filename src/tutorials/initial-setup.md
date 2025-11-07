@@ -57,7 +57,7 @@ we can skip this step:
 
 **4\. Review and create**
 
-      2. Click `Create stack`
+* Click `Submit`
 
 [^1]: See [Choose an AWS Region](../how-to/set-up/choose-aws-region.md) for more info
 

@@ -15,7 +15,10 @@ You'll need a few things ready to go to complete this tutorial. Make sure you've
 
 ⏳ _Estimated Time: 3 minutes_
 
-Get started by clicking the "Launch Stack" button for your preferred region[^1] below. This will open up the AWS console and install the initial account-level resources so we can start using AppPack.
+AppPack is currently available in a number of AWS Regions. Let's get started by 
+clicking the "Launch Stack" button for your nearest region[^1] below. This will 
+open the AWS Console to begin creating a resource Stack using AWS CloudFormation.
+We will use a pre-defined JSON template, so we can start using AppPack.
 
 | Stack                                                                                                                                                                                                                                                                                                                                              | Region                                 |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------|

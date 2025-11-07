@@ -50,9 +50,13 @@ we can skip this step:
 2. Click `Next`
 
 **3\. Configure stack options**
-      * Click `Next`
+
+1. In the `Capabilities` section, at the bottom of the screen, check the box titled   
+   _I acknowledge that AWS CloudFormation might create IAM resources._   
+2. Click `Next`  
+
 **4\. Review and create**
-      1. At the bottom of the page, check the box for _I acknowledge that AWS CloudFormation might create IAM resources._
+
       2. Click `Create stack`
 
 [^1]: See [Choose an AWS Region](../how-to/set-up/choose-aws-region.md) for more info

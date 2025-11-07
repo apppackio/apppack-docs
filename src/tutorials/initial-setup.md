@@ -42,9 +42,13 @@ we can skip this step:
 * Click `Next`
 
 **2\. Specify stack details**
-      1. In the `Administrators` field, enter your email address and the email addresses of anyone else you'd like to grant full admin access to your account.
-      ![create administrators screenshot](./../assets/create-administrators.png)
-      2. Click `Next`
+
+1. In the `Administrators` field, enter your email address and the email addresses 
+   of anyone else you'd like to grant full admin access to your account.
+   ![create administrators screenshot](./../assets/create-administrators.png)
+
+2. Click `Next`
+
 **3\. Configure stack options**
       * Click `Next`
 **4\. Review and create**

@@ -35,7 +35,12 @@ We will use a pre-defined JSON template, so we can start using AppPack.
 The process of creating an AWS CloudFormation Stack is divided into four steps:
 
 **1\. Specify template**
-      * Click `Next`
+
+The first step is selecting the template to use. Since that was defined in the link,
+we can skip this step:
+
+* Click `Next`
+
 **2\. Specify stack details**
       1. In the `Administrators` field, enter your email address and the email addresses of anyone else you'd like to grant full admin access to your account.
       ![create administrators screenshot](./../assets/create-administrators.png)

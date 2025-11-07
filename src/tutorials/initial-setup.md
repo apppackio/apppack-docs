@@ -73,7 +73,9 @@ apppack auth login
 
 <script id="asciicast-BkCDHIskycHdYNt3e8rMjbUAt" src="https://asciinema.org/a/BkCDHIskycHdYNt3e8rMjbUAt.js" data-rows="8" async></script>
 
-You'll be able to login or create a new account if you don't have one already. If you login with an email address and password, be sure to verify your email address before continuing.
+You'll be able to login, or create a new account if you don't have one already. If you 
+create an account, you MUST verify your email address, using the link sent to your
+email address, before logging in.
 
 Verify you are setup as an administrator:
 

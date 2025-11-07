@@ -32,9 +32,7 @@ We will use a pre-defined JSON template, so we can start using AppPack.
 | [![Create AppPack Stack in eu-north-1](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://eu-north-1.console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=apppack-account&templateURL=https%3A%2F%2Fs3.amazonaws.com%2Fapppack-cloudformations%2Flatest%2Faccount.json){target=_blank}         | Europe (Stockholm) `eu-north-1`           |
 | [![Create AppPack Stack in eu-west-2](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://eu-west-2.console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=apppack-account&templateURL=https%3A%2F%2Fs3.amazonaws.com%2Fapppack-cloudformations%2Flatest%2Faccount.json){target=_blank}           | Europe (London) `eu-west-2`               |
 
-
-
-This will drop you into the AWS Cloudformation Stack creation form. It is split into four steps:
+The process of creating an AWS CloudFormation Stack is divided into four steps:
 
 1. **Specify template**
       * Click `Next`

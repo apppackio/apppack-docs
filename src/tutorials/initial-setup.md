@@ -91,7 +91,10 @@ You should see your AWS account listed in the output.
 
 ⏳ _Estimated time: 15 minutes_
 
-You'll need to assign a domain to your cluster. If you used `example.com` for your cluster, apps you create on the cluster will be available at `https://{appname}.example.com`. You can use a custom domain for production apps, so this domain is typically just used internally.
+You'll need to register and assign a domain for the cluster, e.g. `my-apppack-cluster.com`.
+The apps you create will be then available at the subdomain `https://{appname}.my-apppack-cluster.com`. 
+This subdomain is typically just used within AWS. You can assign a custom domain for
+production.
 
 The easiest option here is to [register a new domain in your AWS console](https://console.aws.amazon.com/route53/home#DomainRegistration:). Depending on the TLD you choose, they can be had for as little as $3/year (looking at you `.click` 👀).
 

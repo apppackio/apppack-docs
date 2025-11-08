@@ -15,35 +15,49 @@ You'll need a few things ready to go to complete this tutorial. Make sure you've
 
 ⏳ _Estimated Time: 3 minutes_
 
-Get started by clicking the "Launch Stack" button for your preferred region[^1] below. This will open up the AWS console and install the initial account-level resources so we can start using AppPack.
+AppPack is currently available in a number of AWS Regions. Let's get started by 
+clicking the "Launch Stack" button for your nearest region[^1] below. This will 
+open the AWS Console to begin creating a resource Stack using AWS CloudFormation.
+We will use a pre-defined JSON template, so we can start using AppPack.
 
-| Stack                                                                                                                                                                                                                                                                                                                                              | Region                                 |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------|
-| [![Create AppPack Stack in us-east-2](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://us-east-2.console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=apppack-account&templateURL=https%3A%2F%2Fs3.amazonaws.com%2Fapppack-cloudformations%2Flatest%2Faccount.json){target=_blank}           | US East (Ohio) `us-east-2`             |
-| [![Create AppPack Stack in us-west-2](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://us-west-2.console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=apppack-account&templateURL=https%3A%2F%2Fs3.amazonaws.com%2Fapppack-cloudformations%2Flatest%2Faccount.json){target=_blank}           | US West (Oregon) `us-west-2`           |
-| [![Create AppPack Stack in us-east-1](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://us-east-1.console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=apppack-account&templateURL=https%3A%2F%2Fs3.amazonaws.com%2Fapppack-cloudformations%2Flatest%2Faccount.json){target=_blank}           | US East (N. Virginia) `us-east-1`      |
-| [![Create AppPack Stack in ap-northeast-2](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://ap-northeast-2.console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=apppack-account&templateURL=https%3A%2F%2Fs3.amazonaws.com%2Fapppack-cloudformations%2Flatest%2Faccount.json){target=_blank} | Asia Pacific (Seoul) `ap-northeast-2`  |
-| [![Create AppPack Stack in ap-south-1](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://ap-south-1.console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=apppack-account&templateURL=https%3A%2F%2Fs3.amazonaws.com%2Fapppack-cloudformations%2Flatest%2Faccount.json){target=_blank}         | Asia Pacific (Mumbai) `ap-south-1`     |
+| Stack                                                                                                                                                                                                                                                                                                                                              | Region                                    |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------|
+| [![Create AppPack Stack in us-east-2](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://us-east-2.console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=apppack-account&templateURL=https%3A%2F%2Fs3.amazonaws.com%2Fapppack-cloudformations%2Flatest%2Faccount.json){target=_blank}           | US East (Ohio) `us-east-2`                |
+| [![Create AppPack Stack in us-west-2](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://us-west-2.console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=apppack-account&templateURL=https%3A%2F%2Fs3.amazonaws.com%2Fapppack-cloudformations%2Flatest%2Faccount.json){target=_blank}           | US West (Oregon) `us-west-2`              |
+| [![Create AppPack Stack in us-east-1](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://us-east-1.console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=apppack-account&templateURL=https%3A%2F%2Fs3.amazonaws.com%2Fapppack-cloudformations%2Flatest%2Faccount.json){target=_blank}           | US East (N. Virginia) `us-east-1`         |
+| [![Create AppPack Stack in ap-northeast-2](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://ap-northeast-2.console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=apppack-account&templateURL=https%3A%2F%2Fs3.amazonaws.com%2Fapppack-cloudformations%2Flatest%2Faccount.json){target=_blank} | Asia Pacific (Seoul) `ap-northeast-2`     |
+| [![Create AppPack Stack in ap-south-1](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://ap-south-1.console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=apppack-account&templateURL=https%3A%2F%2Fs3.amazonaws.com%2Fapppack-cloudformations%2Flatest%2Faccount.json){target=_blank}         | Asia Pacific (Mumbai) `ap-south-1`        |
 | [![Create AppPack Stack in ap-southeast-1](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://ap-southeast-1.console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=apppack-account&templateURL=https%3A%2F%2Fs3.amazonaws.com%2Fapppack-cloudformations%2Flatest%2Faccount.json){target=_blank} | Asia Pacific (Singapore) `ap-southeast-1` |
-| [![Create AppPack Stack in ap-southeast-2](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://ap-southeast-2.console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=apppack-account&templateURL=https%3A%2F%2Fs3.amazonaws.com%2Fapppack-cloudformations%2Flatest%2Faccount.json){target=_blank} | Asia Pacific (Sydney) `ap-southeast-2` |
-| [![Create AppPack Stack in eu-north-1](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://eu-north-1.console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=apppack-account&templateURL=https%3A%2F%2Fs3.amazonaws.com%2Fapppack-cloudformations%2Flatest%2Faccount.json){target=_blank}         | EU (Stockholm) `eu-north-1`            |
-| [![Create AppPack Stack in eu-west-2](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://eu-west-2.console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=apppack-account&templateURL=https%3A%2F%2Fs3.amazonaws.com%2Fapppack-cloudformations%2Flatest%2Faccount.json){target=_blank}           | EU (London) `eu-west-2`                |
+| [![Create AppPack Stack in ap-southeast-2](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://ap-southeast-2.console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=apppack-account&templateURL=https%3A%2F%2Fs3.amazonaws.com%2Fapppack-cloudformations%2Flatest%2Faccount.json){target=_blank} | Asia Pacific (Sydney) `ap-southeast-2`    |
+| [![Create AppPack Stack in eu-north-1](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://eu-north-1.console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=apppack-account&templateURL=https%3A%2F%2Fs3.amazonaws.com%2Fapppack-cloudformations%2Flatest%2Faccount.json){target=_blank}         | Europe (Stockholm) `eu-north-1`           |
+| [![Create AppPack Stack in eu-west-2](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://eu-west-2.console.aws.amazon.com/cloudformation/home#/stacks/new?stackName=apppack-account&templateURL=https%3A%2F%2Fs3.amazonaws.com%2Fapppack-cloudformations%2Flatest%2Faccount.json){target=_blank}           | Europe (London) `eu-west-2`               |
 
+The process of creating an AWS CloudFormation Stack is divided into four steps:
 
+**1\. Specify template**
 
-This will drop you into the AWS Cloudformation Stack creation form. It is split into four steps:
+The first step is selecting the template to use. Since that was defined in the link,
+we can skip this step:
 
-1. **Specify template**
-      * Click `Next`
-2. **Specify stack details**
-      1. In the `Administrators` field, enter your email address and the email addresses of anyone else you'd like to grant full admin access to your account.
-      ![create administrators screenshot](./../assets/create-administrators.png)
-      2. Click `Next`
-3. **Configure stack options**
-      * Click `Next`
-4. **Review**
-      1. At the bottom of the page, check the box for _I acknowledge that AWS CloudFormation might create IAM resources._
-      2. Click `Create stack`
+* Click `Next`
+
+**2\. Specify stack details**
+
+1. In the `Administrators` field, enter your email address and the email addresses 
+   of anyone else you'd like to grant full admin access to your account.
+   ![create administrators screenshot](./../assets/create-administrators.png)
+
+2. Click `Next`
+
+**3\. Configure stack options**
+
+1. In the `Capabilities` section, at the bottom of the screen, check the box titled   
+   _I acknowledge that AWS CloudFormation might create IAM resources._   
+2. Click `Next`  
+
+**4\. Review and create**
+
+* Click `Submit`
 
 [^1]: See [Choose an AWS Region](../how-to/set-up/choose-aws-region.md) for more info
 
@@ -59,7 +73,9 @@ apppack auth login
 
 <script id="asciicast-BkCDHIskycHdYNt3e8rMjbUAt" src="https://asciinema.org/a/BkCDHIskycHdYNt3e8rMjbUAt.js" data-rows="8" async></script>
 
-You'll be able to login or create a new account if you don't have one already. If you login with an email address and password, be sure to verify your email address before continuing.
+You'll be able to login, or create a new account if you don't have one already. If you 
+create an account, you MUST verify your email address, using the link sent to your
+email address, before logging in.
 
 Verify you are setup as an administrator:
 
@@ -75,15 +91,19 @@ You should see your AWS account listed in the output.
 
 ⏳ _Estimated time: 15 minutes_
 
-You'll need to assign a domain to your cluster. If you used `example.com` for your cluster, apps you create on the cluster will be available at `https://{appname}.example.com`. You can use a custom domain for production apps, so this domain is typically just used internally.
+You'll need to register and assign a domain for the cluster, e.g. `my-apppack-cluster.com`.
+The apps you create will be then available at the subdomain `https://{appname}.my-apppack-cluster.com`. 
+This subdomain is typically just used within AWS. You can assign a custom domain for
+production.
 
-The easiest option here is to [register a new domain in your AWS console](https://console.aws.amazon.com/route53/home#DomainRegistration:). Depending on the TLD you choose, they can be had for as little as $3/year (looking at you `.click` 👀).
+The easiest option here is to [register a new domain in your AWS console](https://console.aws.amazon.com/route53/domains/home#/DomainSearch). Depending on the TLD you choose, they can be had for as little as $3/year (looking at you `.click` 👀).
 
 !!! warning
       ⏳ This isn't an instant process, so be prepared to wait at least a few minutes for your domain to move from [Pending](https://console.aws.amazon.com/route53/home#DomainRequests:) to [Registered](https://console.aws.amazon.com/route53/home#DomainListing:). Also make sure you've [entered your billing info](https://console.aws.amazon.com/billing/home#/paymentmethods) in the AWS console to avoid any extra delay.
 
 !!! info
-    If you'd rather use a domain you already own, see the [Bring Your Own Cluster Domain](../how-to/domains/bring-your-own-cluster-domain.md) how-to.
+    If you'd rather use a domain you already own, see the [Bring Your Own Cluster Domain](../how-to/domains/bring-your-own-cluster-domain.md) 
+    how-to. It will always take a few minute for any DNS changes to propagate.
 
 ## 👷‍♀️ Create your cluster
 

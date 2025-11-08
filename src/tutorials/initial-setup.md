@@ -96,7 +96,7 @@ The apps you create will be then available at the subdomain `https://{appname}.m
 This subdomain is typically just used within AWS. You can assign a custom domain for
 production.
 
-The easiest option here is to [register a new domain in your AWS console](https://console.aws.amazon.com/route53/home#DomainRegistration:). Depending on the TLD you choose, they can be had for as little as $3/year (looking at you `.click` 👀).
+The easiest option here is to [register a new domain in your AWS console](https://console.aws.amazon.com/route53/domains/home#/DomainSearch). Depending on the TLD you choose, they can be had for as little as $3/year (looking at you `.click` 👀).
 
 !!! warning
       ⏳ This isn't an instant process, so be prepared to wait at least a few minutes for your domain to move from [Pending](https://console.aws.amazon.com/route53/home#DomainRequests:) to [Registered](https://console.aws.amazon.com/route53/home#DomainListing:). Also make sure you've [entered your billing info](https://console.aws.amazon.com/billing/home#/paymentmethods) in the AWS console to avoid any extra delay.

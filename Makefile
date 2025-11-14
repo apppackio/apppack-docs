@@ -1,6 +1,6 @@
 .PHONY: build
 build:
-	SITE_URL=https://docs.apppack.io/ pdm run mkdocs build
+	SITE_URL=https://docs.apppack.io/ uv run mkdocs build
 
 .PHONY: deploy
 deploy:
@@ -11,3 +11,11 @@ deploy:
 .PHONY: clean
 clean:
 	rm -rf ./public/*
+
+.PHONY: cli-docs
+cli-docs:
+	apppack docgen --directory src/command-line-reference
+
+.PHONY: run
+run:
+	uv run mkdocs serve

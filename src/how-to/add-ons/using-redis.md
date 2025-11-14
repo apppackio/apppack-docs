@@ -4,7 +4,7 @@ Redis is available as an add-on and is backed by [AWS Elasticache](https://aws.a
 
 ## Creating a Redis cluster
 
-First you must setup Redis in your AppPack Cluster. This can be done with [`apppack create redis`](/command-line-reference/apppack_create_redis/).
+First you must setup Redis in your AppPack Cluster. This can be done with [`apppack create redis`](/command-line-reference/apppack_create_redis.md).
 
 !!! example
     ```

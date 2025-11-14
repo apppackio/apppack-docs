@@ -4,7 +4,7 @@ Config variables are used to store secrets and pass environment-specific informa
 
 ## Setting a config variable
 
-[`apppack config set`](/command-line-reference/apppack_config_set/) is used to set a config variable. For example, if you wanted to store a config variable named `SECRET_KEY` with the value `this-is-a-secret` for your app `my-app`, you would run:
+[`apppack config set`](/command-line-reference/apppack_config_set.md) is used to set a config variable. For example, if you wanted to store a config variable named `SECRET_KEY` with the value `this-is-a-secret` for your app `my-app`, you would run:
 
 !!! example
     ```

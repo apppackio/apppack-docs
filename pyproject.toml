@@ -5,10 +5,49 @@ description = "Documentation for AppPack.io"
 authors = [
     {name = "Peter Baumgartner", email = "pete@lincolnloop.com"},
 ]
-dependencies = ["mkdocs", "mkdocs-literate-nav", "mkdocs-material", "mkdocs-macros-plugin", "setuptools", "pymdown-extensions"]
+dependencies = ["mkdocs", "mkdocs-literate-nav", "mkdocs-material", "mkdocs-macros-plugin", "setuptools", "pymdown-extensions", "keepachangelog>=2.0.0", "requests>=2.31.0"]
 requires-python = ">=3.14"
 dynamic = ["classifiers"]
 license = {text = "MIT"}
 
 [project.urls]
 homepage = "https://github.com/apppackio/apppack-docs"
+
+[tool.ruff]
+extend-exclude = ["migrations"]
+target-version = "py314"
+
+[tool.ruff.lint]
+ignore = [
+  "ANN401",  # Dynamically typed expressions (typing.Any) are disallowed in `**kwargs`"
+  "ARG001",  # Unused function argument (request, ...)
+  "ARG002",  # Unused method argument (*args, **kwargs)
+  "D",  # Missing or badly formatted docstrings
+  "E501",  # Let the formatter handle long lines
+  "FBT",  # Flake Boolean Trap (don't use arg=True in functions)
+  "RUF012",  # Mutable class attributes https://github.com/astral-sh/ruff/issues/5243
+  "COM812",  # (ruff format) Checks for the absence of trailing commas
+  "ISC001",  # (ruff format) Checks for implicitly concatenated strings on a single line
+]
+select = ["ALL"]
+
+[[tool.changelog.repositories]]
+name = "apppack"
+alias = "cli"
+url = "https://github.com/apppackio/apppack"
+changelog_path = "CHANGELOG.md"
+public = true
+
+[[tool.changelog.repositories]]
+name = "apppack-codebuild-image"
+alias = "ci-builder"
+url = "https://github.com/apppackio/apppack-codebuild-image"
+changelog_path = "CHANGELOG.md"
+public = false
+
+[[tool.changelog.repositories]]
+name = "apppack-backend"
+alias = "stacks"
+url = "https://github.com/apppackio/apppack-backend"
+changelog_path = "formations/CHANGELOG.md"
+public = false

@@ -7,28 +7,21 @@ on:
 
 jobs:
   build:
-    env:
-      PYVER: "3.10"
 
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v1
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
-          python-version: ${{ env.PYVER }}
-      - uses: pdm-project/setup-pdm@main
+          python-version-file: "pyproject.toml"
+
+      - uses: astral-sh/setup-uv@v6
         with:
-          python-version: ${{ env.PYVER }}
-      - uses: actions/cache@v1
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
+          enable-cache: true
 
       - name: Install dependencies
-        run: pdm sync
+        run: uv sync --locked
 
       - name: CLI docs
         run: |
@@ -40,13 +33,13 @@ jobs:
           ./apppack docgen --directory src/command-line-reference
       - name: Build
         run: APPPACK_VERSION=$(./apppack version) make build
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v5
         with:
           path: public
           retention-days: 3
   deploy:
     needs: [build]
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     if: github.ref == 'refs/heads/deploy/prod'
     environment: production
     env:
@@ -56,10 +49,10 @@ jobs:
       contents: read
       id-token: write
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v2
+      - uses: actions/checkout@v5
+      - uses: actions/download-artifact@v5
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@master
+        uses: aws-actions/configure-aws-credentials@v5
         with:
           role-to-assume: ${{ env.AWS_ROLE_ARN }}
           aws-region: ${{ env.AWS_DEFAULT_REGION }}

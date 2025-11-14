@@ -79,7 +79,7 @@ The command used to release your app. Only used if `build.system` is set to `doc
 
 ## `[review_app]`
 
-This section is only applicable for review apps. See [Review Apps](/how-to/apps/review-apps#handling-initial-data) for more information.
+This section is only applicable for review apps. See [Review Apps](/how-to/apps/review-apps.md#handling-initial-data) for more information.
 
 ### `initialize_command`
 
@@ -117,5 +117,3 @@ The command used to run the service.
 * Values: A command, e.g. `"npm start"`
 * Default: `""`
 * Required: Yes
-
-

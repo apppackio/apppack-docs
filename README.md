@@ -2,14 +2,14 @@
 
 To build locally, you'll need:
 
-* Python 3.9
-* [PDM](https://pdm.fming.dev/#installation)
+* Python 3.14
+* [`uv`](https://docs.astral.sh/uv/getting-started/installation/)
 
 Run:
 
 ```shell
-pdm sync
-pdm run mkdocs serve
+uv sync
+make run
 ```
 
 ## Deployment

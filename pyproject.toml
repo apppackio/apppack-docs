@@ -6,24 +6,9 @@ authors = [
     {name = "Peter Baumgartner", email = "pete@lincolnloop.com"},
 ]
 dependencies = ["mkdocs", "mkdocs-literate-nav", "mkdocs-material", "mkdocs-macros-plugin", "setuptools", "pymdown-extensions"]
-requires-python = ">=3.10"
+requires-python = ">=3.14"
 dynamic = ["classifiers"]
 license = {text = "MIT"}
 
 [project.urls]
 homepage = "https://github.com/apppackio/apppack-docs"
-
-[build-system]
-requires = ["pdm-pep517"]
-build-backend = "pdm.pep517.api"
-
-
-[tool]
-[tool.pdm]
-[tool.pdm.scripts]
-serve = "mkdocs serve"
-
-[[tool.pdm.source]]
-name = "pypi"
-url = "https://pypi.org/simple"
-verify_ssl = true

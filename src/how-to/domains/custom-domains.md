@@ -17,7 +17,7 @@ This can be done automatically for domains which are already setup as a Route53 
 
 ### Automatic Setup
 
-The CLI includes an [`apppack create custom-domain`](/command-line-reference/apppack_create_custom-domain/) command for domains which already have a Route53 Hosted Zone in your AWS account. It will handle certificate creation/validation, attaching the certificate to the load balancer, and creating `ALIAS` records which point the domain(s) to the load balancer.
+The CLI includes an [`apppack create custom-domain`](/command-line-reference/apppack_create_custom-domain.md) command for domains which already have a Route53 Hosted Zone in your AWS account. It will handle certificate creation/validation, attaching the certificate to the load balancer, and creating `ALIAS` records which point the domain(s) to the load balancer.
 
 <script id="asciicast-bwwgM6iTcA3xQR8xoQjKGbjMP" src="https://asciinema.org/a/bwwgM6iTcA3xQR8xoQjKGbjMP.js" data-rows="20" data-theme="monokai" async></script>
 

@@ -4,7 +4,7 @@ Postgres and MySQL databases are available as an add-on and are backed by [AWS R
 
 ## Creating a database cluster
 
-First you must setup the database in your AppPack Cluster. This can be done with [`apppack create database`](/command-line-reference/apppack_create_database/).
+First you must setup the database in your AppPack Cluster. This can be done with [`apppack create database`](/command-line-reference/apppack_create_database.md).
 
 !!! example
     ```

@@ -219,6 +219,58 @@ def load_config(config_path: str) -> dict:
     return config
 
 
+def generate_version_page(entry: ChangelogEntry, output_path: Path) -> None:
+    """Generate an individual version page"""
+    with output_path.open("w") as f:
+        # Front matter
+        f.write("---\n")
+        f.write(f'title: "{entry.alias} {entry.version}"\n')
+        f.write(f"tags: [{entry.alias}]\n")
+        f.write("---\n\n")
+
+        # Page content
+        f.write(f"# {entry.alias} {entry.version}\n\n")
+        f.write(f"**Released:** {entry.date.strftime('%Y-%m-%d')}\n")
+        f.write(f"**Repository:** {entry.repository}\n\n")
+
+        for section_name, items in entry.sections.items():
+            if items:
+                f.write(f"## {section_name}\n\n")
+                f.writelines(f"- {item}\n" for item in items)
+                f.write("\n")
+
+        f.write("---\n\n")
+        f.write("[← Back to Changelog](../index.md)\n")
+
+
+def generate_index_page(entries: list[ChangelogEntry], output_path: Path) -> None:
+    """Generate the combined changelog index page"""
+    with output_path.open("w") as f:
+        # Front matter
+        f.write("---\n")
+        f.write('title: "AppPack Changelog"\n')
+        f.write("---\n\n")
+
+        # Page content
+        f.write("# AppPack Changelog\n\n")
+        f.write(
+            "This page aggregates changelogs from all AppPack repositories, "
+            "showing the most recent changes first.\n\n"
+        )
+
+        for entry in entries:
+            f.write(f"## [{entry.alias} {entry.version}](versions/{entry.version_id}.md)\n\n")
+            f.write(f"**{entry.date.strftime('%Y-%m-%d')}** • **{entry.repository}**\n\n")
+
+            for section_name, items in entry.sections.items():
+                if items:
+                    f.write(f"### {section_name}\n\n")
+                    f.writelines(f"- {item}\n" for item in items)
+                    f.write("\n")
+
+            f.write("---\n\n")
+
+
 def get_auth_token(args: argparse.Namespace) -> str | None:
     """Get GitHub authentication token from various sources"""
     # Priority: CLI arg > env var > gh CLI (automatic)
@@ -262,9 +314,9 @@ def main() -> None:
         help="Path to pyproject.toml file",
     )
     parser.add_argument(
-        "--output",
-        default="merged_changelog.md",
-        help="Output file for merged changelog",
+        "--output-dir",
+        default="src/changelog",
+        help="Output directory for generated changelog pages",
     )
     parser.add_argument(
         "--token",
@@ -310,30 +362,26 @@ def main() -> None:
     # Merge all entries
     merged = merger.merge_changelogs(all_entries)
 
-    # Output merged changelog
-    logger.info("Writing merged changelog to %s", args.output)
-    output_file = Path(args.output)
-    with output_file.open("w") as f:
-        f.write("# AppPack Merged Changelog\n\n")
-        f.write(f"Total versions: {len(merged)}\n\n")
-        f.write("---\n\n")
+    # Create output directories
+    output_dir = Path(args.output_dir)
+    versions_dir = output_dir / "versions"
+    versions_dir.mkdir(parents=True, exist_ok=True)
+    logger.info("Creating changelog pages in %s", output_dir)
 
-        for entry in merged:
-            f.write(f"## {entry.alias} {entry.version}\n\n")
-            f.write(f"**Released:** {entry.date.strftime('%Y-%m-%d')}\n")
-            f.write(f"**Repository:** {entry.repository}\n\n")
+    # Generate individual version pages
+    for entry in merged:
+        version_file = versions_dir / f"{entry.version_id}.md"
+        generate_version_page(entry, version_file)
+        logger.debug("Generated %s", version_file)
 
-            for section_name, items in entry.sections.items():
-                if items:
-                    f.write(f"### {section_name}\n\n")
-                    f.writelines(f"- {item}\n" for item in items)
-                    f.write("\n")
-
-            f.write("---\n\n")
+    # Generate index page
+    index_file = output_dir / "index.md"
+    generate_index_page(merged, index_file)
 
     logger.info("✓ Successfully aggregated changelogs!")
     logger.info("  Total versions: %d", len(merged))
-    logger.info("  Output file: %s", args.output)
+    logger.info("  Index page: %s", index_file)
+    logger.info("  Version pages: %s", versions_dir)
 
 
 if __name__ == "__main__":

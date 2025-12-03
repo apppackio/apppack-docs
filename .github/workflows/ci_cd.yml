@@ -23,16 +23,13 @@ jobs:
       - name: Install dependencies
         run: uv sync --locked
 
+      - name: AppPack CLI
+        uses: apppackio/setup-apppack-cli@v1
+
       - name: CLI docs
-        run: |
-          set -ex
-          CLI_DOWNLOAD_URL=$(curl -s https://api.github.com/repos/apppackio/apppack/releases/latest | jq -r '.assets[]|select(.name|contains("Linux_x86_64")).browser_download_url')
-          curl -sLo apppack.tar.gz "$CLI_DOWNLOAD_URL"
-          tar xvzf apppack.tar.gz
-          chmod +x apppack
-          ./apppack docgen --directory src/command-line-reference
+        run: apppack docgen --directory src/command-line-reference
       - name: Build
-        run: APPPACK_VERSION=$(./apppack version) make build
+        run: APPPACK_VERSION=$(apppack version) make build
       - uses: actions/upload-artifact@v5
         with:
           path: public

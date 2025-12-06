@@ -1,0 +1,57 @@
+name: Aggregate Changelogs
+
+on:
+  schedule:
+    # Run 3 times per day: 00:00, 08:00, 16:00 UTC
+    - cron: '0 0,8,16 * * *'
+  workflow_dispatch:  # Allow manual trigger
+
+permissions:
+  contents: write  # For committing generated files
+
+jobs:
+  aggregate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout docs repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.APPPACK_DOCS_TOKEN }}
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          enable-cache: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Aggregate changelogs
+        env:
+          GITHUB_TOKEN: ${{ secrets.APPPACK_DOCS_TOKEN }}
+        run: |
+          uv run python scripts/aggregate_changelogs.py --verbose
+
+      - name: Check for changes
+        id: verify_diff
+        run: |
+          git diff --quiet src/changelog/ || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push if changed
+        if: steps.verify_diff.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/changelog/
+          git commit -m "Update aggregated changelogs
+
+          🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+          Co-Authored-By: Claude <noreply@anthropic.com>"
+          git push

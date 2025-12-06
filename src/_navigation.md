@@ -5,4 +5,5 @@
 * [How-to guides](how-to/)
 * [Under the hood](under-the-hood/)
 * [Command line reference](command-line-reference/)
+* [Changelog](changelog/index.md)
 * [Why AppPack?](why-apppack.md)

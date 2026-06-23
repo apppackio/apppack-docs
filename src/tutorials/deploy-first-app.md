@@ -49,15 +49,27 @@ You'll be prompted with some questions about the application. You can respond as
 
 ### 🤝 Connecting GitHub to CodeBuild
 
-The first time you setup an app from GitHub, you'll be prompted to connect AWS CodeBuild with your GitHub account. Unfortunately, doing this is a little bit awkward. You'll be directed to a page in your browser which requires scrolling down to the *Source* section.
+The first time you set up an app from GitHub, you'll be prompted to connect AWS CodeBuild to your GitHub account. AppPack opens the CodeBuild **default source credentials** page in your browser.
 
-![CodeBuild Source section](../assets/codebuild-source.png)
+Make sure the **Source Provider** is `GitHub` and the **Credential type** is **GitHub App**, then choose **create a new GitHub connection** (or pick an existing one from the **Connection** dropdown).
 
-Choose `GitHub` in the "Source provider" input, select "Connect using OAuth", and click the "Connect to GitHub" button. You should be presented with a popup window to confirm the connection.
+![Manage default source credential](../assets/codebuild-default-source-credential.png)
 
-![CodeBuild popup window](../assets/codebuild-popup.png)
+Give the connection a name and click **Connect to GitHub**.
 
-Once you've clicked "Confirm" in that popup, you've completed the connection. You can close the browser and continue on the command line.
+![Create a GitHub App connection](../assets/codebuild-create-connection.png)
+
+This opens a GitHub authorization page. Choose the GitHub account or organization that owns your repository and authorize the *AWS Connector for GitHub* app, installing it if you haven't already. Complete the installation on GitHub.
+
+<!-- TODO(#82): optional screenshot of the GitHub authorization / app installation page (on github.com) -->
+
+You're returned to the **Connect to GitHub** page with the **App Installation** ID populated. Click **Connect**.
+
+![Connect to GitHub](../assets/codebuild-connect-github.png)
+
+Back on the **default source credentials** page, select your new connection and click **Save**. You can then close the browser and continue on the command line.
+
+![Save the default source credential](../assets/codebuild-save-default-credential.png)
 
 ---
 

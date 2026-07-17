@@ -8,7 +8,6 @@ You'll need a few things ready to go to complete this tutorial. Make sure you've
 
 1. Installed **the `apppack` CLI** (see _[Install the CLI](../how-to/set-up/install.md)_)
 2. Setup **an AWS account** with access to an admin user or role.
-3. Create a [free Docker Hub account and generate an access token](../how-to/set-up/create-docker-hub-access-token.md).
 
 
 ## 🏗 Setting up AWS resources
@@ -96,10 +95,7 @@ apppack create cluster
 ```
 <script id="asciicast-9MQqww0ej7qAMhLjvM708mh00" src="https://asciinema.org/a/9MQqww0ej7qAMhLjvM708mh00.js" data-rows="20" data-theme="monokai" async></script>
 
-You'll get a confirmation prompt about the region where the cluster will be installed. Type `yes` and you'll be prompted for:
-
-1. Your Docker Hub username and access token
-2. Your domain you created above
+You'll get a confirmation prompt about the region where the cluster will be installed. Type `yes` and you'll be prompted for the domain you created above.
 
 This should run for about 10 minutes while AWS creates all the necessary resources.
 

@@ -17,8 +17,7 @@ During setup, you'll create multiple Cloudformation Stacks for different resourc
 At the account level we setup:
 
 * An [IAM OIDC provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) which will allow users to login to AppPack and exchange those credentials for limited time tokens to manage the application.
-* [Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html) values for your Docker Hub credentials. These are created directly via the CLI [because `SecureString` credentials cannot be created by Cloudformation](https://github.com/aws-cloudformation/aws-cloudformation-coverage-roadmap/issues/82).
-* An EventBridge rule to monitor changes to the Parameter Store. These events only include the name of the Parameter, not the value and any value that doesn't match AppPack's prefix is ignored.
+* An EventBridge rule to monitor changes to [Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html). These events only include the name of the Parameter, not the value and any value that doesn't match AppPack's prefix is ignored.
 * An IAM Role that is used by AppPack to collect further data on events that do not include enough information to know what app they belong to. These include:
   * [ECS Task state change](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_cwe_events.html#ecs_task_events) events
   * [ECS Service action](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_cwe_events.html#ecs_service_events) events

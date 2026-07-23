@@ -48,3 +48,23 @@ Here are some examples of installing the necessary commands for some common mini
     ```Dockerfile
     RUN apk add --no-cache bash
     ```
+
+## Build-time CI variables
+
+AppPack passes a set of neutral, industry-standard CI variables into your build. For Dockerfile builds they are provided as `--build-arg` values; for Buildpack builds they are available as environment variables during the build. The names mirror the conventions used by GitLab CI and other systems, so they are portable across build environments.
+
+| Variable | Description |
+| --- | --- |
+| `CI_COMMIT_REF` | The source ref being built (branch or tag). Falls back to the ref the build pulled from for manual builds. |
+| `CI_COMMIT_SHA` | The resolved commit SHA. |
+| `CI_BUILD_STARTED_AT` | The time the build started. |
+| `CI_REPOSITORY_URL` | The repository clone URL. |
+
+Each variable is only set when a value is available, so a manual build or a non-CodeBuild environment will simply leave it unset.
+
+To use a variable in a Dockerfile build, declare it with `ARG` before you reference it. Providing a default keeps local `docker build` runs working when the variable is absent:
+
+```Dockerfile
+ARG CI_COMMIT_SHA=unknown
+ENV APP_VERSION=$CI_COMMIT_SHA
+```

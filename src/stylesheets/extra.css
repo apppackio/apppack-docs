@@ -23,3 +23,34 @@
 
 
 .md-source__facts { display:none }
+
+/* Changelog styling */
+.changelog-entry {
+  border-left: 4px solid var(--md-primary-fg-color);
+  padding-left: 1rem;
+  margin-left: -1rem;
+  margin-bottom: 2rem;
+}
+
+.repo-tag {
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  font-size: 0.875em;
+  font-weight: 600;
+  border-radius: 0.25rem;
+  background-color: var(--md-primary-fg-color--light);
+  color: white;
+  margin-left: 0.5em;
+}
+
+.repo-tag.cli {
+  background-color: #7c3aed;
+}
+
+.repo-tag.stacks {
+  background-color: #2563eb;
+}
+
+.repo-tag.ci-builder {
+  background-color: #059669;
+}

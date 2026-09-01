@@ -1,6 +1,15 @@
+CLI_DOCS_DIR := src/command-line-reference
+
 .PHONY: build
-build:
-	SITE_URL=https://docs.apppack.io/ uv run zensical build
+build: $(CLI_DOCS_DIR)
+	SITE_URL=https://docs.apppack.io/ uv run zensical build --strict
+
+# The CLI reference pages are gitignored, so a fresh clone has none. Generate
+# them when the directory is missing, but leave an existing one alone -- CI runs
+# `make cli-docs` explicitly and this avoids a second docgen there. Run
+# `make cli-docs` to force a refresh against a newer CLI.
+$(CLI_DOCS_DIR):
+	$(MAKE) cli-docs
 
 .PHONY: deploy
 deploy:
@@ -14,9 +23,13 @@ clean:
 
 .PHONY: cli-docs
 cli-docs:
-	apppack docgen --directory src/command-line-reference
-	python3 scripts/generate_cli_nav.py
+	apppack docgen --directory $(CLI_DOCS_DIR)
+	uv run python scripts/generate_cli_nav.py
+
+.PHONY: check-nav
+check-nav:
+	uv run python scripts/check_nav_complete.py
 
 .PHONY: run
-run:
+run: $(CLI_DOCS_DIR)
 	uv run zensical serve

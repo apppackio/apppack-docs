@@ -28,6 +28,8 @@ jobs:
 
       - name: CLI docs
         run: make cli-docs
+      - name: Check nav is complete
+        run: make check-nav
       - name: Build
         run: APPPACK_VERSION=$(apppack version) make build
       - uses: actions/upload-artifact@v5

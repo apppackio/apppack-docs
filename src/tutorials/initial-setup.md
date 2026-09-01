@@ -70,6 +70,9 @@ apppack auth accounts
 
 You should see your AWS account listed in the output.
 
+!!! tip
+    You can use the `APPPACK_ACCOUNT` environment variable with any command to specify a particular account. Additionally, all commands offer a `-c` flag to override this value if needed.
+
 ## 🌐 Setup a domain
 
 ⏳ _Estimated time: 15 minutes_

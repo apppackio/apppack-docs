@@ -16,6 +16,11 @@ markdown_extensions:
       emoji_index: !!python/name:zensical.extensions.emoji.twemoji
       emoji_generator: !!python/name:zensical.extensions.emoji.to_svg
   - tables
+# Zensical silently ignores plugins it does not implement -- it collects the
+# names without validating them, so an unsupported plugin is a no-op rather
+# than an error. That is how mkdocs-literate-nav failed quietly during the
+# migration (the nav fell back to auto-generation). When upgrading Zensical,
+# expect "the plugin does nothing" as the failure mode, not a build error.
 plugins:
   - search
   - macros

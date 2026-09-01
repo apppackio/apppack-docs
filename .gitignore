@@ -1,2 +1,3 @@
 /public/
 /src/command-line-reference/
+__pycache__/

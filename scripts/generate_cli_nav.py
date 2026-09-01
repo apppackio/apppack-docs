@@ -23,7 +23,7 @@ def main() -> int:
         print(f"No pages found in {CLI_DOCS}. Run `apppack docgen` first.", file=sys.stderr)
         return 1
 
-    lines = CONFIG.read_text().splitlines()
+    lines = CONFIG.read_text(encoding="utf-8").splitlines()
     try:
         begin = next(i for i, l in enumerate(lines) if l.strip() == BEGIN)
         end = next(i for i, l in enumerate(lines) if l.strip() == END)
@@ -34,7 +34,7 @@ def main() -> int:
     indent = " " * (len(lines[begin]) - len(lines[begin].lstrip()))
     entries = [f"{indent}- command-line-reference/{name}" for name in pages]
     lines[begin + 1 : end] = entries
-    CONFIG.write_text("\n".join(lines) + "\n")
+    CONFIG.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"Wrote {len(pages)} command line reference nav entries to {CONFIG}")
     return 0
 

@@ -27,7 +27,7 @@ jobs:
         uses: apppackio/setup-apppack-cli@v1
 
       - name: CLI docs
-        run: apppack docgen --directory src/command-line-reference
+        run: make cli-docs
       - name: Build
         run: APPPACK_VERSION=$(apppack version) make build
       - uses: actions/upload-artifact@v5

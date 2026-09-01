@@ -1,6 +1,6 @@
 .PHONY: build
 build:
-	SITE_URL=https://docs.apppack.io/ uv run mkdocs build
+	SITE_URL=https://docs.apppack.io/ uv run zensical build
 
 .PHONY: deploy
 deploy:
@@ -15,7 +15,8 @@ clean:
 .PHONY: cli-docs
 cli-docs:
 	apppack docgen --directory src/command-line-reference
+	python3 scripts/generate_cli_nav.py
 
 .PHONY: run
 run:
-	uv run mkdocs serve
+	uv run zensical serve

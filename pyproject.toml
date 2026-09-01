@@ -5,7 +5,7 @@ description = "Documentation for AppPack.io"
 authors = [
     {name = "Peter Baumgartner", email = "pete@lincolnloop.com"},
 ]
-dependencies = ["mkdocs", "mkdocs-literate-nav", "mkdocs-material", "mkdocs-macros-plugin", "setuptools", "pymdown-extensions"]
+dependencies = ["zensical"]
 requires-python = ">=3.14"
 dynamic = ["classifiers"]
 license = {text = "MIT"}

@@ -102,7 +102,10 @@ The command used to perform a one-time cleanup before destroying a review app. T
 ## `[services.<name>]`
 
 Only applicable if `build.system` is set to `dockerfile`. For buildpacks, the `Procfile` is used instead.
-Each table defines a service your app will run.
+Each table defines a service your app will run. `<name>` is what the
+`apppack ps` and `apppack logs` commands call a process type (e.g. `web`,
+`worker`). For buildpack apps, process types come from the `Procfile`
+instead.
 
 * Type: `table`
 * Values: Must have a `command` key

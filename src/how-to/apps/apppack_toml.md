@@ -120,3 +120,17 @@ The command used to run the service.
 * Values: A command, e.g. `"npm start"`
 * Default: `""`
 * Required: Yes
+
+## Reserved process types
+
+`apppack ps`, `apppack logs`, and `apppack ps resize`/`scale`/`restart` also accept a few process types that AppPack creates itself, not ones defined under `[services.<name>]`:
+
+* `release` runs `[deploy].release_command` (or a buildpack's `release` Procfile line) before a deploy.
+* `scheduler` runs the commands configured with `apppack scheduled-tasks`.
+* `shell` is the one-off task started by `apppack ps exec`, `apppack db shell`, and similar interactive shell commands.
+* `postdeploy` runs `[review_app].initialize_command` on a new review app.
+* `pr-predestroy` runs `[review_app].pre_destroy_command` before a review app is destroyed.
+
+None of these 5 are backed by a long-running ECS service, each gets its own ECS task definition registered fresh whenever it runs, so `apppack ps` won't list one until it's actually running. `apppack ps resize` works on all 5 ahead of time regardless, the CPU/memory you set is stored and applied the next time that process type runs.
+
+The `[test]` command isn't a process type at all. It runs inside the build container as part of the build itself, not as a separate ECS task, so it never shows up in `apppack ps`.

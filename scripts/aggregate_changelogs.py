@@ -273,8 +273,7 @@ def generate_version_page(entry: ChangelogEntry, output_path: Path) -> None:
 
         # Page content
         f.write(f"# {entry.alias} {entry.version}\n\n")
-        f.write(f"**Released:** {entry.date.strftime('%Y-%m-%d')}\n")
-        f.write(f"**Repository:** {entry.repository}\n\n")
+        f.write(f"**Released:** {entry.date.strftime('%Y-%m-%d')}\n\n")
 
         for section_name, items in entry.sections.items():
             if items:

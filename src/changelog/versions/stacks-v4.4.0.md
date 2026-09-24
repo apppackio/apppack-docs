@@ -6,7 +6,6 @@ tags: [stacks]
 # stacks 4.4.0
 
 **Released:** 2023-03-03
-**Repository:** apppack-backend
 
 ## Added
 

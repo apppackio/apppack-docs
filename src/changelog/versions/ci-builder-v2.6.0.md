@@ -6,7 +6,6 @@ tags: [ci-builder]
 # ci-builder 2.6.0
 
 **Released:** 2026-07-21
-**Repository:** apppack-codebuild-image
 
 ## Changed
 

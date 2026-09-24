@@ -5,6 +5,7 @@ import pytest
 from aggregate_changelogs import (
     ChangelogEntry,
     generate_index_page,
+    generate_version_page,
     prune_stale_version_pages,
 )
 
@@ -79,3 +80,16 @@ def test_index_date_subheading_names_the_alias_not_the_repository(
 
     assert "**2024-01-01** • **cli**" in index.read_text()
     assert "repo-cli" not in index.read_text()
+
+
+def test_version_page_shows_the_release_date_without_a_repository_line(
+    tmp_path: Path,
+) -> None:
+    page = tmp_path / "cli-v4.8.3.md"
+
+    generate_version_page(entry("cli", "4.8.3"), page)
+
+    text = page.read_text()
+    assert "**Released:** 2024-01-01\n\n" in text
+    assert "Repository:" not in text
+    assert "repo-cli" not in text

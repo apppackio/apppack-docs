@@ -6,7 +6,6 @@ tags: [cli]
 # cli 4.6.0
 
 **Released:** 2024-08-28
-**Repository:** apppack
 
 ## Changed
 

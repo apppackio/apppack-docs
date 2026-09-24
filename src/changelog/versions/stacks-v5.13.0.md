@@ -6,7 +6,6 @@ tags: [stacks]
 # stacks 5.13.0
 
 **Released:** 2024-10-14
-**Repository:** apppack-backend
 
 ## Added
 

@@ -1,0 +1,53 @@
+---
+name: Aggregate Changelogs
+
+on:
+  schedule:
+    # Run 3 times per day: 00:00, 08:00, 16:00 UTC
+    - cron: '0 0,8,16 * * *'
+  workflow_dispatch: {}
+
+jobs:
+  aggregate:
+    runs-on: ubuntu-24.04
+
+    steps:
+      # A PAT (not GITHUB_TOKEN) so that reads reach the private repos and so
+      # that the push to deploy/prod triggers the build/deploy workflow.
+      - uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.APPPACK_DOCS_TOKEN }}
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version-file: "pyproject.toml"
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --locked
+
+      - name: Aggregate changelogs
+        env:
+          GITHUB_TOKEN: ${{ secrets.APPPACK_DOCS_TOKEN }}
+        run: uv run python scripts/aggregate_changelogs.py --verbose
+
+      # `git add` before diffing: the generated pages are untracked on the
+      # first run, and `git diff` alone never sees untracked files.
+      - name: Commit to main and promote to deploy/prod
+        run: |
+          set -eux
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A src/changelog/
+          if git diff --cached --quiet; then
+            echo "No changelog changes to publish."
+            exit 0
+          fi
+          git commit -m "Update aggregated changelogs"
+          git push origin HEAD:main
+          # Fast-forward only. If deploy/prod has diverged from main this
+          # fails loudly rather than clobbering whatever is deployed.
+          git push origin HEAD:deploy/prod

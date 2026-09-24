@@ -5,10 +5,40 @@ description = "Documentation for AppPack.io"
 authors = [
     {name = "Peter Baumgartner", email = "pete@lincolnloop.com"},
 ]
-dependencies = ["zensical"]
+dependencies = ["zensical>=0.0.60", "keepachangelog>=2.0.0", "requests>=2.31.0"]
 requires-python = ">=3.14"
 dynamic = ["classifiers"]
 license = {text = "MIT"}
 
 [project.urls]
 homepage = "https://github.com/apppackio/apppack-docs"
+
+[dependency-groups]
+dev = ["pytest>=8.0.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["scripts"]
+
+# Repositories aggregated into src/changelog by scripts/aggregate_changelogs.py.
+# Add a repository here and the next run picks it up.
+[[tool.changelog.repositories]]
+name = "apppack"
+alias = "cli"
+url = "https://github.com/apppackio/apppack"
+changelog_path = "CHANGELOG.md"
+public = true
+
+[[tool.changelog.repositories]]
+name = "apppack-codebuild-image"
+alias = "ci-builder"
+url = "https://github.com/apppackio/apppack-codebuild-image"
+changelog_path = "CHANGELOG.md"
+public = false
+
+[[tool.changelog.repositories]]
+name = "apppack-backend"
+alias = "stacks"
+url = "https://github.com/apppackio/apppack-backend"
+changelog_path = "formations/CHANGELOG.md"
+public = false

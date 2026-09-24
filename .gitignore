@@ -1,3 +1,4 @@
 /public/
 /src/command-line-reference/
 __pycache__/
+.pytest_cache/

@@ -2,7 +2,11 @@ from datetime import datetime
 from pathlib import Path
 
 import pytest
-from aggregate_changelogs import ChangelogEntry, prune_stale_version_pages
+from aggregate_changelogs import (
+    ChangelogEntry,
+    generate_index_page,
+    prune_stale_version_pages,
+)
 
 
 def entry(alias: str, version: str) -> ChangelogEntry:
@@ -63,3 +67,15 @@ def test_pruning_an_already_clean_directory_removes_nothing(
     prune_stale_version_pages(versions_dir, [entry("cli", "1.0.0")])
 
     assert {p.name for p in versions_dir.iterdir()} == {"cli-v1.0.0.md"}
+
+
+def test_index_date_subheading_names_the_alias_not_the_repository(
+    tmp_path: Path,
+) -> None:
+    """The heading above it already says "cli", so the repo name read oddly."""
+    index = tmp_path / "index.md"
+
+    generate_index_page([entry("cli", "4.8.3")], index)
+
+    assert "**2024-01-01** • **cli**" in index.read_text()
+    assert "repo-cli" not in index.read_text()

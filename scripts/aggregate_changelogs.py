@@ -303,7 +303,7 @@ def generate_index_page(entries: list[ChangelogEntry], output_path: Path) -> Non
 
         for entry in entries:
             f.write(f"## [{entry.alias} {entry.version}](versions/{entry.version_id}.md)\n\n")
-            f.write(f"**{entry.date.strftime('%Y-%m-%d')}** • **{entry.repository}**\n\n")
+            f.write(f"**{entry.date.strftime('%Y-%m-%d')}** • **{entry.alias}**\n\n")
 
             for section_name, items in entry.sections.items():
                 if items:

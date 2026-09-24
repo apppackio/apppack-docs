@@ -8,7 +8,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [cli 4.8.4](versions/cli-v4.8.4.md)
 
-**2026-09-24** • **apppack**
+**2026-09-24** • **cli**
 
 ### Changed
 
@@ -18,7 +18,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [cli 4.8.3](versions/cli-v4.8.3.md)
 
-**2026-09-22** • **apppack**
+**2026-09-22** • **cli**
 
 ### Fixed
 
@@ -30,7 +30,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [cli 4.8.2](versions/cli-v4.8.2.md)
 
-**2026-08-10** • **apppack**
+**2026-08-10** • **cli**
 
 ### Fixed
 
@@ -40,7 +40,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [cli 4.8.1](versions/cli-v4.8.1.md)
 
-**2026-08-07** • **apppack**
+**2026-08-07** • **cli**
 
 ### Fixed
 
@@ -51,7 +51,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [cli 4.8.0](versions/cli-v4.8.0.md)
 
-**2026-07-24** • **apppack**
+**2026-07-24** • **cli**
 
 ### Added
 
@@ -71,7 +71,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [ci-builder 2.7.0](versions/ci-builder-v2.7.0.md)
 
-**2026-07-23** • **apppack-codebuild-image**
+**2026-07-23** • **ci-builder**
 
 ### Added
 
@@ -90,7 +90,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [ci-builder 2.6.0](versions/ci-builder-v2.6.0.md)
 
-**2026-07-21** • **apppack-codebuild-image**
+**2026-07-21** • **ci-builder**
 
 ### Changed
 
@@ -108,7 +108,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [cli 4.7.0](versions/cli-v4.7.0.md)
 
-**2026-06-24** • **apppack**
+**2026-06-24** • **cli**
 
 ### Added
 
@@ -135,7 +135,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 5.17.3](versions/stacks-v5.17.3.md)
 
-**2025-11-04** • **apppack-backend**
+**2025-11-04** • **stacks**
 
 ### Fixed
 
@@ -145,7 +145,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 5.17.2](versions/stacks-v5.17.2.md)
 
-**2025-11-04** • **apppack-backend**
+**2025-11-04** • **stacks**
 
 ### Fixed
 
@@ -155,7 +155,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 5.17.1](versions/stacks-v5.17.1.md)
 
-**2025-11-04** • **apppack-backend**
+**2025-11-04** • **stacks**
 
 ### Fixed
 
@@ -165,7 +165,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [ci-builder 2.5.0](versions/ci-builder-v2.5.0.md)
 
-**2025-10-21** • **apppack-codebuild-image**
+**2025-10-21** • **ci-builder**
 
 ### Added
 
@@ -175,7 +175,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 5.17.0](versions/stacks-v5.17.0.md)
 
-**2025-10-21** • **apppack-backend**
+**2025-10-21** • **stacks**
 
 ### Added
 
@@ -185,7 +185,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [ci-builder 2.4.0](versions/ci-builder-v2.4.0.md)
 
-**2025-09-22** • **apppack-codebuild-image**
+**2025-09-22** • **ci-builder**
 
 ### Fixed
 
@@ -199,7 +199,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 5.16.0](versions/stacks-v5.16.0.md)
 
-**2025-09-22** • **apppack-backend**
+**2025-09-22** • **stacks**
 
 ### Added
 
@@ -213,7 +213,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 5.15.1](versions/stacks-v5.15.1.md)
 
-**2025-09-22** • **apppack-backend**
+**2025-09-22** • **stacks**
 
 ### Fixed
 
@@ -223,7 +223,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [ci-builder 2.3.0](versions/ci-builder-v2.3.0.md)
 
-**2025-09-19** • **apppack-codebuild-image**
+**2025-09-19** • **ci-builder**
 
 ### Added
 
@@ -233,7 +233,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 5.15.0](versions/stacks-v5.15.0.md)
 
-**2025-09-16** • **apppack-backend**
+**2025-09-16** • **stacks**
 
 ### Changed
 
@@ -249,7 +249,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [cli 4.6.7](versions/cli-v4.6.7.md)
 
-**2025-08-14** • **apppack**
+**2025-08-14** • **cli**
 
 ### Fixed
 
@@ -259,7 +259,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [ci-builder 2.2.0](versions/ci-builder-v2.2.0.md)
 
-**2025-06-16** • **apppack-codebuild-image**
+**2025-06-16** • **ci-builder**
 
 ### Changed
 
@@ -273,7 +273,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [cli 4.6.6](versions/cli-v4.6.6.md)
 
-**2025-03-31** • **apppack**
+**2025-03-31** • **cli**
 
 ### Fixed
 
@@ -284,7 +284,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [cli 4.6.5](versions/cli-v4.6.5.md)
 
-**2025-03-06** • **apppack**
+**2025-03-06** • **cli**
 
 ### Fixed
 
@@ -294,7 +294,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [cli 4.6.4](versions/cli-v4.6.4.md)
 
-**2025-03-05** • **apppack**
+**2025-03-05** • **cli**
 
 ### Removed
 
@@ -309,13 +309,13 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 5.14.0](versions/stacks-v5.14.0.md)
 
-**2025-02-11** • **apppack-backend**
+**2025-02-11** • **stacks**
 
 ---
 
 ## [ci-builder 2.1.0](versions/ci-builder-v2.1.0.md)
 
-**2025-02-10** • **apppack-codebuild-image**
+**2025-02-10** • **ci-builder**
 
 ### Fixed
 
@@ -325,7 +325,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [cli 4.6.3](versions/cli-v4.6.3.md)
 
-**2024-11-04** • **apppack**
+**2024-11-04** • **cli**
 
 ### Fixed
 
@@ -336,7 +336,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 5.13.0](versions/stacks-v5.13.0.md)
 
-**2024-10-14** • **apppack-backend**
+**2024-10-14** • **stacks**
 
 ### Added
 
@@ -350,7 +350,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 5.12.0](versions/stacks-v5.12.0.md)
 
-**2024-09-04** • **apppack-backend**
+**2024-09-04** • **stacks**
 
 ### Fixed
 
@@ -360,7 +360,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [cli 4.6.2](versions/cli-v4.6.2.md)
 
-**2024-09-03** • **apppack**
+**2024-09-03** • **cli**
 
 ### Fixed
 
@@ -370,7 +370,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 5.11.0](versions/stacks-v5.11.0.md)
 
-**2024-09-03** • **apppack-backend**
+**2024-09-03** • **stacks**
 
 ### Changed
 
@@ -385,7 +385,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [cli 4.6.1](versions/cli-v4.6.1.md)
 
-**2024-08-28** • **apppack**
+**2024-08-28** • **cli**
 
 ### Fixed
 
@@ -395,7 +395,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [cli 4.6.0](versions/cli-v4.6.0.md)
 
-**2024-08-28** • **apppack**
+**2024-08-28** • **cli**
 
 ### Changed
 
@@ -412,7 +412,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 5.10.0](versions/stacks-v5.10.0.md)
 
-**2024-08-27** • **apppack-backend**
+**2024-08-27** • **stacks**
 
 ### Added
 
@@ -423,7 +423,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [cli 4.5.0](versions/cli-v4.5.0.md)
 
-**2024-05-16** • **apppack**
+**2024-05-16** • **cli**
 
 ### Changed
 
@@ -436,7 +436,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 5.9.0](versions/stacks-v5.9.0.md)
 
-**2024-04-26** • **apppack-backend**
+**2024-04-26** • **stacks**
 
 ### Added
 
@@ -456,7 +456,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 5.8.0](versions/stacks-v5.8.0.md)
 
-**2024-04-24** • **apppack-backend**
+**2024-04-24** • **stacks**
 
 ### Changed
 
@@ -466,7 +466,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 5.7.3](versions/stacks-v5.7.3.md)
 
-**2024-02-15** • **apppack-backend**
+**2024-02-15** • **stacks**
 
 ### Added
 
@@ -482,7 +482,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 5.7.2](versions/stacks-v5.7.2.md)
 
-**2023-10-13** • **apppack-backend**
+**2023-10-13** • **stacks**
 
 ### Changed
 
@@ -492,7 +492,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 5.7.1](versions/stacks-v5.7.1.md)
 
-**2023-10-13** • **apppack-backend**
+**2023-10-13** • **stacks**
 
 ### Fixed
 
@@ -502,7 +502,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 5.7.0](versions/stacks-v5.7.0.md)
 
-**2023-10-11** • **apppack-backend**
+**2023-10-11** • **stacks**
 
 ### Changed
 
@@ -513,7 +513,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 5.6.0](versions/stacks-v5.6.0.md)
 
-**2023-09-12** • **apppack-backend**
+**2023-09-12** • **stacks**
 
 ### Fixed
 
@@ -523,7 +523,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 5.5.2](versions/stacks-v5.5.2.md)
 
-**2023-09-08** • **apppack-backend**
+**2023-09-08** • **stacks**
 
 ### Fixed
 
@@ -533,7 +533,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 5.5.1](versions/stacks-v5.5.1.md)
 
-**2023-08-30** • **apppack-backend**
+**2023-08-30** • **stacks**
 
 ### Changed
 
@@ -547,7 +547,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 5.5.0](versions/stacks-v5.5.0.md)
 
-**2023-07-21** • **apppack-backend**
+**2023-07-21** • **stacks**
 
 ### Changed
 
@@ -557,7 +557,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 5.4.0](versions/stacks-v5.4.0.md)
 
-**2023-05-03** • **apppack-backend**
+**2023-05-03** • **stacks**
 
 ### Changed
 
@@ -567,7 +567,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 5.3.0](versions/stacks-v5.3.0.md)
 
-**2023-04-24** • **apppack-backend**
+**2023-04-24** • **stacks**
 
 ### Changed
 
@@ -577,7 +577,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 5.2.3](versions/stacks-v5.2.3.md)
 
-**2023-04-24** • **apppack-backend**
+**2023-04-24** • **stacks**
 
 ### Fixed
 
@@ -587,7 +587,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 5.2.2](versions/stacks-v5.2.2.md)
 
-**2023-04-21** • **apppack-backend**
+**2023-04-21** • **stacks**
 
 ### Fixed
 
@@ -597,7 +597,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 5.2.1](versions/stacks-v5.2.1.md)
 
-**2023-04-07** • **apppack-backend**
+**2023-04-07** • **stacks**
 
 ### Fixed
 
@@ -607,7 +607,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 5.2.0](versions/stacks-v5.2.0.md)
 
-**2023-04-07** • **apppack-backend**
+**2023-04-07** • **stacks**
 
 ### Changed
 
@@ -617,7 +617,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [cli 4.3.0](versions/cli-v4.3.0.md)
 
-**2023-03-27** • **apppack**
+**2023-03-27** • **cli**
 
 ### Added
 
@@ -637,7 +637,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 5.1.0](versions/stacks-v5.1.0.md)
 
-**2023-03-27** • **apppack-backend**
+**2023-03-27** • **stacks**
 
 ### Changed
 
@@ -648,7 +648,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [cli 4.4.0](versions/cli-v4.4.0.md)
 
-**2023-03-25** • **apppack**
+**2023-03-25** • **cli**
 
 ### Changed
 
@@ -662,7 +662,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 5.0.0](versions/stacks-v5.0.0.md)
 
-**2023-03-21** • **apppack-backend**
+**2023-03-21** • **stacks**
 
 ### Added
 
@@ -682,7 +682,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [cli 4.2.0](versions/cli-v4.2.0.md)
 
-**2023-03-03** • **apppack**
+**2023-03-03** • **cli**
 
 ### Added
 
@@ -699,7 +699,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 4.4.0](versions/stacks-v4.4.0.md)
 
-**2023-03-03** • **apppack-backend**
+**2023-03-03** • **stacks**
 
 ### Added
 
@@ -709,7 +709,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 4.3.0](versions/stacks-v4.3.0.md)
 
-**2023-01-30** • **apppack-backend**
+**2023-01-30** • **stacks**
 
 ### Added
 
@@ -723,7 +723,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [cli 4.1.0](versions/cli-v4.1.0.md)
 
-**2023-01-10** • **apppack**
+**2023-01-10** • **cli**
 
 ### Added
 
@@ -741,7 +741,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 4.2.1](versions/stacks-v4.2.1.md)
 
-**2023-01-09** • **apppack-backend**
+**2023-01-09** • **stacks**
 
 ### Fixed
 
@@ -751,7 +751,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 4.2.0](versions/stacks-v4.2.0.md)
 
-**2023-01-09** • **apppack-backend**
+**2023-01-09** • **stacks**
 
 ### Added
 
@@ -762,13 +762,13 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 4.1.3](versions/stacks-v4.1.3.md)
 
-**2022-11-18** • **apppack-backend**
+**2022-11-18** • **stacks**
 
 ---
 
 ## [stacks 4.1.2](versions/stacks-v4.1.2.md)
 
-**2022-11-01** • **apppack-backend**
+**2022-11-01** • **stacks**
 
 ### Fixed
 
@@ -778,7 +778,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 4.1.1](versions/stacks-v4.1.1.md)
 
-**2022-10-27** • **apppack-backend**
+**2022-10-27** • **stacks**
 
 ### Fixed
 
@@ -788,7 +788,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ## [stacks 4.1.0](versions/stacks-v4.1.0.md)
 
-**2022-10-27** • **apppack-backend**
+**2022-10-27** • **stacks**
 
 ### Added
 

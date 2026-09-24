@@ -1,0 +1,21 @@
+---
+title: "stacks 5.16.0"
+tags: [stacks]
+---
+
+# stacks 5.16.0
+
+**Released:** 2025-09-22
+**Repository:** apppack-backend
+
+## Added
+
+- Clear app build cache directory every 60 days through a Cloudwatch event.
+
+## Changed
+
+- Consolidate duplicate empty_s3_bucket lambda implementations into single enhanced version
+
+---
+
+[← Back to Changelog](../index.md)

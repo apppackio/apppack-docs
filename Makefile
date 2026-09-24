@@ -26,6 +26,12 @@ cli-docs:
 	apppack docgen --directory $(CLI_DOCS_DIR)
 	uv run python scripts/generate_cli_nav.py
 
+# Regenerates src/changelog and the changelog-nav block in mkdocs.yml.
+# Needs GitHub credentials for the private repositories (gh auth or GITHUB_TOKEN).
+.PHONY: changelog
+changelog:
+	uv run python scripts/aggregate_changelogs.py
+
 .PHONY: check-nav
 check-nav:
 	uv run python scripts/check_nav_complete.py

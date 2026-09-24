@@ -34,6 +34,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.APPPACK_DOCS_TOKEN }}
         run: uv run python scripts/aggregate_changelogs.py --verbose
 
+      # Catch a bad nav block here rather than after it has been pushed to
+      # deploy/prod, where it would fail the build that publishes the site.
+      - name: Check nav is complete
+        run: make check-nav
+
       # `git add` before diffing: the generated pages are untracked on the
       # first run, and `git diff` alone never sees untracked files.
       - name: Commit to main and promote to deploy/prod
@@ -41,7 +46,9 @@ jobs:
           set -eux
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A src/changelog/
+          # mkdocs.yml carries the generated changelog-nav block, so it moves
+          # with the pages -- committing one without the other fails check-nav.
+          git add -A src/changelog/ mkdocs.yml
           if git diff --cached --quiet; then
             echo "No changelog changes to publish."
             exit 0

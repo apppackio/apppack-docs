@@ -40,17 +40,26 @@ different directories of one monorepo, as long as their aliases differ.
 
 ### Adding a repository
 
-Two places:
+Three places, all in play:
 
 1. `[[tool.changelog.repositories]]` in `pyproject.toml`
-2. `theme.icon.tag` in `mkdocs.yml` — the icon for that alias's tag
+2. `extra.tags` in `mkdocs.yml` — maps the tag name to an icon identifier
+3. `theme.icon.tag` in `mkdocs.yml` — the icon for that identifier
 
-Skip 2 and the tag still renders, with the `default` icon.
+Both 2 and 3 are needed for the tag to carry its own icon. `partials/tags.html`
+adds `md-tag-icon` only when `extra.tags` exists at all, and `md-tag--<id>` only
+when the tag has an entry in it:
 
-`extra.tags` maps a tag name onto a different icon identifier. Aliases do not
-need an entry there: `dashboard` has none and still picks up
-`theme.icon.tag.dashboard`, because the tag name doubles as the identifier.
-Only add one when a tag should use an icon registered under another name.
+| `extra.tags` | Chip classes | Icon |
+|---|---|---|
+| block absent | `md-tag` | none, for every tag on the site |
+| present, tag missing | `md-tag md-tag-icon` | the `default` one |
+| present, tag listed | `md-tag md-tag-icon md-tag--<id>` | the configured one |
+
+Beware that the index page will not show you this. Its pill is written by
+`scripts/templates/index_entry.md`, which hardcodes the three classes, so it
+renders the right icon whether or not the tag is configured. The release pages
+are where the plugin actually generates the chip, so check one of those.
 
 ## Authentication
 

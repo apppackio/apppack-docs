@@ -5,10 +5,71 @@ description = "Documentation for AppPack.io"
 authors = [
     {name = "Peter Baumgartner", email = "pete@lincolnloop.com"},
 ]
-dependencies = ["zensical"]
+dependencies = ["zensical>=0.0.60", "keepachangelog>=2.0.0", "requests>=2.31.0"]
 requires-python = ">=3.14"
 dynamic = ["classifiers"]
 license = {text = "MIT"}
 
 [project.urls]
 homepage = "https://github.com/apppackio/apppack-docs"
+
+# Resolve against the index as it stood three days ago, so a package published
+# minutes ago cannot land in a build unreviewed.
+#
+# uv records the timestamp it resolved under in uv.lock, so this rolling window
+# writes a new one each time the lock is regenerated. That is why CI installs
+# with --frozen: it takes the lock as written rather than re-resolving and
+# comparing options. Adding a dependency still updates the lock as usual.
+[tool.uv]
+exclude-newer = "3 days"
+
+[dependency-groups]
+dev = ["pytest>=8.0.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["scripts"]
+
+# Repositories aggregated into src/changelog by scripts/aggregate_changelogs.py.
+# Add a repository here and the next run picks it up.
+[[tool.changelog.repositories]]
+name = "apppack"
+alias = "cli"
+url = "https://github.com/apppackio/apppack"
+changelog_path = "CHANGELOG.md"
+public = true
+
+[[tool.changelog.repositories]]
+name = "apppack-codebuild-image"
+alias = "ci-builder"
+url = "https://github.com/apppackio/apppack-codebuild-image"
+changelog_path = "CHANGELOG.md"
+public = false
+
+[[tool.changelog.repositories]]
+name = "apppack-backend"
+alias = "stacks"
+url = "https://github.com/apppackio/apppack-backend"
+changelog_path = "formations/CHANGELOG.md"
+public = false
+
+# [[tool.changelog.repositories]]
+# name = "apppack-backend"
+# alias = "control-plane"
+# url = "https://github.com/apppackio/apppack-backend"
+# changelog_path = "orchestrator/CHANGELOG.md"
+# public = false
+
+[[tool.changelog.repositories]]
+name = "apppack-web"
+alias = "dashboard"
+url = "https://github.com/apppackio/apppack-web"
+changelog_path = "CHANGELOG.md"
+public = false
+
+# [[tool.changelog.repositories]]
+# name = "apppack-db-utils"
+# alias = "db-utils"
+# url = "https://github.com/apppackio/apppack-db-utils"
+# changelog_path = "CHANGELOG.md"
+# public = false

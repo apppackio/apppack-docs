@@ -1,0 +1,22 @@
+{#-
+  Overrides zensical/templates/partials/content.html purely to move the tags
+  include above the page title. Upstream renders tags after page.content, which
+  put the changelog's repository tag below the "Back to Changelog" footer, where
+  it read as a stray chip rather than a label for the page.
+
+  Everything else is a verbatim copy of the upstream partial. Upstream marks it
+  "automatically generated", so re-check this file against
+  zensical/templates/partials/content.html when bumping zensical.
+
+  The `tags` variable is populated by the tags plugin; tags.html renders nothing
+  when it is empty, so pages without tags are unaffected.
+-#}
+{% include "partials/actions.html" %}
+{% include "partials/tags.html" %}
+{% if "<h1" not in page.content %}
+  <h1 id="__skip">{{ page.title | d(config.site_name, true)}}</h1>
+{% endif %}
+{{ page.content }}
+{% include "partials/source-file.html" %}
+{% include "partials/feedback.html" %}
+{% include "partials/comments.html" %}

@@ -24,6 +24,11 @@ markdown_extensions:
 plugins:
   - search
   - macros
+  # Tags label each changelog page with the repository it came from. Requires
+  # zensical >= 0.0.60; earlier versions accept the plugin name and do nothing.
+  # Note `tags_file` is recognized but silently dropped -- the tag listing is
+  # produced by the listings directive on changelog/tags.md instead.
+  - tags
 repo_url: https://github.com/apppackio/apppack-docs/
 edit_uri: edit/main/src/
 extra_css:
@@ -37,6 +42,22 @@ theme:
   favicon: assets/favicon.ico
   icon:
     repo: fontawesome/brands/github
+    tag:
+      default: lucide/hash
+      cli: lucide/terminal
+      stacks: lucide/layers
+      ci-builder: lucide/hammer
+      dashboard: lucide/monitor
+      control-plane: lucide/server
+extra:
+  # Maps the tag names emitted by scripts/aggregate_changelogs.py to the icon
+  # identifiers above. The alias in [[tool.changelog.repositories]] is the tag.
+  tags:
+    cli: cli
+    stacks: stacks
+    ci-builder: ci-builder
+    dashboard: dashboard
+    control-plane: control-plane
 nav:
   - index.md
   - Tutorials:
@@ -162,3 +183,7 @@ nav:
       - command-line-reference/apppack_version_update.md
       # END cli-nav (generated)
   - why-apppack.md
+  # Only the index is listed. It links to every release page and to the
+  # per-repository listing, which would otherwise add ~65 sidebar entries.
+  # scripts/check_nav_complete.py knows they are deliberately unlisted.
+  - Changelog: changelog/index.md

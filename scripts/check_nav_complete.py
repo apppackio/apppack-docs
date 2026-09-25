@@ -11,6 +11,7 @@ up new pages automatically are gone, so we check it here instead.
 
 import re
 import sys
+from fnmatch import fnmatch
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
@@ -22,6 +23,21 @@ DOCS = ROOT / "src"
 NAV_START = re.compile(r"^nav:\s*$")
 TOP_LEVEL_KEY = re.compile(r"^[^\s#]")
 MD_PATH = re.compile(r"[\w./-]+\.md")
+
+# Pages that are deliberately absent from `nav:`. The rule this relaxes is
+# "nothing links to them" -- the changelog index links to every release page
+# and to the per-repository listing, so they are reachable. Listing them would
+# add ~65 sidebar entries. Keep this narrow: anything matched here stops being
+# checked. changelog/index.md is deliberately NOT matched.
+NOT_IN_NAV = (
+    "changelog/tags.md",
+    "changelog/versions/*.md",
+)
+
+
+def is_unlisted_on_purpose(page: str) -> bool:
+    """Whether a page is allowed to be missing from the nav."""
+    return any(fnmatch(page, pattern) for pattern in NOT_IN_NAV)
 
 
 def nav_pages() -> set[str]:
@@ -47,7 +63,11 @@ def main() -> int:
         return 1
 
     on_disk = {str(p.relative_to(DOCS)) for p in DOCS.rglob("*.md")}
-    missing = sorted(on_disk - referenced)
+    missing = sorted(
+        page
+        for page in on_disk - referenced
+        if not is_unlisted_on_purpose(page)
+    )
     if missing:
         print(
             f"{len(missing)} page(s) exist under {DOCS.relative_to(ROOT)}/ but are "

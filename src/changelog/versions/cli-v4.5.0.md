@@ -1,0 +1,19 @@
+---
+title: "cli - v4.5.0"
+tags: [cli]
+---
+
+# Version 4.5.0
+
+**Released:** 2024-05-16
+
+## Changed
+
+- Integrates AWS Session manager directly.
+- Updated dependencies.
+- Improve error handling for user info API call.
+- Improve error message when user needs admin access.
+
+---
+
+[← Back to Changelog](../index.md)

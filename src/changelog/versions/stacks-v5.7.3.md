@@ -1,0 +1,22 @@
+---
+title: "stacks - v5.7.3"
+tags: [stacks]
+---
+
+# Version 5.7.3
+
+**Released:** 2024-02-15
+
+## Added
+
+- Additional outputs on stacks:
+- App: `TaskRoleArn`, `TargetGroupArn`, and `TargetGroupSuffix`
+- Database: `SecurityGroupId`
+
+## Changed
+
+- Removed ACL definition from utility buckets. ACLs are deprecated in favor of bucket policies.
+
+---
+
+[← Back to Changelog](../index.md)

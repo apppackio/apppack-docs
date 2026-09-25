@@ -1,0 +1,70 @@
+---
+name: Aggregate Changelogs
+
+on:
+  schedule:
+    # Run 3 times per day: 00:00, 08:00, 16:00 UTC
+    - cron: '0 0,8,16 * * *'
+  workflow_dispatch: {}
+
+# Checkout and push both use APPPACK_DOCS_TOKEN, so GITHUB_TOKEN needs nothing
+# beyond reading the repository.
+permissions:
+  contents: read
+
+# A manual dispatch overlapping the schedule would race on the push, and the
+# loser fails as a non-fast-forward. Queue instead -- never cancel, since a run
+# can be interrupted between the push to main and the push to deploy/prod.
+concurrency:
+  group: aggregate-changelogs
+  cancel-in-progress: false
+
+jobs:
+  aggregate:
+    runs-on: ubuntu-24.04
+
+    steps:
+      # A PAT (not GITHUB_TOKEN) so that reads reach the private repos and so
+      # that the push to deploy/prod triggers the build/deploy workflow.
+      - uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.APPPACK_DOCS_TOKEN }}
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version-file: "pyproject.toml"
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --frozen
+
+      - name: Aggregate changelogs
+        env:
+          GITHUB_TOKEN: ${{ secrets.APPPACK_DOCS_TOKEN }}
+        run: uv run --frozen python scripts/aggregate_changelogs.py --verbose
+
+      # No `make check-nav` here. src/command-line-reference is gitignored, so
+      # a fresh checkout has none of it and the nav's 84 entries all look dead.
+      # It would need the CLI installed just to generate pages this job never
+      # builds. The push below triggers ci_cd.yml, which does it properly.
+
+      # `git add` before diffing: the generated pages are untracked on the
+      # first run, and `git diff` alone never sees untracked files.
+      - name: Commit to main and promote to deploy/prod
+        run: |
+          set -eux
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A src/changelog/
+          if git diff --cached --quiet; then
+            echo "No changelog changes to publish."
+            exit 0
+          fi
+          git commit -m "Update aggregated changelogs"
+          git push origin HEAD:main
+          # Fast-forward only. If deploy/prod has diverged from main this
+          # fails loudly rather than clobbering whatever is deployed.
+          git push origin HEAD:deploy/prod

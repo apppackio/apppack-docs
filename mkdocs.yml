@@ -47,6 +47,8 @@ theme:
       cli: lucide/terminal
       stacks: lucide/layers
       ci-builder: lucide/hammer
+      dashboard: lucide/monitor
+      control-plane: lucide/server
 extra:
   # Maps the tag names emitted by scripts/aggregate_changelogs.py to the icon
   # identifiers above. The alias in [[tool.changelog.repositories]] is the tag.

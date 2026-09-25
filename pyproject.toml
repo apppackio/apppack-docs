@@ -42,3 +42,24 @@ alias = "stacks"
 url = "https://github.com/apppackio/apppack-backend"
 changelog_path = "formations/CHANGELOG.md"
 public = false
+
+# [[tool.changelog.repositories]]
+# name = "apppack-backend"
+# alias = "control-plane"
+# url = "https://github.com/apppackio/apppack-backend"
+# changelog_path = "orchestrator/CHANGELOG.md"
+# public = false
+
+[[tool.changelog.repositories]]
+name = "apppack-web"
+alias = "dashboard"
+url = "https://github.com/apppackio/apppack-web"
+changelog_path = "CHANGELOG.md"
+public = false
+
+# [[tool.changelog.repositories]]
+# name = "apppack-db-utils"
+# alias = "db-utils"
+# url = "https://github.com/apppackio/apppack-db-utils"
+# changelog_path = "CHANGELOG.md"
+# public = false

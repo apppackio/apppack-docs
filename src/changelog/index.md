@@ -151,6 +151,36 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
+## [dashboard v1.1.0](versions/dashboard-v1.1.0.md)
+
+[dashboard](tags.md#tag:dashboard){ .md-tag .md-tag-icon .md-tag--dashboard }
+
+**Release date:** 2026-01-14
+
+### Added
+
+- Multi-container CPU/Memory metrics support in beta metrics page with process type checkboxes (web, worker, etc.)
+- CPU/Memory charts now show both average and maximum values for better insight into typical usage vs peaks
+- Extended timeframe options: 1 month, 3 months, 6 months, and 1 year (with appropriate data resolution)
+
+### Fixed
+
+- Chart line layering: average values now render on top of max values, and response time percentiles render in correct order (p99 on top) for better visibility
+
+---
+
+## [dashboard v1.0.0](versions/dashboard-v1.0.0.md)
+
+[dashboard](tags.md#tag:dashboard){ .md-tag .md-tag-icon .md-tag--dashboard }
+
+**Release date:** 2026-01-12
+
+### Added
+
+- Beta metrics page with interactive Vega-Lite charts featuring CPU/Memory usage, Response Time percentiles, Status Codes distribution, and Health & Errors visualization with deployment markers, clickable legends, and click-to-pin data point comparison
+
+---
+
 ## [stacks v5.17.3](versions/stacks-v5.17.3.md)
 
 [stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }

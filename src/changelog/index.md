@@ -8,9 +8,11 @@ toc_flat: true
 
 This page aggregates changelogs from all AppPack repositories, showing the most recent changes first.
 
-## [cli 4.8.4](versions/cli-v4.8.4.md)
+## [cli v4.8.4](versions/cli-v4.8.4.md)
 
-**2026-09-24** • **cli**
+[cli](tags.md#tag:cli){ .md-tag .md-tag-icon .md-tag--cli }
+
+**2026-09-24**
 
 ### Changed
 
@@ -18,9 +20,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [cli 4.8.3](versions/cli-v4.8.3.md)
+## [cli v4.8.3](versions/cli-v4.8.3.md)
 
-**2026-09-22** • **cli**
+[cli](tags.md#tag:cli){ .md-tag .md-tag-icon .md-tag--cli }
+
+**2026-09-22**
 
 ### Fixed
 
@@ -30,9 +34,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [cli 4.8.2](versions/cli-v4.8.2.md)
+## [cli v4.8.2](versions/cli-v4.8.2.md)
 
-**2026-08-10** • **cli**
+[cli](tags.md#tag:cli){ .md-tag .md-tag-icon .md-tag--cli }
+
+**2026-08-10**
 
 ### Fixed
 
@@ -40,9 +46,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [cli 4.8.1](versions/cli-v4.8.1.md)
+## [cli v4.8.1](versions/cli-v4.8.1.md)
 
-**2026-08-07** • **cli**
+[cli](tags.md#tag:cli){ .md-tag .md-tag-icon .md-tag--cli }
+
+**2026-08-07**
 
 ### Fixed
 
@@ -51,9 +59,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [cli 4.8.0](versions/cli-v4.8.0.md)
+## [cli v4.8.0](versions/cli-v4.8.0.md)
 
-**2026-07-24** • **cli**
+[cli](tags.md#tag:cli){ .md-tag .md-tag-icon .md-tag--cli }
+
+**2026-07-24**
 
 ### Added
 
@@ -71,9 +81,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [ci-builder 2.7.0](versions/ci-builder-v2.7.0.md)
+## [ci-builder v2.7.0](versions/ci-builder-v2.7.0.md)
 
-**2026-07-23** • **ci-builder**
+[ci-builder](tags.md#tag:ci-builder){ .md-tag .md-tag-icon .md-tag--ci-builder }
+
+**2026-07-23**
 
 ### Added
 
@@ -90,9 +102,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [ci-builder 2.6.0](versions/ci-builder-v2.6.0.md)
+## [ci-builder v2.6.0](versions/ci-builder-v2.6.0.md)
 
-**2026-07-21** • **ci-builder**
+[ci-builder](tags.md#tag:ci-builder){ .md-tag .md-tag-icon .md-tag--ci-builder }
+
+**2026-07-21**
 
 ### Changed
 
@@ -108,9 +122,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [cli 4.7.0](versions/cli-v4.7.0.md)
+## [cli v4.7.0](versions/cli-v4.7.0.md)
 
-**2026-06-24** • **cli**
+[cli](tags.md#tag:cli){ .md-tag .md-tag-icon .md-tag--cli }
+
+**2026-06-24**
 
 ### Added
 
@@ -135,19 +151,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 5.17.3](versions/stacks-v5.17.3.md)
+## [stacks v5.17.3](versions/stacks-v5.17.3.md)
 
-**2025-11-04** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
 
-### Fixed
-
-- Fixed errors during application tear down process
-
----
-
-## [stacks 5.17.2](versions/stacks-v5.17.2.md)
-
-**2025-11-04** • **stacks**
+**2025-11-04**
 
 ### Fixed
 
@@ -155,9 +163,23 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 5.17.1](versions/stacks-v5.17.1.md)
+## [stacks v5.17.2](versions/stacks-v5.17.2.md)
 
-**2025-11-04** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2025-11-04**
+
+### Fixed
+
+- Fixed errors during application tear down process
+
+---
+
+## [stacks v5.17.1](versions/stacks-v5.17.1.md)
+
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2025-11-04**
 
 ### Fixed
 
@@ -165,9 +187,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [ci-builder 2.5.0](versions/ci-builder-v2.5.0.md)
+## [ci-builder v2.5.0](versions/ci-builder-v2.5.0.md)
 
-**2025-10-21** • **ci-builder**
+[ci-builder](tags.md#tag:ci-builder){ .md-tag .md-tag-icon .md-tag--ci-builder }
+
+**2025-10-21**
 
 ### Added
 
@@ -175,9 +199,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 5.17.0](versions/stacks-v5.17.0.md)
+## [stacks v5.17.0](versions/stacks-v5.17.0.md)
 
-**2025-10-21** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2025-10-21**
 
 ### Added
 
@@ -185,9 +211,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [ci-builder 2.4.0](versions/ci-builder-v2.4.0.md)
+## [ci-builder v2.4.0](versions/ci-builder-v2.4.0.md)
 
-**2025-09-22** • **ci-builder**
+[ci-builder](tags.md#tag:ci-builder){ .md-tag .md-tag-icon .md-tag--ci-builder }
+
+**2025-09-22**
 
 ### Fixed
 
@@ -199,9 +227,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 5.16.0](versions/stacks-v5.16.0.md)
+## [stacks v5.16.0](versions/stacks-v5.16.0.md)
 
-**2025-09-22** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2025-09-22**
 
 ### Added
 
@@ -213,9 +243,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 5.15.1](versions/stacks-v5.15.1.md)
+## [stacks v5.15.1](versions/stacks-v5.15.1.md)
 
-**2025-09-22** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2025-09-22**
 
 ### Fixed
 
@@ -223,9 +255,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [ci-builder 2.3.0](versions/ci-builder-v2.3.0.md)
+## [ci-builder v2.3.0](versions/ci-builder-v2.3.0.md)
 
-**2025-09-19** • **ci-builder**
+[ci-builder](tags.md#tag:ci-builder){ .md-tag .md-tag-icon .md-tag--ci-builder }
+
+**2025-09-19**
 
 ### Added
 
@@ -233,9 +267,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 5.15.0](versions/stacks-v5.15.0.md)
+## [stacks v5.15.0](versions/stacks-v5.15.0.md)
 
-**2025-09-16** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2025-09-16**
 
 ### Changed
 
@@ -249,9 +285,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [cli 4.6.7](versions/cli-v4.6.7.md)
+## [cli v4.6.7](versions/cli-v4.6.7.md)
 
-**2025-08-14** • **cli**
+[cli](tags.md#tag:cli){ .md-tag .md-tag-icon .md-tag--cli }
+
+**2025-08-14**
 
 ### Fixed
 
@@ -259,9 +297,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [ci-builder 2.2.0](versions/ci-builder-v2.2.0.md)
+## [ci-builder v2.2.0](versions/ci-builder-v2.2.0.md)
 
-**2025-06-16** • **ci-builder**
+[ci-builder](tags.md#tag:ci-builder){ .md-tag .md-tag-icon .md-tag--ci-builder }
+
+**2025-06-16**
 
 ### Changed
 
@@ -273,9 +313,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [cli 4.6.6](versions/cli-v4.6.6.md)
+## [cli v4.6.6](versions/cli-v4.6.6.md)
 
-**2025-03-31** • **cli**
+[cli](tags.md#tag:cli){ .md-tag .md-tag-icon .md-tag--cli }
+
+**2025-03-31**
 
 ### Fixed
 
@@ -284,9 +326,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [cli 4.6.5](versions/cli-v4.6.5.md)
+## [cli v4.6.5](versions/cli-v4.6.5.md)
 
-**2025-03-06** • **cli**
+[cli](tags.md#tag:cli){ .md-tag .md-tag-icon .md-tag--cli }
+
+**2025-03-06**
 
 ### Fixed
 
@@ -294,9 +338,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [cli 4.6.4](versions/cli-v4.6.4.md)
+## [cli v4.6.4](versions/cli-v4.6.4.md)
 
-**2025-03-05** • **cli**
+[cli](tags.md#tag:cli){ .md-tag .md-tag-icon .md-tag--cli }
+
+**2025-03-05**
 
 ### Removed
 
@@ -309,15 +355,19 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 5.14.0](versions/stacks-v5.14.0.md)
+## [stacks v5.14.0](versions/stacks-v5.14.0.md)
 
-**2025-02-11** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2025-02-11**
 
 ---
 
-## [ci-builder 2.1.0](versions/ci-builder-v2.1.0.md)
+## [ci-builder v2.1.0](versions/ci-builder-v2.1.0.md)
 
-**2025-02-10** • **ci-builder**
+[ci-builder](tags.md#tag:ci-builder){ .md-tag .md-tag-icon .md-tag--ci-builder }
+
+**2025-02-10**
 
 ### Fixed
 
@@ -325,9 +375,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [cli 4.6.3](versions/cli-v4.6.3.md)
+## [cli v4.6.3](versions/cli-v4.6.3.md)
 
-**2024-11-04** • **cli**
+[cli](tags.md#tag:cli){ .md-tag .md-tag-icon .md-tag--cli }
+
+**2024-11-04**
 
 ### Fixed
 
@@ -336,9 +388,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 5.13.0](versions/stacks-v5.13.0.md)
+## [stacks v5.13.0](versions/stacks-v5.13.0.md)
 
-**2024-10-14** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2024-10-14**
 
 ### Added
 
@@ -350,9 +404,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 5.12.0](versions/stacks-v5.12.0.md)
+## [stacks v5.12.0](versions/stacks-v5.12.0.md)
 
-**2024-09-04** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2024-09-04**
 
 ### Fixed
 
@@ -360,9 +416,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [cli 4.6.2](versions/cli-v4.6.2.md)
+## [cli v4.6.2](versions/cli-v4.6.2.md)
 
-**2024-09-03** • **cli**
+[cli](tags.md#tag:cli){ .md-tag .md-tag-icon .md-tag--cli }
+
+**2024-09-03**
 
 ### Fixed
 
@@ -370,9 +428,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 5.11.0](versions/stacks-v5.11.0.md)
+## [stacks v5.11.0](versions/stacks-v5.11.0.md)
 
-**2024-09-03** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2024-09-03**
 
 ### Changed
 
@@ -385,9 +445,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [cli 4.6.1](versions/cli-v4.6.1.md)
+## [cli v4.6.1](versions/cli-v4.6.1.md)
 
-**2024-08-28** • **cli**
+[cli](tags.md#tag:cli){ .md-tag .md-tag-icon .md-tag--cli }
+
+**2024-08-28**
 
 ### Fixed
 
@@ -395,9 +457,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [cli 4.6.0](versions/cli-v4.6.0.md)
+## [cli v4.6.0](versions/cli-v4.6.0.md)
 
-**2024-08-28** • **cli**
+[cli](tags.md#tag:cli){ .md-tag .md-tag-icon .md-tag--cli }
+
+**2024-08-28**
 
 ### Changed
 
@@ -412,9 +476,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 5.10.0](versions/stacks-v5.10.0.md)
+## [stacks v5.10.0](versions/stacks-v5.10.0.md)
 
-**2024-08-27** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2024-08-27**
 
 ### Added
 
@@ -423,9 +489,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [cli 4.5.0](versions/cli-v4.5.0.md)
+## [cli v4.5.0](versions/cli-v4.5.0.md)
 
-**2024-05-16** • **cli**
+[cli](tags.md#tag:cli){ .md-tag .md-tag-icon .md-tag--cli }
+
+**2024-05-16**
 
 ### Changed
 
@@ -436,9 +504,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 5.9.0](versions/stacks-v5.9.0.md)
+## [stacks v5.9.0](versions/stacks-v5.9.0.md)
 
-**2024-04-26** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2024-04-26**
 
 ### Added
 
@@ -456,9 +526,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 5.8.0](versions/stacks-v5.8.0.md)
+## [stacks v5.8.0](versions/stacks-v5.8.0.md)
 
-**2024-04-24** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2024-04-24**
 
 ### Changed
 
@@ -466,9 +538,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 5.7.3](versions/stacks-v5.7.3.md)
+## [stacks v5.7.3](versions/stacks-v5.7.3.md)
 
-**2024-02-15** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2024-02-15**
 
 ### Added
 
@@ -482,9 +556,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 5.7.2](versions/stacks-v5.7.2.md)
+## [stacks v5.7.2](versions/stacks-v5.7.2.md)
 
-**2023-10-13** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2023-10-13**
 
 ### Changed
 
@@ -492,9 +568,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 5.7.1](versions/stacks-v5.7.1.md)
+## [stacks v5.7.1](versions/stacks-v5.7.1.md)
 
-**2023-10-13** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2023-10-13**
 
 ### Fixed
 
@@ -502,9 +580,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 5.7.0](versions/stacks-v5.7.0.md)
+## [stacks v5.7.0](versions/stacks-v5.7.0.md)
 
-**2023-10-11** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2023-10-11**
 
 ### Changed
 
@@ -513,9 +593,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 5.6.0](versions/stacks-v5.6.0.md)
+## [stacks v5.6.0](versions/stacks-v5.6.0.md)
 
-**2023-09-12** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2023-09-12**
 
 ### Fixed
 
@@ -523,9 +605,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 5.5.2](versions/stacks-v5.5.2.md)
+## [stacks v5.5.2](versions/stacks-v5.5.2.md)
 
-**2023-09-08** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2023-09-08**
 
 ### Fixed
 
@@ -533,9 +617,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 5.5.1](versions/stacks-v5.5.1.md)
+## [stacks v5.5.1](versions/stacks-v5.5.1.md)
 
-**2023-08-30** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2023-08-30**
 
 ### Changed
 
@@ -547,9 +633,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 5.5.0](versions/stacks-v5.5.0.md)
+## [stacks v5.5.0](versions/stacks-v5.5.0.md)
 
-**2023-07-21** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2023-07-21**
 
 ### Changed
 
@@ -557,9 +645,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 5.4.0](versions/stacks-v5.4.0.md)
+## [stacks v5.4.0](versions/stacks-v5.4.0.md)
 
-**2023-05-03** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2023-05-03**
 
 ### Changed
 
@@ -567,9 +657,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 5.3.0](versions/stacks-v5.3.0.md)
+## [stacks v5.3.0](versions/stacks-v5.3.0.md)
 
-**2023-04-24** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2023-04-24**
 
 ### Changed
 
@@ -577,9 +669,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 5.2.3](versions/stacks-v5.2.3.md)
+## [stacks v5.2.3](versions/stacks-v5.2.3.md)
 
-**2023-04-24** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2023-04-24**
 
 ### Fixed
 
@@ -587,9 +681,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 5.2.2](versions/stacks-v5.2.2.md)
+## [stacks v5.2.2](versions/stacks-v5.2.2.md)
 
-**2023-04-21** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2023-04-21**
 
 ### Fixed
 
@@ -597,9 +693,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 5.2.1](versions/stacks-v5.2.1.md)
+## [stacks v5.2.1](versions/stacks-v5.2.1.md)
 
-**2023-04-07** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2023-04-07**
 
 ### Fixed
 
@@ -607,9 +705,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 5.2.0](versions/stacks-v5.2.0.md)
+## [stacks v5.2.0](versions/stacks-v5.2.0.md)
 
-**2023-04-07** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2023-04-07**
 
 ### Changed
 
@@ -617,9 +717,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [cli 4.3.0](versions/cli-v4.3.0.md)
+## [cli v4.3.0](versions/cli-v4.3.0.md)
 
-**2023-03-27** • **cli**
+[cli](tags.md#tag:cli){ .md-tag .md-tag-icon .md-tag--cli }
+
+**2023-03-27**
 
 ### Added
 
@@ -637,9 +739,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 5.1.0](versions/stacks-v5.1.0.md)
+## [stacks v5.1.0](versions/stacks-v5.1.0.md)
 
-**2023-03-27** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2023-03-27**
 
 ### Changed
 
@@ -648,9 +752,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [cli 4.4.0](versions/cli-v4.4.0.md)
+## [cli v4.4.0](versions/cli-v4.4.0.md)
 
-**2023-03-25** • **cli**
+[cli](tags.md#tag:cli){ .md-tag .md-tag-icon .md-tag--cli }
+
+**2023-03-25**
 
 ### Changed
 
@@ -662,9 +768,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 5.0.0](versions/stacks-v5.0.0.md)
+## [stacks v5.0.0](versions/stacks-v5.0.0.md)
 
-**2023-03-21** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2023-03-21**
 
 ### Added
 
@@ -682,9 +790,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [cli 4.2.0](versions/cli-v4.2.0.md)
+## [cli v4.2.0](versions/cli-v4.2.0.md)
 
-**2023-03-03** • **cli**
+[cli](tags.md#tag:cli){ .md-tag .md-tag-icon .md-tag--cli }
+
+**2023-03-03**
 
 ### Added
 
@@ -699,9 +809,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 4.4.0](versions/stacks-v4.4.0.md)
+## [stacks v4.4.0](versions/stacks-v4.4.0.md)
 
-**2023-03-03** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2023-03-03**
 
 ### Added
 
@@ -709,9 +821,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 4.3.0](versions/stacks-v4.3.0.md)
+## [stacks v4.3.0](versions/stacks-v4.3.0.md)
 
-**2023-01-30** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2023-01-30**
 
 ### Added
 
@@ -723,9 +837,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [cli 4.1.0](versions/cli-v4.1.0.md)
+## [cli v4.1.0](versions/cli-v4.1.0.md)
 
-**2023-01-10** • **cli**
+[cli](tags.md#tag:cli){ .md-tag .md-tag-icon .md-tag--cli }
+
+**2023-01-10**
 
 ### Added
 
@@ -741,9 +857,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 4.2.1](versions/stacks-v4.2.1.md)
+## [stacks v4.2.1](versions/stacks-v4.2.1.md)
 
-**2023-01-09** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2023-01-09**
 
 ### Fixed
 
@@ -751,9 +869,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 4.2.0](versions/stacks-v4.2.0.md)
+## [stacks v4.2.0](versions/stacks-v4.2.0.md)
 
-**2023-01-09** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2023-01-09**
 
 ### Added
 
@@ -762,15 +882,19 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 4.1.3](versions/stacks-v4.1.3.md)
+## [stacks v4.1.3](versions/stacks-v4.1.3.md)
 
-**2022-11-18** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2022-11-18**
 
 ---
 
-## [stacks 4.1.2](versions/stacks-v4.1.2.md)
+## [stacks v4.1.2](versions/stacks-v4.1.2.md)
 
-**2022-11-01** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2022-11-01**
 
 ### Fixed
 
@@ -778,9 +902,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 4.1.1](versions/stacks-v4.1.1.md)
+## [stacks v4.1.1](versions/stacks-v4.1.1.md)
 
-**2022-10-27** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2022-10-27**
 
 ### Fixed
 
@@ -788,9 +914,11 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
-## [stacks 4.1.0](versions/stacks-v4.1.0.md)
+## [stacks v4.1.0](versions/stacks-v4.1.0.md)
 
-**2022-10-27** • **stacks**
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**2022-10-27**
 
 ### Added
 

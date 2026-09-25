@@ -301,7 +301,7 @@ def generate_index_page(entries: list[ChangelogEntry], output_path: Path) -> Non
     template = load_template("index_entry.md")
     body = "\n".join(
         template.substitute(
-            title=f"{entry.alias} {entry.version}",
+            version=entry.version,
             version_id=entry.version_id,
             alias=entry.alias,
             date=entry.date.strftime("%Y-%m-%d"),

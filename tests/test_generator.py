@@ -78,7 +78,7 @@ def test_index_date_subheading_names_the_alias_not_the_repository(
 
     generate_index_page([entry("cli", "4.8.3")], index)
 
-    assert "**2024-01-01** • **cli**" in index.read_text()
+    assert "**2024-01-01** • [cli](tags.md#tag:cli){ .md-tag .md-tag-icon .md-tag--cli }" in index.read_text()
     assert "repo-cli" not in index.read_text()
 
 
@@ -127,9 +127,9 @@ toc_flat: true
 
 This page aggregates changelogs from all AppPack repositories, showing the most recent changes first.
 
-## [cli 4.8.3](versions/cli-v4.8.3.md)
+## [cli v4.8.3](versions/cli-v4.8.3.md)
 
-**2024-01-01** • **cli**
+**2024-01-01** • [cli](tags.md#tag:cli){ .md-tag .md-tag-icon .md-tag--cli }
 
 ### Added
 

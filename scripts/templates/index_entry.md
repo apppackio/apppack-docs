@@ -1,5 +1,7 @@
-## [$title](versions/$version_id.md)
+## [$alias v$version](versions/$version_id.md)
 
-**$date** • **$alias**
+[$alias](tags.md#tag:$alias){ .md-tag .md-tag-icon .md-tag--$alias }
+
+**$date**
 
 ${sections}---

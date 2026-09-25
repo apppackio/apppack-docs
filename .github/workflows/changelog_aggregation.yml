@@ -7,6 +7,18 @@ on:
     - cron: '0 0,8,16 * * *'
   workflow_dispatch: {}
 
+# Checkout and push both use APPPACK_DOCS_TOKEN, so GITHUB_TOKEN needs nothing
+# beyond reading the repository.
+permissions:
+  contents: read
+
+# A manual dispatch overlapping the schedule would race on the push, and the
+# loser fails as a non-fast-forward. Queue instead -- never cancel, since a run
+# can be interrupted between the push to main and the push to deploy/prod.
+concurrency:
+  group: aggregate-changelogs
+  cancel-in-progress: false
+
 jobs:
   aggregate:
     runs-on: ubuntu-24.04

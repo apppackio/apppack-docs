@@ -93,3 +93,85 @@ def test_version_page_shows_the_release_date_without_a_repository_line(
     assert "**Released:** 2024-01-01\n\n" in text
     assert "Repository:" not in text
     assert "repo-cli" not in text
+
+
+# These two lock the exact markdown the generators emit. They are
+# characterization tests: they pass before and after the move to templates,
+# which is the point -- the generated pages are committed, so a stray newline
+# would churn 66 files.
+VERSION_PAGE = """---
+title: "cli 4.8.3"
+tags: [cli]
+---
+
+# cli 4.8.3
+
+**Released:** 2024-01-01
+
+## Added
+
+- something
+
+---
+
+[← Back to Changelog](../index.md)
+"""
+
+INDEX_PAGE = """---
+title: "AppPack Changelog"
+---
+
+# AppPack Changelog
+
+This page aggregates changelogs from all AppPack repositories, showing the most recent changes first.
+
+## [cli 4.8.3](versions/cli-v4.8.3.md)
+
+**2024-01-01** • **cli**
+
+### Added
+
+- something
+
+---
+
+"""
+
+
+def test_version_page_markdown_is_exactly_as_expected(tmp_path: Path) -> None:
+    page = tmp_path / "cli-v4.8.3.md"
+
+    generate_version_page(entry("cli", "4.8.3"), page)
+
+    assert page.read_text() == VERSION_PAGE
+
+
+def test_index_page_markdown_is_exactly_as_expected(tmp_path: Path) -> None:
+    index = tmp_path / "index.md"
+
+    generate_index_page([entry("cli", "4.8.3")], index)
+
+    assert index.read_text() == INDEX_PAGE
+
+
+def test_dollar_signs_in_changelog_content_are_not_treated_as_placeholders(
+    tmp_path: Path,
+) -> None:
+    """`string.Template` does not rescan substituted values -- keep it that way.
+
+    Changelog entries quote shell, so `$PATH` and `${HOME}` will turn up
+    eventually. They are content, not template syntax.
+    """
+    item = "Honour $PATH and ${HOME} when they are set"
+    release = ChangelogEntry(
+        version="1.0.0",
+        date=datetime.fromisoformat("2024-01-01"),
+        repository="repo-cli",
+        alias="cli",
+        sections={"Fixed": [item]},
+    )
+    page = tmp_path / "cli-v1.0.0.md"
+
+    generate_version_page(release, page)
+
+    assert f"- {item}\n" in page.read_text()

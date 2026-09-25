@@ -17,6 +17,7 @@ import tomllib
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
+from string import Template
 from urllib.parse import urlparse
 
 import requests
@@ -38,6 +39,8 @@ VERSION_HEADING = re.compile(r"^##\s+\[?([^\]\s]+)\]?", re.MULTILINE)
 
 # Markers delimiting the generated nav block in mkdocs.yml, mirroring the
 # cli-nav block that scripts/generate_cli_nav.py maintains.
+TEMPLATES_DIR = Path(__file__).parent / "templates"
+
 NAV_BEGIN = "# BEGIN changelog-nav (generated)"
 NAV_END = "# END changelog-nav (generated)"
 
@@ -262,55 +265,57 @@ def load_config(config_path: str) -> dict:
     return config
 
 
+def load_template(name: str) -> Template:
+    """Load a page template from scripts/templates.
+
+    The templates live next to this script rather than under src/ so the docs
+    build does not treat them as pages. Each one ends with a single trailing
+    newline, which is part of the output -- see the tests for the exact
+    markdown each produces.
+    """
+    return Template((TEMPLATES_DIR / name).read_text(encoding="utf-8"))
+
+
+def render_sections(sections: dict[str, list[str]], heading: str) -> str:
+    """Render the non-empty change sections at the given heading level."""
+    template = load_template("section.md")
+    return "".join(
+        template.substitute(
+            heading=heading,
+            name=name,
+            items="".join(f"- {item}\n" for item in items),
+        )
+        for name, items in sections.items()
+        if items
+    )
+
+
 def generate_version_page(entry: ChangelogEntry, output_path: Path) -> None:
     """Generate an individual version page"""
-    with output_path.open("w") as f:
-        # Front matter
-        f.write("---\n")
-        f.write(f'title: "{entry.alias} {entry.version}"\n')
-        f.write(f"tags: [{entry.alias}]\n")
-        f.write("---\n\n")
-
-        # Page content
-        f.write(f"# {entry.alias} {entry.version}\n\n")
-        f.write(f"**Released:** {entry.date.strftime('%Y-%m-%d')}\n\n")
-
-        for section_name, items in entry.sections.items():
-            if items:
-                f.write(f"## {section_name}\n\n")
-                f.writelines(f"- {item}\n" for item in items)
-                f.write("\n")
-
-        f.write("---\n\n")
-        f.write("[← Back to Changelog](../index.md)\n")
+    page = load_template("version_page.md").substitute(
+        title=f"{entry.alias} {entry.version}",
+        alias=entry.alias,
+        date=entry.date.strftime("%Y-%m-%d"),
+        sections=render_sections(entry.sections, "##"),
+    )
+    output_path.write_text(page, encoding="utf-8")
 
 
 def generate_index_page(entries: list[ChangelogEntry], output_path: Path) -> None:
     """Generate the combined changelog index page"""
-    with output_path.open("w") as f:
-        # Front matter
-        f.write("---\n")
-        f.write('title: "AppPack Changelog"\n')
-        f.write("---\n\n")
-
-        # Page content
-        f.write("# AppPack Changelog\n\n")
-        f.write(
-            "This page aggregates changelogs from all AppPack repositories, "
-            "showing the most recent changes first.\n\n"
+    template = load_template("index_entry.md")
+    body = "\n".join(
+        template.substitute(
+            title=f"{entry.alias} {entry.version}",
+            version_id=entry.version_id,
+            alias=entry.alias,
+            date=entry.date.strftime("%Y-%m-%d"),
+            sections=render_sections(entry.sections, "###"),
         )
-
-        for entry in entries:
-            f.write(f"## [{entry.alias} {entry.version}](versions/{entry.version_id}.md)\n\n")
-            f.write(f"**{entry.date.strftime('%Y-%m-%d')}** • **{entry.alias}**\n\n")
-
-            for section_name, items in entry.sections.items():
-                if items:
-                    f.write(f"### {section_name}\n\n")
-                    f.writelines(f"- {item}\n" for item in items)
-                    f.write("\n")
-
-            f.write("---\n\n")
+        for entry in entries
+    )
+    page = load_template("index_page.md").substitute(body=body)
+    output_path.write_text(page, encoding="utf-8")
 
 
 def write_changelog_nav(config_path: Path, entries: list[ChangelogEntry]) -> None:

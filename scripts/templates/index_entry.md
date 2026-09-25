@@ -2,6 +2,6 @@
 
 [$alias](tags.md#tag:$alias){ .md-tag .md-tag-icon .md-tag--$alias }
 
-**$date**
+**Release date:** $date
 
 ${sections}---

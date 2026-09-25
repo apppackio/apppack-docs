@@ -100,11 +100,11 @@ def test_version_page_shows_the_release_date_without_a_repository_line(
 # which is the point -- the generated pages are committed, so a stray newline
 # would churn 66 files.
 VERSION_PAGE = """---
-title: "cli 4.8.3"
+title: "cli - v4.8.3"
 tags: [cli]
 ---
 
-# cli 4.8.3
+# Version 4.8.3
 
 **Released:** 2024-01-01
 

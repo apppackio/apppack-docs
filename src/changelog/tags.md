@@ -1,10 +1,9 @@
 ---
-title: "Changelog by repository"
+title: "Component Changelog"
 ---
 
-# Changelog by repository
+# Component Changelog
 
-Every release is tagged with the repository it came from. Use the listing below
-to read the history of a single component.
+Use the listing below to read the history of a single component.
 
 <!-- material/tags -->

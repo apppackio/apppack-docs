@@ -1,9 +1,9 @@
 ---
-title: "cli 4.3.0"
+title: "cli - v4.3.0"
 tags: [cli]
 ---
 
-# cli 4.3.0
+# Version 4.3.0
 
 **Released:** 2023-03-27
 

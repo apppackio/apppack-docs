@@ -37,12 +37,7 @@ MIN_URL_PATH_PARTS = 2
 # Deliberately does not match "### Added" style section headings.
 VERSION_HEADING = re.compile(r"^##\s+\[?([^\]\s]+)\]?", re.MULTILINE)
 
-# Markers delimiting the generated nav block in mkdocs.yml, mirroring the
-# cli-nav block that scripts/generate_cli_nav.py maintains.
 TEMPLATES_DIR = Path(__file__).parent / "templates"
-
-NAV_BEGIN = "# BEGIN changelog-nav (generated)"
-NAV_END = "# END changelog-nav (generated)"
 
 
 @dataclass
@@ -293,7 +288,7 @@ def render_sections(sections: dict[str, list[str]], heading: str) -> str:
 def generate_version_page(entry: ChangelogEntry, output_path: Path) -> None:
     """Generate an individual version page"""
     page = load_template("version_page.md").substitute(
-        title=f"{entry.alias} {entry.version}",
+        version=entry.version,
         alias=entry.alias,
         date=entry.date.strftime("%Y-%m-%d"),
         sections=render_sections(entry.sections, "##"),
@@ -316,30 +311,6 @@ def generate_index_page(entries: list[ChangelogEntry], output_path: Path) -> Non
     )
     page = load_template("index_page.md").substitute(body=body)
     output_path.write_text(page, encoding="utf-8")
-
-
-def write_changelog_nav(config_path: Path, entries: list[ChangelogEntry]) -> None:
-    """Rewrite the generated changelog nav block in mkdocs.yml.
-
-    Zensical requires every page to appear in `nav:` -- pages left out build
-    without complaint but nothing links to them, which is why
-    scripts/check_nav_complete.py fails the build over it. The version pages
-    are generated, so their nav entries are generated alongside them.
-    """
-    lines = config_path.read_text(encoding="utf-8").splitlines()
-    try:
-        begin = next(i for i, x in enumerate(lines) if x.strip() == NAV_BEGIN)
-        end = next(i for i, x in enumerate(lines) if x.strip() == NAV_END)
-    except StopIteration:
-        msg = f"changelog-nav markers not found in {config_path}"
-        raise ValueError(msg) from None
-
-    indent = " " * (len(lines[begin]) - len(lines[begin].lstrip()))
-    lines[begin + 1 : end] = [
-        f"{indent}- changelog/versions/{entry.version_id}.md" for entry in entries
-    ]
-    config_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    logger.info("Wrote %d changelog nav entries to %s", len(entries), config_path)
 
 
 def prune_stale_version_pages(
@@ -405,11 +376,6 @@ def main() -> None:
         help="Output directory for generated changelog pages",
     )
     parser.add_argument(
-        "--mkdocs-config",
-        default="mkdocs.yml",
-        help="Path to mkdocs.yml, whose generated changelog nav block is rewritten",
-    )
-    parser.add_argument(
         "--token",
         help="GitHub personal access token (auto-detects from gh CLI if not provided)",
     )
@@ -466,9 +432,6 @@ def main() -> None:
         logger.debug("Generated %s", version_file)
 
     prune_stale_version_pages(versions_dir, merged)
-
-    # Every page must be in nav or `make check-nav` fails the build.
-    write_changelog_nav(Path(args.mkdocs_config), merged)
 
     # Generate index page
     index_file = output_dir / "index.md"

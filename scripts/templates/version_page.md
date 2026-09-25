@@ -1,9 +1,9 @@
 ---
-title: "$title"
+title: "$alias - v$version"
 tags: [$alias]
 ---
 
-# $title
+# Version $version
 
 **Released:** $date
 

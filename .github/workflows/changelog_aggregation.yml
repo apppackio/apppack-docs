@@ -46,9 +46,7 @@ jobs:
           set -eux
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          # mkdocs.yml carries the generated changelog-nav block, so it moves
-          # with the pages -- committing one without the other fails check-nav.
-          git add -A src/changelog/ mkdocs.yml
+          git add -A src/changelog/
           if git diff --cached --quiet; then
             echo "No changelog changes to publish."
             exit 0

@@ -1,9 +1,9 @@
 ---
-title: "stacks 5.2.0"
+title: "stacks - v5.2.0"
 tags: [stacks]
 ---
 
-# stacks 5.2.0
+# Version 5.2.0
 
 **Released:** 2023-04-07
 

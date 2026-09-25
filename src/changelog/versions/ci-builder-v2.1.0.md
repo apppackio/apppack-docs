@@ -1,9 +1,9 @@
 ---
-title: "ci-builder 2.1.0"
+title: "ci-builder - v2.1.0"
 tags: [ci-builder]
 ---
 
-# ci-builder 2.1.0
+# Version 2.1.0
 
 **Released:** 2025-02-10
 

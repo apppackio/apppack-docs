@@ -1,9 +1,9 @@
 ---
-title: "cli 4.6.0"
+title: "cli - v4.6.0"
 tags: [cli]
 ---
 
-# cli 4.6.0
+# Version 4.6.0
 
 **Released:** 2024-08-28
 

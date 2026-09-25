@@ -34,10 +34,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.APPPACK_DOCS_TOKEN }}
         run: uv run python scripts/aggregate_changelogs.py --verbose
 
-      # Catch a bad nav block here rather than after it has been pushed to
-      # deploy/prod, where it would fail the build that publishes the site.
-      - name: Check nav is complete
-        run: make check-nav
+      # No `make check-nav` here. src/command-line-reference is gitignored, so
+      # a fresh checkout has none of it and the nav's 84 entries all look dead.
+      # It would need the CLI installed just to generate pages this job never
+      # builds. The push below triggers ci_cd.yml, which does it properly.
 
       # `git add` before diffing: the generated pages are untracked on the
       # first run, and `git diff` alone never sees untracked files.

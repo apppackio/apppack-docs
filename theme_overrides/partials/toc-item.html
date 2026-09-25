@@ -1,0 +1,34 @@
+{#-
+  Overrides zensical/templates/partials/toc-item.html to add one guard: a page
+  can set `toc_flat: true` in its front matter to keep sub-headings out of the
+  right rail.
+
+  The changelog index needs it. It carries one h2 per release and an h3 per
+  change section, so the default TOC runs to roughly 190 entries -- long past
+  the point where it is navigable. Flat, it is one line per release.
+
+  `toc_flat` is ours, not a Python-Markdown setting. The `toc_depth` option
+  that extension provides is global, and would strip h3s from the command line
+  reference and how-to pages too.
+
+  Everything else is a verbatim copy of the upstream partial. Upstream marks it
+  "automatically generated", so re-check this file when bumping zensical.
+-#}
+<li class="md-nav__item">
+  <a href="{{ toc_item.url }}" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        {{ toc_item.content }}
+      </span>
+    </span>
+  </a>
+  {% if toc_item.children and not (page.meta and page.meta.toc_flat) %}
+    <nav class="md-nav" aria-label="{{ toc_item.title | striptags | e }}">
+      <ul class="md-nav__list">
+        {% for toc_item in toc_item.children %}
+          {% include "partials/toc-item.html" %}
+        {% endfor %}
+      </ul>
+    </nav>
+  {% endif %}
+</li>

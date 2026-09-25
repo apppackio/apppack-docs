@@ -119,6 +119,8 @@ tags: [cli]
 
 INDEX_PAGE = """---
 title: "AppPack Changelog"
+# Keeps the per-release change sections out of the right rail.
+toc_flat: true
 ---
 
 # AppPack Changelog

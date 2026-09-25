@@ -2,7 +2,7 @@ CLI_DOCS_DIR := src/command-line-reference
 
 .PHONY: build
 build: $(CLI_DOCS_DIR)
-	SITE_URL=https://docs.apppack.io/ uv run zensical build --strict
+	SITE_URL=https://docs.apppack.io/ uv run --frozen zensical build --strict
 
 # The CLI reference pages are gitignored, so a fresh clone has none. Generate
 # them when the directory is missing, but leave an existing one alone -- CI runs
@@ -24,18 +24,18 @@ clean:
 .PHONY: cli-docs
 cli-docs:
 	apppack docgen --directory $(CLI_DOCS_DIR)
-	uv run python scripts/generate_cli_nav.py
+	uv run --frozen python scripts/generate_cli_nav.py
 
 # Regenerates src/changelog and the changelog-nav block in mkdocs.yml.
 # Needs GitHub credentials for the private repositories (gh auth or GITHUB_TOKEN).
 .PHONY: changelog
 changelog:
-	uv run python scripts/aggregate_changelogs.py
+	uv run --frozen python scripts/aggregate_changelogs.py
 
 .PHONY: check-nav
 check-nav:
-	uv run python scripts/check_nav_complete.py
+	uv run --frozen python scripts/check_nav_complete.py
 
 .PHONY: run
 run: $(CLI_DOCS_DIR)
-	uv run zensical serve
+	uv run --frozen zensical serve

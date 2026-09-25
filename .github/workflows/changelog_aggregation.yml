@@ -44,7 +44,7 @@ jobs:
       - name: Aggregate changelogs
         env:
           GITHUB_TOKEN: ${{ secrets.APPPACK_DOCS_TOKEN }}
-        run: uv run python scripts/aggregate_changelogs.py --verbose
+        run: uv run --frozen python scripts/aggregate_changelogs.py --verbose
 
       # No `make check-nav` here. src/command-line-reference is gitignored, so
       # a fresh checkout has none of it and the nav's 84 entries all look dead.

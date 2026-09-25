@@ -24,7 +24,7 @@ jobs:
         run: uv sync --frozen
 
       - name: Tests
-        run: uv run pytest
+        run: uv run --frozen pytest
 
       - name: AppPack CLI
         uses: apppackio/setup-apppack-cli@v1

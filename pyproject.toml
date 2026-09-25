@@ -13,16 +13,15 @@ license = {text = "MIT"}
 [project.urls]
 homepage = "https://github.com/apppackio/apppack-docs"
 
-# Resolve against the index as it stood at this timestamp, so a package
-# published minutes ago cannot land in a build unreviewed.
+# Resolve against the index as it stood three days ago, so a package published
+# minutes ago cannot land in a build unreviewed.
 #
-# It is an absolute cutoff rather than a rolling window on purpose: uv records
-# the value it resolved under in uv.lock, so a relative one ("3 days") would
-# produce a different timestamp on every run and `uv sync --locked` would fail
-# wherever the window did not line up -- CI included. Bump it deliberately when
-# you want newer packages.
+# uv records the timestamp it resolved under in uv.lock, so this rolling window
+# writes a new one each time the lock is regenerated. That is why CI installs
+# with --frozen: it takes the lock as written rather than re-resolving and
+# comparing options. Adding a dependency still updates the lock as usual.
 [tool.uv]
-exclude-newer = "2026-09-22T00:00:00Z"
+exclude-newer = "3 days"
 
 [dependency-groups]
 dev = ["pytest>=8.0.0"]

@@ -6,7 +6,7 @@ This file can be used to configure how your app is built, released, and the serv
 
 TOML is a human-readable configuration format. It's similar to JSON or YAML, but with a different syntax. You can find a full reference of the syntax at [toml.io](https://toml.io).
 
-You must store this file in the root of your repository and name it `apppack.toml`. If it exists, [configuration via `app.json`](./apps.md#appjson) will be ignored.
+You must store this file in the root of your repository and name it `apppack.toml` or set the environment variable `APPPACK_TOML` to be the filename for your environment. If it exists, [configuration via `app.json`](./apps.md#appjson) will be ignored.
 
 ## `[build]`
 

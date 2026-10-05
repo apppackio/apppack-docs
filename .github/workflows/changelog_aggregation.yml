@@ -7,8 +7,8 @@ on:
     - cron: '0 0,8,16 * * *'
   workflow_dispatch: {}
 
-# Checkout and push both use APPPACK_DOCS_TOKEN, so GITHUB_TOKEN needs nothing
-# beyond reading the repository.
+# Neither read nor write goes through GITHUB_TOKEN (see the steps below), so
+# it needs nothing beyond reading the repository.
 permissions:
   contents: read
 
@@ -24,11 +24,22 @@ jobs:
     runs-on: ubuntu-24.04
 
     steps:
-      # A PAT (not GITHUB_TOKEN) so that reads reach the private repos and so
-      # that the push to deploy/prod triggers the build/deploy workflow.
+      # Two tokens, deliberately split by privilege. This App is installed on
+      # apppack-docs alone, so the write credential cannot reach the private
+      # source repos; APPPACK_DOCS_TOKEN reads those and cannot write anywhere.
+      - name: Mint write token
+        id: write_token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.DOCS_BOT_CLIENT_ID }}
+          private-key: ${{ secrets.DOCS_BOT_PRIVATE_KEY }}
+
+      # The pushes at the end reuse the credential checkout persists, so
+      # checkout takes the write token. An App token (unlike GITHUB_TOKEN)
+      # triggers workflows, which is what makes the deploy/prod push deploy.
       - uses: actions/checkout@v5
         with:
-          token: ${{ secrets.APPPACK_DOCS_TOKEN }}
+          token: ${{ steps.write_token.outputs.token }}
 
       - uses: actions/setup-python@v6
         with:
@@ -41,6 +52,8 @@ jobs:
       - name: Install dependencies
         run: uv sync --frozen
 
+      # Read-only PAT. The App token above has no access to apppack-backend
+      # or apppack-web, so it is useless here.
       - name: Aggregate changelogs
         env:
           GITHUB_TOKEN: ${{ secrets.APPPACK_DOCS_TOKEN }}
@@ -56,8 +69,13 @@ jobs:
       - name: Commit to main and promote to deploy/prod
         run: |
           set -eux
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Attribute commits to the App's own bot user rather than to
+          # github-actions[bot], which is not who is pushing. The numeric id
+          # is what links the noreply address to the bot's profile.
+          bot="${{ steps.write_token.outputs.app-slug }}[bot]"
+          bot_id="$(gh api "/users/${bot}" --jq .id)"
+          git config user.name "$bot"
+          git config user.email "${bot_id}+${bot}@users.noreply.github.com"
           git add -A src/changelog/
           if git diff --cached --quiet; then
             echo "No changelog changes to publish."
@@ -68,3 +86,5 @@ jobs:
           # Fast-forward only. If deploy/prod has diverged from main this
           # fails loudly rather than clobbering whatever is deployed.
           git push origin HEAD:deploy/prod
+        env:
+          GH_TOKEN: ${{ github.token }}

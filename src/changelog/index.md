@@ -8,6 +8,19 @@ toc_flat: true
 
 This page aggregates changelogs from all AppPack repositories, showing the most recent changes first.
 
+## [dashboard v1.4.0](versions/dashboard-v1.4.0.md)
+
+[dashboard](tags.md#tag:dashboard){ .md-tag .md-tag-icon .md-tag--dashboard }
+
+**Release date:** 2026-10-05
+
+### Added
+
+- Logs page: live tail and past time ranges, filtered by build, service, task and level
+- Activity feed "View logs" and Overview service cards open the Logs page
+
+---
+
 ## [cli v4.8.4](versions/cli-v4.8.4.md)
 
 [cli](tags.md#tag:cli){ .md-tag .md-tag-icon .md-tag--cli }

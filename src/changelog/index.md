@@ -47,6 +47,22 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
+## [dashboard v1.3.0](versions/dashboard-v1.3.0.md)
+
+[dashboard](tags.md#tag:dashboard){ .md-tag .md-tag-icon .md-tag--dashboard }
+
+**Release date:** 2026-08-19
+
+### Added
+
+- Activity feed links scheduler task failures to their ECS task and logs (#173)
+
+### Fixed
+
+- Long activity reason/command text truncates with an ellipsis and tooltip
+
+---
+
 ## [cli v4.8.2](versions/cli-v4.8.2.md)
 
 [cli](tags.md#tag:cli){ .md-tag .md-tag-icon .md-tag--cli }
@@ -161,6 +177,34 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 - Fixed `destroy` retry exit code.
 - Handle `LoadBalancerNotFound` during cluster deletion.
 - Added DynamoDB attribute tags so the SDK v2 correctly unmarshals stack items.
+
+---
+
+## [dashboard v1.2.0](versions/dashboard-v1.2.0.md)
+
+[dashboard](tags.md#tag:dashboard){ .md-tag .md-tag-icon .md-tag--dashboard }
+
+**Release date:** 2026-03-06
+
+### Added
+
+- Renovate configuration and workflow for automated dependency updates (pinning tailwindcss to v3, vue-router to v4)
+- Pre-commit hooks: JSON/YAML validation, GitHub workflow and Renovate config schema checks, eslint, prettier
+- Smoke tests with Vitest to catch dependency breakage
+
+### Changed
+
+- Updated dependencies to latest compatible versions
+
+### Removed
+
+- Storybook and related dependencies
+- Unused dependencies
+
+### Fixed
+
+- Chart.js v4 compatibility for metrics charts
+- Vega charts not rendering in production (blank white screen)
 
 ---
 

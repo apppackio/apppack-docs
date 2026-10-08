@@ -9,6 +9,11 @@
   "automergeType": "pr",
   "dependencyDashboard": true,
   "dependencyDashboardOSVVulnerabilitySummary": "all",
+  "ignorePaths": [
+    "**/node_modules/**",
+    "**/bower_components/**",
+    "src/**/*.md"
+  ],
   "minimumReleaseAge": "7 days",
   "osvVulnerabilityAlerts": true,
   "packageRules": [

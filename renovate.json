@@ -1,0 +1,30 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    ":configMigration",
+    "group:monorepos",
+    "helpers:pinGitHubActionDigests"
+  ],
+  "automerge": true,
+  "automergeType": "pr",
+  "dependencyDashboard": true,
+  "dependencyDashboardOSVVulnerabilitySummary": "all",
+  "minimumReleaseAge": "7 days",
+  "osvVulnerabilityAlerts": true,
+  "packageRules": [
+    {
+      "description": "A pin fixes a floating tag to the version already in use, so there is no newer release to age. Renovate synthesizes pin updates with no releaseTimestamp, and the default minimumReleaseAgeBehaviour of timestamp-required holds those pending forever.",
+      "matchUpdateTypes": ["pin"],
+      "minimumReleaseAge": null
+    }
+  ],
+  "platformAutomerge": true,
+  "lockFileMaintenance": {
+    "dependencyDashboardApproval": true,
+    "enabled": true,
+    "schedule": ["at any time"]
+  },
+  "prConcurrentLimit": 1,
+  "prHourlyLimit": 0,
+  "rangeStrategy": "pin"
+}

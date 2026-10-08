@@ -29,7 +29,7 @@ jobs:
       # source repos; APPPACK_DOCS_TOKEN reads those and cannot write anywhere.
       - name: Mint write token
         id: write_token
-        uses: actions/create-github-app-token@v3
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
         with:
           client-id: ${{ vars.DOCS_BOT_CLIENT_ID }}
           private-key: ${{ secrets.DOCS_BOT_PRIVATE_KEY }}
@@ -37,16 +37,16 @@ jobs:
       # The pushes at the end reuse the credential checkout persists, so
       # checkout takes the write token. An App token (unlike GITHUB_TOKEN)
       # triggers workflows, which is what makes the deploy/prod push deploy.
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
         with:
           token: ${{ steps.write_token.outputs.token }}
           fetch-depth: 0
 
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
         with:
           python-version-file: "pyproject.toml"
 
-      - uses: astral-sh/setup-uv@v6
+      - uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6.8.0
         with:
           enable-cache: true
 

@@ -5,7 +5,7 @@ description = "Documentation for AppPack.io"
 authors = [
     {name = "Peter Baumgartner", email = "pete@lincolnloop.com"},
 ]
-dependencies = ["zensical==0.0.63", "keepachangelog==2.0.0", "requests==2.34.2"]
+dependencies = ["zensical==0.0.67", "keepachangelog==2.0.0", "requests==2.34.2"]
 requires-python = "==3.14.8"
 dynamic = ["classifiers"]
 license = {text = "MIT"}

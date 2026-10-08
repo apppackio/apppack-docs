@@ -27,7 +27,7 @@ jobs:
         run: uv run --frozen pytest
 
       - name: AppPack CLI
-        uses: apppackio/setup-apppack-cli@142a1bbcffd0e1fde615b64efd6bd63a3eab7198 # v1.2.0
+        uses: apppackio/setup-apppack-cli@054eba8987250ae5dcb4673be4dbdc7dfa9a7cea # v2.0.0
 
       - name: CLI docs
         run: make cli-docs

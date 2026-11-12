@@ -7,8 +7,10 @@
   ],
   "automerge": true,
   "automergeType": "pr",
-  "dependencyDashboard": true,
-  "dependencyDashboardOSVVulnerabilitySummary": "all",
+  "dependencyDashboard": {
+    "enabled": true,
+    "osvVulnerabilitySummary": "all"
+  },
   "ignorePaths": [
     "**/node_modules/**",
     "**/bower_components/**",

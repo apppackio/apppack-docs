@@ -37,6 +37,22 @@ MIN_URL_PATH_PARTS = 2
 # Deliberately does not match "### Added" style section headings.
 VERSION_HEADING = re.compile(r"^##\s+\[?([^\]\s]+)\]?", re.MULTILINE)
 
+# A list item marker ("- ", "* ", "+ ", "1. ") with its leading indentation.
+LIST_MARKER = re.compile(r"^( *)([*+-]|\d+[.)])( +|$)")
+
+# A link reference such as "[1.2.3]: https://...", as keepachangelog matches it.
+LINK_DEFINITION = re.compile(r"^\[.*\]: ")
+
+# keepachangelog treats every non-blank line as its own change, so a bullet
+# that wraps, nests a list or has a second paragraph comes out as several
+# bullets. Each whole item is swapped for this token (plus its index) before
+# parsing and swapped back afterwards. The token also survives the library's
+# lstrip(" *-"), which would otherwise eat the "**" of an item starting in bold.
+ITEM_TOKEN = "\x1eitem"
+
+# Python-Markdown only nests content indented by four spaces.
+NESTED_INDENT = 4
+
 TEMPLATES_DIR = Path(__file__).parent / "templates"
 
 
@@ -148,7 +164,16 @@ class ChangelogParser:
 
         # Parse with show_unreleased=False to exclude unreleased versions
         # to_dict expects an iterable of lines or a file path
-        changelog_dict = to_dict(content.splitlines(), show_unreleased=False)
+        lines, items = collapse_list_items(content)
+        changelog_dict = to_dict(lines, show_unreleased=False)
+
+        def restore(changes: list[str]) -> list[str]:
+            return [
+                items[int(c.removeprefix(ITEM_TOKEN))]
+                if c.startswith(ITEM_TOKEN)
+                else c
+                for c in changes
+            ]
 
         parsed_versions = {v for v in changelog_dict if v != "metadata"}
         for version in sorted(self._declared_versions(content) - parsed_versions):
@@ -188,12 +213,12 @@ class ChangelogParser:
                 repository=repo_name,
                 alias=alias,
                 sections={
-                    "Added": data.get("added", []),
-                    "Changed": data.get("changed", []),
-                    "Deprecated": data.get("deprecated", []),
-                    "Removed": data.get("removed", []),
-                    "Fixed": data.get("fixed", []),
-                    "Security": data.get("security", []),
+                    "Added": restore(data.get("added", [])),
+                    "Changed": restore(data.get("changed", [])),
+                    "Deprecated": restore(data.get("deprecated", [])),
+                    "Removed": restore(data.get("removed", [])),
+                    "Fixed": restore(data.get("fixed", [])),
+                    "Security": restore(data.get("security", [])),
                 },
             )
             entries.append(entry)
@@ -214,6 +239,85 @@ class ChangelogParser:
             for match in VERSION_HEADING.finditer(content)
             if match.group(1).lower() != "unreleased"
         }
+
+
+def _indent(line: str) -> int:
+    return len(line) - len(line.lstrip(" "))
+
+
+def _continues_item(line: str, item: list[str], content_col: int) -> bool:
+    """Whether `line` belongs to the list item whose lines so far are `item`."""
+    if not line.strip() or _indent(line) >= content_col:
+        return True
+    # Markdown's "lazy continuation": an unindented line straight after the
+    # item's text still belongs to it, unless it starts something new.
+    return (
+        bool(item[-1].strip())
+        and not LIST_MARKER.match(line)
+        and not line.startswith("#")
+        and not LINK_DEFINITION.match(line)
+    )
+
+
+def _item_markdown(item: list[str]) -> str:
+    """Turn an item's source lines into markdown without its own bullet.
+
+    Continuation lines are dedented to column 0 and nested lists are
+    re-indented to NESTED_INDENT per level, whatever the source used.
+    """
+    while not item[-1].strip():
+        item.pop()
+    marker = LIST_MARKER.match(item[0])
+    out = [item[0][marker.end() :].strip()]
+    # (source content column, output content column) for each open list level
+    levels = [(marker.end(), 0)]
+    for line in item[1:]:
+        if not line.strip():
+            out.append("")
+            continue
+        indent = _indent(line)
+        while len(levels) > 1 and indent < levels[-1][0]:
+            levels.pop()
+        source_col, out_col = levels[-1]
+        nested = LIST_MARKER.match(line)
+        if nested:
+            out.append(" " * out_col + line.lstrip())
+            levels.append((nested.end(), out_col + NESTED_INDENT))
+        else:
+            out.append(" " * (out_col + max(0, indent - source_col)) + line.lstrip())
+    return "\n".join(out)
+
+
+def collapse_list_items(content: str) -> tuple[list[str], list[str]]:
+    """Replace each top-level list item with a single ITEM_TOKEN line.
+
+    Returns the lines to hand to keepachangelog and the item markdown that
+    the tokens index into.
+    """
+    lines: list[str] = []
+    items: list[str] = []
+    current: list[str] = []
+    content_col = 0
+
+    def close() -> None:
+        if current:
+            lines.append(f"{ITEM_TOKEN}{len(items)}")
+            items.append(_item_markdown(current.copy()))
+            current.clear()
+
+    for line in content.expandtabs(NESTED_INDENT).splitlines():
+        if current and _continues_item(line, current, content_col):
+            current.append(line)
+            continue
+        close()
+        marker = LIST_MARKER.match(line)
+        if marker:
+            current.append(line)
+            content_col = marker.end()
+        else:
+            lines.append(line)
+    close()
+    return lines, items
 
 
 class ChangelogMerger:
@@ -271,6 +375,15 @@ def load_template(name: str) -> Template:
     return Template((TEMPLATES_DIR / name).read_text(encoding="utf-8"))
 
 
+def render_item(item: str) -> str:
+    """Render one change as a bullet, nesting any further lines under it."""
+    first, *rest = item.split("\n")
+    nested = "".join(
+        f"{' ' * NESTED_INDENT}{line}\n" if line else "\n" for line in rest
+    )
+    return f"- {first}\n{nested}"
+
+
 def render_sections(sections: dict[str, list[str]], heading: str) -> str:
     """Render the non-empty change sections at the given heading level."""
     template = load_template("section.md")
@@ -278,7 +391,7 @@ def render_sections(sections: dict[str, list[str]], heading: str) -> str:
         template.substitute(
             heading=heading,
             name=name,
-            items="".join(f"- {item}\n" for item in items),
+            items="".join(render_item(item) for item in items),
         )
         for name, items in sections.items()
         if items

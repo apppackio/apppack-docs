@@ -17,10 +17,10 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 ### Added
 
 - After pushing the commit, `build-NNN` and `latest` tags, the builder invokes
-- the app's SOCI index generator asynchronously when
-- `SOCI_GENERATOR_FUNCTION_ARN` is set. It sends only the tag to convert; the
-- generator reads the repository and registry from its environment. An empty
-- variable is a no-op, so existing stacks are unchanged.
+    the app's SOCI index generator asynchronously when
+    `SOCI_GENERATOR_FUNCTION_ARN` is set. It sends only the tag to convert; the
+    generator reads the repository and registry from its environment. An empty
+    variable is a no-op, so existing stacks are unchanged.
 
 ### Changed
 
@@ -29,7 +29,7 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 ### Fixed
 
 - The deploy job constructs the GHCR image reference from the run id. It
-- previously read an empty `build-image` job output and could not publish.
+    previously read an empty `build-image` job output and could not publish.
 
 ---
 
@@ -41,10 +41,10 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ### Added
 
-- Faster app starts.** New builds are automatically optimized so your app can
-- begin serving traffic before the whole container image has finished
-- downloading. No app or configuration changes are needed. The improvement is
-- most noticeable with larger images and on new deployments or rollbacks.
+- **Faster app starts.** New builds are automatically optimized so your app can
+    begin serving traffic before the whole container image has finished
+    downloading. No app or configuration changes are needed. The improvement is
+    most noticeable with larger images and on new deployments or rollbacks.
 
 ---
 
@@ -176,15 +176,16 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 ### Added
 
 - CodeBuild environment variables are now mapped to neutral, industry-standard CI
-- variable names and made available to builds — as `--build-arg` values for Docker
-- builds and as environment variables for buildpack builds:
-- `CI_COMMIT_REF` — source ref (from `CODEBUILD_WEBHOOK_HEAD_REF`, falling back to
-- `CODEBUILD_SOURCE_VERSION` for manual builds)
-- `CI_COMMIT_SHA` — resolved commit SHA (from `CODEBUILD_RESOLVED_SOURCE_VERSION`)
-- `CI_BUILD_STARTED_AT` — build start time (from `CODEBUILD_START_TIME`)
-- `CI_REPOSITORY_URL` — repository clone URL (from `CODEBUILD_SOURCE_REPO_URL`)
-- Each variable is only set when its source value is present, so Dockerfile `ARG`
-- defaults are preserved on non-CodeBuild or manual runs.
+    variable names and made available to builds — as `--build-arg` values for Docker
+    builds and as environment variables for buildpack builds:
+    * `CI_COMMIT_REF` — source ref (from `CODEBUILD_WEBHOOK_HEAD_REF`, falling back to
+        `CODEBUILD_SOURCE_VERSION` for manual builds)
+    * `CI_COMMIT_SHA` — resolved commit SHA (from `CODEBUILD_RESOLVED_SOURCE_VERSION`)
+    * `CI_BUILD_STARTED_AT` — build start time (from `CODEBUILD_START_TIME`)
+    * `CI_REPOSITORY_URL` — repository clone URL (from `CODEBUILD_SOURCE_REPO_URL`)
+
+    Each variable is only set when its source value is present, so Dockerfile `ARG`
+    defaults are preserved on non-CodeBuild or manual runs.
 
 ---
 
@@ -201,10 +202,10 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 ### Fixed
 
 - Builds that use an in-dyno test database or Redis add-on (`heroku-postgresql:in-dyno`,
-- `heroku-redis:in-dyno`) could intermittently fail during the pre-build phase with an
-- error like `The container name "/db" is already in use`. These add-on containers now
-- start with unique names, so a build no longer collides with a leftover container from
-- a previous run.
+    `heroku-redis:in-dyno`) could intermittently fail during the pre-build phase with an
+    error like `The container name "/db" is already in use`. These add-on containers now
+    start with unique names, so a build no longer collides with a leftover container from
+    a previous run.
 
 ---
 
@@ -691,8 +692,8 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 ### Added
 
 - Additional outputs on stacks:
-- App: `TaskRoleArn`, `TargetGroupArn`, and `TargetGroupSuffix`
-- Database: `SecurityGroupId`
+    * App: `TaskRoleArn`, `TargetGroupArn`, and `TargetGroupSuffix`
+    * Database: `SecurityGroupId`
 
 ### Changed
 
@@ -922,10 +923,10 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 - Added an Athena Workgroup to the cluster stack which defines the results location and encryption configuration
 - Update policies for changes at AWS
-- Updated Cloudwatch log access policy with newly added permissions
-- Explicity set the public access configuration on Public S3 buckets
-- Explicity allow `ecs:TagResource` for AppPack and app users
-- Added role for all cross-account event rules
+    * Updated Cloudwatch log access policy with newly added permissions
+    * Explicity set the public access configuration on Public S3 buckets
+    * Explicity allow `ecs:TagResource` for AppPack and app users
+    * Added role for all cross-account event rules
 
 ### Changed
 

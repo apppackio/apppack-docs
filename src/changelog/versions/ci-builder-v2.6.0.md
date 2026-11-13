@@ -14,10 +14,10 @@ tags: [ci-builder]
 ## Fixed
 
 - Builds that use an in-dyno test database or Redis add-on (`heroku-postgresql:in-dyno`,
-- `heroku-redis:in-dyno`) could intermittently fail during the pre-build phase with an
-- error like `The container name "/db" is already in use`. These add-on containers now
-- start with unique names, so a build no longer collides with a leftover container from
-- a previous run.
+    `heroku-redis:in-dyno`) could intermittently fail during the pre-build phase with an
+    error like `The container name "/db" is already in use`. These add-on containers now
+    start with unique names, so a build no longer collides with a leftover container from
+    a previous run.
 
 ---
 

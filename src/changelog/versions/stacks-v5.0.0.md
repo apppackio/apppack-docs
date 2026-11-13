@@ -11,10 +11,10 @@ tags: [stacks]
 
 - Added an Athena Workgroup to the cluster stack which defines the results location and encryption configuration
 - Update policies for changes at AWS
-- Updated Cloudwatch log access policy with newly added permissions
-- Explicity set the public access configuration on Public S3 buckets
-- Explicity allow `ecs:TagResource` for AppPack and app users
-- Added role for all cross-account event rules
+    * Updated Cloudwatch log access policy with newly added permissions
+    * Explicity set the public access configuration on Public S3 buckets
+    * Explicity allow `ecs:TagResource` for AppPack and app users
+    * Added role for all cross-account event rules
 
 ## Changed
 

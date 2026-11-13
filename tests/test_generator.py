@@ -7,6 +7,7 @@ from aggregate_changelogs import (
     generate_index_page,
     generate_version_page,
     prune_stale_version_pages,
+    render_sections,
 )
 
 
@@ -179,3 +180,18 @@ def test_dollar_signs_in_changelog_content_are_not_treated_as_placeholders(
     generate_version_page(release, page)
 
     assert f"- {item}\n" in page.read_text()
+
+
+def test_multi_line_items_render_as_one_bullet_with_indented_content() -> None:
+    item = "Wrapped first line\ncontinues here:\n- nested\n\nA paragraph."
+
+    assert render_sections({"Added": [item]}, "##") == (
+        "## Added\n"
+        "\n"
+        "- Wrapped first line\n"
+        "    continues here:\n"
+        "    - nested\n"
+        "\n"
+        "    A paragraph.\n"
+        "\n"
+    )

@@ -17,9 +17,9 @@ build, not here.
 from pathlib import Path
 
 import pytest
-import zensical
+import zensical_ui
 
-UPSTREAM = Path(zensical.__file__).parent / "templates" / "partials"
+UPSTREAM = Path(zensical_ui.get_theme_dir()) / "partials"
 FIXTURES = Path(__file__).parent / "fixtures" / "upstream"
 OVERRIDES = Path(__file__).parent.parent / "theme_overrides" / "partials"
 

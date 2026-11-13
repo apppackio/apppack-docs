@@ -24,7 +24,7 @@ homepage = "https://github.com/apppackio/apppack-docs"
 exclude-newer = "3 days"
 
 [dependency-groups]
-dev = ["pytest==9.1.1"]
+dev = ["pytest==9.2.0"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

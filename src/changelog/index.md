@@ -8,6 +8,31 @@ toc_flat: true
 
 This page aggregates changelogs from all AppPack repositories, showing the most recent changes first.
 
+## [ci-builder v2.8.0](versions/ci-builder-v2.8.0.md)
+
+[ci-builder](tags.md#tag:ci-builder){ .md-tag .md-tag-icon .md-tag--ci-builder }
+
+**Release date:** 2026-11-13
+
+### Added
+
+- After pushing the commit, `build-NNN` and `latest` tags, the builder invokes
+- the app's SOCI index generator asynchronously when
+- `SOCI_GENERATOR_FUNCTION_ARN` is set. It sends only the tag to convert; the
+- generator reads the repository and registry from its environment. An empty
+- variable is a no-op, so existing stacks are unchanged.
+
+### Changed
+
+- Updated the `pack` CLI to 0.40.10
+
+### Fixed
+
+- The deploy job constructs the GHCR image reference from the run id. It
+- previously read an empty `build-image` job output and could not publish.
+
+---
+
 ## [dashboard v1.5.0](versions/dashboard-v1.5.0.md)
 
 [dashboard](tags.md#tag:dashboard){ .md-tag .md-tag-icon .md-tag--dashboard }

@@ -33,6 +33,21 @@ This page aggregates changelogs from all AppPack repositories, showing the most 
 
 ---
 
+## [stacks v5.18.0](versions/stacks-v5.18.0.md)
+
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**Release date:** 2026-11-13
+
+### Added
+
+- Faster app starts.** New builds are automatically optimized so your app can
+- begin serving traffic before the whole container image has finished
+- downloading. No app or configuration changes are needed. The improvement is
+- most noticeable with larger images and on new deployments or rollbacks.
+
+---
+
 ## [dashboard v1.5.0](versions/dashboard-v1.5.0.md)
 
 [dashboard](tags.md#tag:dashboard){ .md-tag .md-tag-icon .md-tag--dashboard }

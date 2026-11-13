@@ -10,8 +10,8 @@ tags: [stacks]
 ## Added
 
 - Additional outputs on stacks:
-- App: `TaskRoleArn`, `TargetGroupArn`, and `TargetGroupSuffix`
-- Database: `SecurityGroupId`
+    * App: `TaskRoleArn`, `TargetGroupArn`, and `TargetGroupSuffix`
+    * Database: `SecurityGroupId`
 
 ## Changed
 

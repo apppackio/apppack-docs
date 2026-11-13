@@ -9,10 +9,10 @@ tags: [stacks]
 
 ## Added
 
-- Faster app starts.** New builds are automatically optimized so your app can
-- begin serving traffic before the whole container image has finished
-- downloading. No app or configuration changes are needed. The improvement is
-- most noticeable with larger images and on new deployments or rollbacks.
+- **Faster app starts.** New builds are automatically optimized so your app can
+    begin serving traffic before the whole container image has finished
+    downloading. No app or configuration changes are needed. The improvement is
+    most noticeable with larger images and on new deployments or rollbacks.
 
 ---
 

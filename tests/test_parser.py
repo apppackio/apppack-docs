@@ -124,3 +124,63 @@ def test_section_headings_are_not_mistaken_for_versions(
     parser.parse_changelog(VALID_CHANGELOG, "apppack", "cli")
 
     assert not any("Added" in m or "Fixed" in m for m in warning_messages(caplog))
+
+
+WRAPPED_CHANGELOG = """# Changelog
+
+## [2.7.0] - 2026-07-23
+
+### Added
+
+* Variables are now mapped to neutral CI
+  variable names for builds:
+    * `CI_COMMIT_REF` — source ref (falling back to
+      `CODEBUILD_SOURCE_VERSION` for manual builds)
+    * `CI_COMMIT_SHA` — resolved commit SHA
+
+  Each variable is only set when its source value is present.
+* A second item
+with a lazy continuation line.
+
+### Fixed
+
+* **Bold** fix
+"""
+
+
+def test_wrapped_item_stays_one_item_with_its_nested_content(
+    parser: ChangelogParser,
+) -> None:
+    (entry,) = parser.parse_changelog(WRAPPED_CHANGELOG, "apppack", "cli")
+
+    assert entry.sections["Added"] == [
+        (
+            "Variables are now mapped to neutral CI\n"
+            "variable names for builds:\n"
+            "* `CI_COMMIT_REF` — source ref (falling back to\n"
+            "    `CODEBUILD_SOURCE_VERSION` for manual builds)\n"
+            "* `CI_COMMIT_SHA` — resolved commit SHA\n"
+            "\n"
+            "Each variable is only set when its source value is present."
+        ),
+        "A second item\nwith a lazy continuation line.",
+    ]
+
+
+def test_item_starting_with_bold_keeps_its_markup(parser: ChangelogParser) -> None:
+    (entry,) = parser.parse_changelog(WRAPPED_CHANGELOG, "apppack", "cli")
+
+    assert entry.sections["Fixed"] == ["**Bold** fix"]
+
+
+def test_link_definitions_after_an_item_are_not_swallowed(
+    parser: ChangelogParser,
+) -> None:
+    content = (
+        "## [1.0.0] - 2024-01-01\n\n### Added\n\n- A thing\n"
+        "[1.0.0]: https://example.com/v1.0.0\n"
+    )
+
+    (entry,) = parser.parse_changelog(content, "apppack", "cli")
+
+    assert entry.sections["Added"] == ["A thing"]

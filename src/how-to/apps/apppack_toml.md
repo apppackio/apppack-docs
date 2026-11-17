@@ -46,6 +46,15 @@ The path to the Dockerfile used to build your app. Only used if `system` is set 
 * Default: `"Dockerfile"`
 * Required: No
 
+### `secrets`
+
+Config variables to pass to the build as BuildKit secrets instead of build args. Only valid if `system` is set to `dockerfile`; a buildpack build with `secrets` set fails. See [Build secrets](./dockerfile-builds.md#build-secrets).
+
+* Type: `array` of `string`
+* Values: A list of config variable names, e.g. `["NPM_TOKEN"]`. Names may contain only letters, digits and underscores, and can't start with a digit.
+* Default: `[]`
+* Required: No
+
 ## `[test]`
 
 ### `command`

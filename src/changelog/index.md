@@ -8,6 +8,29 @@ toc_flat: true
 
 This page aggregates changelogs from all AppPack repositories, showing the most recent changes first.
 
+## [dashboard v1.6.0](versions/dashboard-v1.6.0.md)
+
+[dashboard](tags.md#tag:dashboard){ .md-tag .md-tag-icon .md-tag--dashboard }
+
+**Release date:** 2026-11-25
+
+### Added
+
+- Builds page: a button to build and deploy the latest commit
+
+### Changed
+
+- Home and the app switcher show account names instead of account IDs
+- Activity feed shows one expandable entry per deploy and collapses repeated events
+
+### Fixed
+
+- App switcher showed pipeline account headings in the wrong places
+- Activity feed put new events at the bottom after a refresh
+- Builds list shows branch names instead of `refs/heads/...`
+
+---
+
 ## [ci-builder v2.9.0](versions/ci-builder-v2.9.0.md)
 
 [ci-builder](tags.md#tag:ci-builder){ .md-tag .md-tag-icon .md-tag--ci-builder }

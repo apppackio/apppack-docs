@@ -8,6 +8,40 @@ toc_flat: true
 
 This page aggregates changelogs from all AppPack repositories, showing the most recent changes first.
 
+## [ci-builder v2.9.0](versions/ci-builder-v2.9.0.md)
+
+[ci-builder](tags.md#tag:ci-builder){ .md-tag .md-tag-icon .md-tag--ci-builder }
+
+**Release date:** 2026-11-24
+
+### Added
+
+- Config vars listed under `[build] secrets` in `apppack.toml` are passed to
+    Dockerfile builds as BuildKit secrets instead of build args, keeping them out
+    of the image history and provenance attestations:
+
+    ```toml
+    [build]
+    system = "dockerfile"
+    secrets = ["NPM_TOKEN"]
+    ```
+
+    Read them in the Dockerfile with
+    `RUN --mount=type=secret,id=NPM_TOKEN,env=NPM_TOKEN`. Buildpack builds reject
+    `secrets`.
+
+### Changed
+
+- Updated the `pack` CLI to 0.40.11
+
+### Fixed
+
+- Buildpack builds no longer download the builder and stack images twice.
+- A `[build] builder` hosted outside Docker Hub now works, such as one on
+    `gcr.io`, `ghcr.io` or `public.ecr.aws`.
+
+---
+
 ## [ci-builder v2.8.0](versions/ci-builder-v2.8.0.md)
 
 [ci-builder](tags.md#tag:ci-builder){ .md-tag .md-tag-icon .md-tag--ci-builder }

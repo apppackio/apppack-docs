@@ -8,6 +8,31 @@ toc_flat: true
 
 This page aggregates changelogs from all AppPack repositories, showing the most recent changes first.
 
+## [stacks v5.18.1](versions/stacks-v5.18.1.md)
+
+[stacks](tags.md#tag:stacks){ .md-tag .md-tag-icon .md-tag--stacks }
+
+**Release date:** 2026-11-25
+
+### Changed
+
+- **Larger database dumps and restores.** The task behind `apppack db dump` and
+    `apppack db load` now has 120 GiB of temporary disk space, up from the 20 GiB
+    default, so larger databases can be exported and imported.
+- **Updated Python runtime.** The helper functions AppPack runs inside your
+    stacks now use Python 3.13. No action is needed.
+
+### Fixed
+
+- Fixed stack updates that could delete or tear down resources that were still
+    in use. In rare cases, changing certain settings could remove the GitHub OIDC
+    provider (breaking GitHub Actions access) or run app teardown steps against a
+    live app. Supporting resources now keep a stable identity across updates.
+- Database log groups created by new database stacks now keep logs for 30 days
+    as intended, instead of never expiring. Existing log groups are not changed.
+
+---
+
 ## [dashboard v1.6.0](versions/dashboard-v1.6.0.md)
 
 [dashboard](tags.md#tag:dashboard){ .md-tag .md-tag-icon .md-tag--dashboard }

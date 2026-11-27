@@ -68,3 +68,26 @@ To use a variable in a Dockerfile build, declare it with `ARG` before you refere
 ARG CI_COMMIT_SHA=unknown
 ENV APP_VERSION=$CI_COMMIT_SHA
 ```
+
+## Build secrets
+
+Dockerfile builds receive your app's [config variables](./config-variables.md) as `--build-arg` values. Build args aren't secret: when a `RUN` step uses one, its value is recorded in the image history. For values the build needs but the image shouldn't keep, like a private package registry token or a token for private Git dependencies, list them as secrets in `apppack.toml`:
+
+```toml
+[build]
+system = "dockerfile"
+secrets = ["NPM_TOKEN"]
+```
+
+Each listed config variable is passed as a [BuildKit secret](https://docs.docker.com/build/building/secrets/) with the same name, and no longer as a build arg. Read it in your Dockerfile with a secret mount:
+
+```Dockerfile
+RUN --mount=type=secret,id=NPM_TOKEN,env=NPM_TOKEN,required=true \
+    npm ci
+```
+
+The secret is available only during the `RUN` step that mounts it, and its value isn't stored in the image, its history or its provenance attestations. With `env=NPM_TOKEN` the mount sets an environment variable; without it, the secret is a file at `/run/secrets/NPM_TOKEN`.
+
+If a listed secret has no config variable, AppPack logs a warning and doesn't pass it. With `required=true` the build then fails; without it, the step runs without the secret.
+
+The same Dockerfile works outside AppPack. Locally, pass the secret with `docker build --secret id=NPM_TOKEN,env=NPM_TOKEN .`. In GitHub Actions, use the `secrets` input of `docker/build-push-action`.
